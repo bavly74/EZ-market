@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('employeeName');
-            $table->string('employeeDepartment');
+            $table->foreignId('department_ID')->constrained('departments');
             $table->boolean('isAdmin');
             $table->timestamps();
         });
