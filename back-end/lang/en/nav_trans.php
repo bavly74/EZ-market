@@ -3,6 +3,6 @@
 return [
 
     'ez-market'=>'ez-market',
-    'Grades'=>'المراحل الدراسية',
+    'language'=>'language',
     'Grades_list'=>'قائمة المراحل الدراسية'
 ];
