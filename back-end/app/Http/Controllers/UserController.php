@@ -10,3 +10,4 @@ class UserController extends Controller
         return view('auth.register');
     }
 }
+

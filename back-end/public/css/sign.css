@@ -51,10 +51,13 @@ form .text_field {
     padding: 0 5px;
     height: 40px;
     font-size: 16px;
-    border: none;
+    border: none !important;
     background: none;
-    outline: none;
+    outline: none !important;
+    box-shadow: none !important;
+
 }
+
 
 .text_field label {
     position: absolute;
@@ -83,11 +86,15 @@ form .text_field {
 .text_field input:valid~label {
     top: -5px;
     color: #042c54;
+    border: none !important; ;
+    outline: none !important;
 }
 
 .text_field input:focus~span::before,
 .text_field input:valid~span::before {
     width: 100%;
+    border: none !important; ;
+    outline: none !important;
 }
 
 .pass {

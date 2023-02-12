@@ -20,11 +20,41 @@ Route::get('auth/google', 'App\Http\Controllers\SocialController@googleRedirect'
 Route::get('auth/google/callback', 'App\Http\Controllers\SocialController@loginWithGoogle');
 
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+
+//Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+//{
+//    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+//    Route::get('/', function()
+//    {
+//        return view('welcome');
+//    });
+//
+//});
+
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
 });
 
+
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
+
+
+
+
+
+
 
 Route::middleware([
     'auth:sanctum',
