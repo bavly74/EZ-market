@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LogoutController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,20 +35,24 @@ Route::get('auth/google/callback', 'App\Http\Controllers\SocialController@loginW
 //
 //});
 
+Route::group(['middleware' => ['auth']], function() {
+    /**
+     * Logout Route
+     */
+    Route::get('/logout', [UserController::class,'logout'])->name('logout.logout');
+});
 
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'  ]
     ], function(){
-
 
     Route::get('/', function () {
         return view('welcome');
     });
 
 });
-
 
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
 
