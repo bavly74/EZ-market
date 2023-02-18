@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('productColor');
             $table->float('productCost');
             $table->float('productOffer');
-            $table->float('productActualCost');
+            $table->float('productActualCost');  //auto calcaulated ???
             $table->string('productSize');
             $table->timestamps();
         });

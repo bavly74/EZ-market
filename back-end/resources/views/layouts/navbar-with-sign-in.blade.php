@@ -70,10 +70,11 @@
 
 
 
-<header class="firstNavbar">
+<header class="firstNavbar padding-section">
     <div class="logoSection">
-        <div class="logo"><img src="imgs/logo.jfif" alt="logo" /></div>
-        <div class="logoName">ez-market</div>
+        <div class="logo">
+            <img src="imgs/logo.jfif" alt="logo" class="logoImg" />
+        </div>        <div class="logoName">ez-market</div>
     </div>
     <div class="searchSection">
         <i class="fa-solid fa-magnifying-glass icon"></i>

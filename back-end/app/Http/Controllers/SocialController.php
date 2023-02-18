@@ -25,7 +25,7 @@ class SocialController extends Controller
 
             if($existingUser){
                 Auth::login($existingUser);
-                return redirect('/dashboard');
+                return redirect('/');
             }else{
                 $createUser = User::create([
                     'name' => $user->name,
@@ -35,7 +35,7 @@ class SocialController extends Controller
                 ]);
 
                 Auth::login($createUser);
-                return redirect('/dashboard');
+                return redirect('/');
             }
 
         } catch (\Throwable $th) {
@@ -60,7 +60,7 @@ class SocialController extends Controller
 
             if($existingUser){
                 Auth::login($existingUser);
-                return redirect('/dashboard');
+                return redirect('/');
             }else{
                 $createUser = User::create([
                     'name' => $user->name,
@@ -70,7 +70,7 @@ class SocialController extends Controller
                 ]);
 
                 Auth::login($createUser);
-                return redirect('/dashboard');
+                return redirect('/');
             }
 
         } catch (\Throwable $th) {

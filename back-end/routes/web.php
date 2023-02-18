@@ -45,18 +45,20 @@ Route::group(['middleware' => ['auth']], function() {
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'  ]
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
 
     Route::get('/', function () {
         return view('welcome');
     });
+    Route::get('/dashboard', function () {
+        return 'hi';
+    });
+
 
 });
 
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
-
-
 
 
 
