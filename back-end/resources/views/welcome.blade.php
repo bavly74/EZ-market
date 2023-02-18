@@ -146,5 +146,5 @@
                     @endauth
 {{--                </div>--}}
             @endif
+ @include('layouts.category')
 
-<h1>Home</h1>

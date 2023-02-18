@@ -13,6 +13,22 @@
     --transition-animation: transform 1s ease;
 }
 
+html::-webkit-scrollbar {
+    width: .9vw;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background-color: #a1a1a1;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: #dfdfdf;
+}
+
 
 * {
     margin: 0;
@@ -298,7 +314,7 @@ a {
 }
 
 .secNavbar .navlinks .navMenu .menu .drop {
-    overflow-y: scroll !important;
+    overflow-y: scroll;
     min-height: 100%;
     position: absolute;
     opacity: 0;

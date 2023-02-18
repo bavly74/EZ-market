@@ -114,7 +114,7 @@
 
             <x-jet-dropdown-link href="{{ route('logout') }}"
 
-                                 @click.prevent="$root.submit();">
+     @click.prevent="$root.submit();">
                 <div class="userInfo">
                 <i class="fa-solid fa-right-to-bracket change-icon"></i>
                 <p>{{ __('Log Out') }}</p>
