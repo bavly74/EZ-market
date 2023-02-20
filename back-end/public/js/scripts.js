@@ -12,14 +12,32 @@ hamburger.addEventListener("click", () => {
 });
 
 const isStuck = document.querySelector(".logo-mark");
-
+const button = document.querySelector(".buton");
 window.onscroll = function () {
   if (window.scrollY >= 130) {
     isStuck.classList.add("is-stuck");
+    button.classList.add("stuck");
   } else {
     isStuck.classList.remove("is-stuck");
+    button.classList.remove("stuck");
   }
 };
+button.onclick = () => {
+  scrollTo({ top: 0, behavior: "smooth" });
+};
+
 const knowinng = document.querySelector(".he");
 
-console.log(knowinng.getBoundingClientRect().height);
+// console.log(knowinng.getBoundingClientRect().height);
+
+const cartButton = document.getElementById("cart");
+const cart = document.querySelector(".cart");
+const cartClose = document.querySelector(".cart span");
+
+cartButton.addEventListener("click", () => {
+  cart.classList.toggle("opened");
+});
+cartClose.addEventListener("click", () => {
+  cart.classList.remove("opened");
+});
+console.log(cartButton);

@@ -1,12 +1,4 @@
 
-<link rel="stylesheet" href="/css/styles.css" />
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
@@ -75,7 +67,14 @@
         <div class="logo">
             <img src="imgs/logo.jfif" alt="logo" class="logoImg" />
         </div>
-        <div class="logoName">ez-market</div>
+         <!-- logo -->
+         <section>
+          <div class="content">
+            <h2>EZ market</h2>
+            <h2>EZ market</h2>
+          </div>
+        </section>
+        <!-- logo -->
     </div>
     <div class="searchSection">
         <i class="fa-solid fa-magnifying-glass icon"></i>
@@ -94,7 +93,7 @@
                 <p>{{trans('nav_trans.customer help')}}</p>
             </div>
         </a>
-        <a href="#">
+        <a href="#" id="cart">
             <div class="userInfo">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <p>{{trans('nav_trans.cart')}} </p>
@@ -146,4 +145,5 @@
         </ul>
     </div>
 </header>
+
         </html>

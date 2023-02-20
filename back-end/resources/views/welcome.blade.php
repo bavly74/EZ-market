@@ -152,8 +152,13 @@
 
 
 
+
 @extends('empty')
 
 @section('content')
-    <h1>home</h1>
+    @include('home.topSection')
+    @include('home.offersSection')
+    @include('home.shopWithUs')
+    @include('home.mostPopularSection')
+    @include('layouts.cart')
 @endsection
