@@ -1,3 +1,4 @@
+
 @include('links')
 @if (Route::has('login'))
 
@@ -25,5 +26,6 @@
 
 
 @include('layouts.footer')
+
 
 <script src="js/scripts.js"></script>

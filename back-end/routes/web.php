@@ -48,9 +48,13 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+//    Route::get('/', function () {
+//        return view('welcome');
+//    });
+        Route::get('/',[\App\Http\Controllers\ProductController::class,'show'])->name('products.index');
+    Route::post('/',[\App\Http\Controllers\CartController::class,'store'])->name('cart.store');
+//    Route::get('/cart',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');
+
     Route::get('/dashboard', function () {
         return 'hi';
     });

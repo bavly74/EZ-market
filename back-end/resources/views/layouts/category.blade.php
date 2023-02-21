@@ -1,6 +1,4 @@
 
-
-
 <nav class="secNavbar">
       <div class="navlinks">
         <div class="hamburger">

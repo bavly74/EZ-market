@@ -1089,15 +1089,79 @@ footer .footer-copyright p {
 
 
 /* end of footer */
+@media screen and (max-width: 768px) {
+    footer .footer-row .footer-logo p {
+        width: 100%;
+    }
 
-
-
-@media screen and (max-width: 990px) {
-    .firstNavbar {
-        gap: 50px;
+    .firstNavbar .logoSection,
+    .top-section,
+    footer .logoSection {
+        flex-direction: column !important;
     }
 
 
+    footer .footer-row .footer-logo {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    footer .footer-row {
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+    .shoppingWithUs p,
+    .top-section .top-section-img img,
+    .top-section .top-section-text p {
+        width: 320px !important;
+    }
+
+    .top-section .top-section-text h1 {
+        font-size: 35px;
+    }
+
+    .top-section .top-section-img {
+        margin-top: 25px;
+    }
+
+    .secNavbar {
+        top: 20px;
+    }
+
+    .products-section .products-section-before::before {
+        font-size: 65px;
+    }
+
+    .products-section .products-section-before {
+        font-size: 35px;
+    }
+
+    .products-section .products-section-before::before,
+    .products-section .products-section-before-change::before {
+        font-size: 65px;
+    }
+
+    .products-section .products-section-before,
+    .products-section .products-section-before-change {
+        font-size: 35px;
+    }
+
+    footer .footer-row .footer-links {
+        margin: 20px 0;
+    }
+
+}
+
+
+
+@media only screen and (max-width: 990px) and (min-width: 768px)  {
+
+    .firstNavbar {
+        gap: 50px;
+    }
 
     .padding-section {
         padding: 2rem 4rem;
@@ -1198,71 +1262,6 @@ footer .footer-copyright p {
     }
 }
 
-@media screen and (max-width: 768px) {
-    footer .footer-row .footer-logo p {
-        width: 100%;
-    }
-
-    .firstNavbar .logoSection,
-    .top-section,
-    footer .logoSection {
-        flex-direction: column !important;
-    }
-
-
-    footer .footer-row .footer-logo {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    footer .footer-row {
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-    }
-
-    .shoppingWithUs p,
-    .top-section .top-section-img img,
-    .top-section .top-section-text p {
-        width: 320px !important;
-    }
-
-    .top-section .top-section-text h1 {
-        font-size: 35px;
-    }
-
-    .top-section .top-section-img {
-        margin-top: 25px;
-    }
-
-    .secNavbar {
-        top: 20px;
-    }
-
-    .products-section .products-section-before::before {
-        font-size: 65px;
-    }
-
-    .products-section .products-section-before {
-        font-size: 35px;
-    }
-
-    .products-section .products-section-before::before,
-    .products-section .products-section-before-change::before {
-        font-size: 65px;
-    }
-
-    .products-section .products-section-before,
-    .products-section .products-section-before-change {
-        font-size: 35px;
-    }
-
-    footer .footer-row .footer-links {
-        margin: 20px 0;
-    }
-
-}
 
 .buton {
     position: fixed;
@@ -1472,4 +1471,24 @@ footer .footer-copyright p {
 
 .footer-row .content h2:nth-child(2) {
     color: #ffffff;
+}
+
+@media screen and (max-width: 1400px) {
+    .products-section .products-section-before::before {
+        font-size: 55px;
+    }
+
+    .products-section .products-section-before {
+        font-size: 35px;
+    }
+
+    .products-section .products-section-before::before,
+    .products-section .products-section-before-change::before {
+        font-size: 55px;
+    }
+
+    .products-section .products-section-before,
+    .products-section .products-section-before-change {
+        font-size: 35px;
+    }
 }

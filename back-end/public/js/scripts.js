@@ -22,9 +22,9 @@ window.onscroll = function () {
     button.classList.remove("stuck");
   }
 };
-button.onclick = () => {
-  scrollTo({ top: 0, behavior: "smooth" });
-};
+// button.onclick = () => {
+//   scrollTo({ top: 0, behavior: "smooth" });
+// };
 
 const knowinng = document.querySelector(".he");
 
@@ -32,7 +32,7 @@ const knowinng = document.querySelector(".he");
 
 const cartButton = document.getElementById("cart");
 const cart = document.querySelector(".cart");
-const cartClose = document.querySelector(".cart span");
+const cartClose = document.querySelector(".close");
 
 cartButton.addEventListener("click", () => {
   cart.classList.toggle("opened");

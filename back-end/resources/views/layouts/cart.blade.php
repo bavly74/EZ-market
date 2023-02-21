@@ -1,28 +1,44 @@
  <!-- scroll to top -->
- <div class="buton">UP</div>
+{{-- <div class="buton">UP</div>--}}
+
     <!-- scroll to top -->
 
     <!-- cart -->
     <div class="cart">
       <div class="cart-top">
         <h4 class="mt-2">Your Cart</h4>
-        <span
-          ><svg
+
+        <span class="close">
+
+            <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             stroke-width="1.5"
             width="40px"
-            height="40px"
-          >
+            height="40px">
+
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               d="M6 18L18 6M6 6l12 12"
             ></path></svg
         ></span>
+
       </div>
+
+        @if(\Gloudemans\Shoppingcart\Facades\Cart::content()->count()>0)
+            @foreach(\Gloudemans\Shoppingcart\Facades\Cart::content() as $cart)
+                <div>
+                    <p>item: {{$cart->name}}</p>
+                    <p>qty: {{$cart->qty}}</p>
+                    <p>price/item: {{$cart->price}}</p>
+                    <p>subtotal: {{$cart->subtotal}}</p>
+
+                </div>
+            @endforeach
+        @else
       <div class="cart-content">
         <span>
           <svg
@@ -87,12 +103,15 @@
               </g>
             </g></svg
         ></span>
+
+
         <h6 class="mt-4">
           Your cart is currently empty. Let us help you find the perfect item!
         </h6>
         <a href="#" class="mt-5">Shop Men</a>
         <a href="#">Shop Women</a>
         <a href="#">Shop All</a>
+              @endif
       </div>
     </div>
     <!-- cart -->

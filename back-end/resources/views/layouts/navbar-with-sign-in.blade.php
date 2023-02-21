@@ -112,8 +112,10 @@
         </a>
         <a href="#" id="cart">
             <div class="userInfo">
+          <div> {{\Gloudemans\Shoppingcart\Facades\Cart::content()->count()}}</div>
                 <i class="fa-solid fa-cart-shopping"></i>
                 <p>{{trans('nav_trans.cart')}}</p>
+
             </div>
         </a>
     </div>

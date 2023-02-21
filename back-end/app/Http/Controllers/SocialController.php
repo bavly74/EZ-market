@@ -57,7 +57,6 @@ class SocialController extends Controller
 
             $user = Socialite::driver('google')->stateless()->user();
             $existingUser = User::where('email', $user->email)->first();
-
             if($existingUser){
                 Auth::login($existingUser);
                 return redirect('/');

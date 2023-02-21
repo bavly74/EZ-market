@@ -84,7 +84,7 @@
         <a href="#">
             <div class="userInfo">
                 <i class="fa-solid fa-circle-user"></i>
-                <p>{{trans('nav_trans.my account')}}</p>
+                <p>{{auth()->user()->name}}</p>
             </div>
         </a>
         <a href="#">
@@ -93,10 +93,13 @@
                 <p>{{trans('nav_trans.customer help')}}</p>
             </div>
         </a>
+
         <a href="#" id="cart">
             <div class="userInfo">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <p>{{trans('nav_trans.cart')}} </p>
+                @livewire('cart-counter')
+
+
+
             </div>
         </a>
 

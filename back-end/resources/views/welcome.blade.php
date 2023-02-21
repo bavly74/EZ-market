@@ -152,9 +152,11 @@
 
 
 
-
+@livewireStyles
 @extends('empty')
-
+@if(session('message'))
+    <div>{{session('message')}}</div>
+@endif
 @section('content')
     @include('home.topSection')
     @include('home.offersSection')
@@ -162,3 +164,4 @@
     @include('home.mostPopularSection')
     @include('layouts.cart')
 @endsection
+@livewireScripts
