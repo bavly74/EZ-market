@@ -3,24 +3,24 @@ const navLinks = document.querySelector(".navMenu");
 const links = document.querySelectorAll(".navMenu > li");
 
 hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("open");
-  links.forEach((link) => {
-    link.classList.toggle("fade");
-  });
+    navLinks.classList.toggle("open");
+    links.forEach((link) => {
+        link.classList.toggle("fade");
+    });
 
-  hamburger.classList.toggle("toggle");
+    hamburger.classList.toggle("toggle");
 });
 
 const isStuck = document.querySelector(".logo-mark");
-const button = document.querySelector(".buton");
+// const button = document.querySelector(".buton");
 window.onscroll = function () {
-  if (window.scrollY >= 130) {
-    isStuck.classList.add("is-stuck");
-    button.classList.add("stuck");
-  } else {
-    isStuck.classList.remove("is-stuck");
-    button.classList.remove("stuck");
-  }
+    if (window.scrollY >= 130) {
+        isStuck.classList.add("is-stuck");
+        // button.classList.add("stuck");
+    } else {
+        isStuck.classList.remove("is-stuck");
+        // button.classList.remove("stuck");
+    }
 };
 // button.onclick = () => {
 //   scrollTo({ top: 0, behavior: "smooth" });
@@ -33,11 +33,15 @@ const knowinng = document.querySelector(".he");
 const cartButton = document.getElementById("cart");
 const cart = document.querySelector(".cart");
 const cartClose = document.querySelector(".close");
+const addtocart = document.getElementById("addTo");
 
 cartButton.addEventListener("click", () => {
-  cart.classList.toggle("opened");
+    cart.classList.toggle("opened");
 });
 cartClose.addEventListener("click", () => {
-  cart.classList.remove("opened");
+    cart.classList.remove("opened");
+});
+addtocart.addEventListener("click", () => {
+    cart.classList.add("opened");
 });
 console.log(cartButton);

@@ -10,12 +10,12 @@
                 <div class="productInfo">
                     <p>SPORTSWEAR, T-SHIRTS</p>
                     <p><strong> {{$product->productName  }} </strong></p>
-                    <span class="price"> <del>{{$product->productCost}} </del> {{$product->productActualCost}} </span>
+                    <span class="price"> <del>{{$product->productCost}}$ </del> {{$product->productActualCost}}$</span>
                 </div>
                 <form wire:submit.prevent="addToCart({{$product->id}})" action="{{route('cart.store')}}" method="POST">
                     @csrf
                     <input wire:model="quantity.{{$product->id}}" type="number">
-                    <button type="submit"  class="add-cart">Add to cart</button>
+                    <button type="submit"  class="add-cart" id="addTo">Add to cart</button>
                 </form>
 
             </div>
