@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class CartComponent extends Component
 {
+    protected $listeners = ['carts' => 'render'];
+
     public function render()
     {
         $carts=Cart::instance('shopping')->content();

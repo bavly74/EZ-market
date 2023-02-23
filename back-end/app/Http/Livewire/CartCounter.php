@@ -7,9 +7,11 @@ use Livewire\Component;
 
 class CartCounter extends Component
 {
+    protected $listeners = ['cart_updated' => 'render'];
+
     public function render()
     {
-        $cartCount=Cart::content()->count();
+        $cartCount=Cart::instance('shopping')->count();
         return view('livewire.cart-counter',compact('cartCount'));
     }
 }
