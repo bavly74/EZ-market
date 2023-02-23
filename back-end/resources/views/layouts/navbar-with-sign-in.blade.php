@@ -112,14 +112,11 @@
         </a>
         <a href="#" id="cart">
             <div class="userInfo">
-            <div class="cartCounter">
-            <span> {{\Gloudemans\Shoppingcart\Facades\Cart::content()->count()}}</span>
-            <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-                <p>{{trans('nav_trans.cart')}}</p>
+           @livewire('cart-counter')
 
             </div>
         </a>
+
     </div>
 
     <div class="dropdown">

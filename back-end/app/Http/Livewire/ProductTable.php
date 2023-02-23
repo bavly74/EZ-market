@@ -19,12 +19,19 @@ class ProductTable extends Component
     }
     public function render()
     {
+        $cart=Cart::content();
         $products=Product::all();
-
-        return view('livewire.product-table');
+        return view('livewire.product-table',compact('products','cart'));
     }
-    public function addToCart($product_ID){
+    public function add($product_ID){
         $product=Product::findOrFail($product_ID);
-        Cart::add($product->id, $product->productName, $this->quantity[$product_ID],$product->productCost);
+        Cart::instance('shopping')->add($product->id, $product->productName, $this->quantity[$product_ID],$product->productCost);
+        session()->flash('message', 'item added successfully .');
+
+        //toastr()->success('doneeee');
+            //return redirect()->route('products.index');
+//return redirect()->back();
+       return view('livewire.product-table',compact('product') );
+  //return redirect()->route('products.index',compact('product'))->with('message','item added');
     }
 }

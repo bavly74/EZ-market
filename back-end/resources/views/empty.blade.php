@@ -1,3 +1,4 @@
+@livewireStyles
 
 @include('links')
 @if (Route::has('login'))
@@ -29,3 +30,4 @@
 
 
 <script src="js/scripts.js"></script>
+@livewireScripts

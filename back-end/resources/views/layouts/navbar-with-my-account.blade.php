@@ -98,8 +98,6 @@
             <div class="userInfo">
                 @livewire('cart-counter')
 
-
-
             </div>
         </a>
 
