@@ -33,7 +33,7 @@ const knowinng = document.querySelector(".he");
 const cartButton = document.getElementById("cart");
 const cart = document.querySelector(".cart");
 const cartClose = document.querySelector(".close");
-const addtocart = document.getElementById("addTo");
+const addtocart = document.querySelectorAll(".addToCart");
 
 cartButton.addEventListener("click", () => {
     cart.classList.toggle("opened");
@@ -41,13 +41,11 @@ cartButton.addEventListener("click", () => {
 cartClose.addEventListener("click", () => {
     cart.classList.remove("opened");
 });
-addtocart.addEventListener("click", () => {
-    cart.classList.add("opened");
+
+addtocart.forEach((e) => {
+    e.addEventListener("click", () => {
+        cart.classList.add("opened");
+    });
 });
 
-
-
-
-
-
-console.log(cartButton);
+console.log(addtocart);
