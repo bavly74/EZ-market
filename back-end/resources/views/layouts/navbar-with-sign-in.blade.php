@@ -141,6 +141,12 @@
         <a href="#" id="cart">
             <div class="userInfo">
            @livewire('cart-counter')
+            </div>
+        </a>
+
+        <a href="#" id="wish">
+            <div class="userInfo">
+                @livewire('wish-list-counter')
 
             </div>
         </a>

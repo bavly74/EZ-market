@@ -1,15 +1,16 @@
-<div>
-    <!-- scroll to top -->
-    <div class="buton">UP</div>
 
-    <!-- scroll to top -->
+    <div>
+        <!-- scroll to top -->
+        <div class="buton">UP</div>
 
-    <!-- cart -->
-    <div class="cart">
-        <div class="cart-top">
-            <h4 class="mt-2">Your Cart</h4>
+        <!-- scroll to top -->
 
-            <span class="close">
+        <!-- cart -->
+        <div class="cart">
+            <div class="cart-top">
+                <h4 class="mt-2">Your Cart</h4>
+
+                <span class="close">
 
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -27,28 +28,27 @@
             ></path></svg
             ></span>
 
-        </div>
+            </div>
 
-        @if(\Gloudemans\Shoppingcart\Facades\Cart::instance('shopping')->count()>0)
-            @foreach($carts as $cart)
-                <div>
-                    <p>img: {{$cart->img}}</p>
-                    <p>item: {{$cart->name}}</p>
-                    <p>qty: {{$cart->qty}}</p>
-                    <p>price/item: {{$cart->price}}</p>
+            @if(\Gloudemans\Shoppingcart\Facades\Cart::instance('wishlist')->count()>0)
+                @foreach($wishlist as $wish)
+                    <div>
+                        <p>item: {{$wish->name}}</p>
+                        <p>qty: {{$wish->qty}}</p>
+                        <p>price/item: {{$wish->price}}</p>
+                        <p>subtotal: {{$wish->subtotal}}</p>
 
-                   <p>total{{ $cart->price * $cart->qty }}</p>
-                    <button class="px-4 p-4" wire:click="decreaseQuantity('{{ $cart->rowId }}')">-</button>
-                    <button class="px-4 p-4" wire:click="increaseQuantity('{{ $cart->rowId }}')">+</button>
+                        <form wire:submit.prevent="remove({{$wish->rowId}})" >
+                            @csrf
 
-                    <button href="#" wire:click="removeProduct('{{$cart->rowId }}')">×</button>
-                </div>
-            @endforeach
-                <p>shipping Taxes{{ Cart::tax() }} </p>
-                <p>total{{ Cart::initial() }} </p>
-                <p>subtotal: {{Cart::subtotal()}}</p>
-        @else
-            <div class="cart-content">
+                            <button type="submit"  class="add-cart" >remove</button>
+                        </form>
+
+
+                    </div>
+                @endforeach
+            @else
+                <div class="cart-content">
         <span>
           <svg
               version="1.1"
@@ -114,15 +114,16 @@
           ></span>
 
 
-                <h6 class="mt-4">
-                    Your cart is currently empty. Let us help you find the perfect item!
-                </h6>
-                <a href="#" class="mt-5">Shop Men</a>
-                <a href="#">Shop Women</a>
-                <a href="#">Shop All</a>
-                @endif
-            </div>
-    </div>
-    <!-- cart -->
+                    <h6 class="mt-4">
+                        Your wishlist is currently empty. Let us help you find the perfect item!
+                    </h6>
+                    <a href="#" class="mt-5">Shop Men</a>
+                    <a href="#">Shop Women</a>
+                    <a href="#">Shop All</a>
+                    @endif
+                </div>
+        </div>
 
-</div>
+
+    </div>
+

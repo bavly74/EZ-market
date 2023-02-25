@@ -44,4 +44,10 @@ cartClose.addEventListener("click", () => {
 addtocart.addEventListener("click", () => {
     cart.classList.add("opened");
 });
+
+
+
+
+
+
 console.log(cartButton);

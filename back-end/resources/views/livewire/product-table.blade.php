@@ -20,12 +20,17 @@
                     <span class="price"> <del>{{$product->productCost}}$ </del> {{$product->productActualCost}}$</span>
                 </div>
 
-                <form wire:submit.prevent="add({{$product->id}})" >
+                <form wire:submit.prevent="addItemToCart({{$product->id}})" >
                     @csrf
                     <input wire:model="quantity.{{$product->id}}" type="number">
                     <button type="submit"  class="add-cart" >Add to cart</button>
                 </form>
 
+                <form wire:submit.prevent="addItemToWishlist({{$product->id}})" >
+                    @csrf
+
+                    <button type="submit"  class="add-cart" >Add to wishlist</button>
+                </form>
             </div>
         @endforeach
 
