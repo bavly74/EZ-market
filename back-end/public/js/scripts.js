@@ -36,7 +36,7 @@ const cartClose = document.querySelector(".close");
 const addtocart = document.querySelectorAll(".addToCart");
 
 cartButton.addEventListener("click", () => {
-    cart.classList.toggle("opened");
+    cart.classList.add("opened");
 });
 cartClose.addEventListener("click", () => {
     cart.classList.remove("opened");

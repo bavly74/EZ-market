@@ -119,7 +119,7 @@ footer .logoSection {
     gap: 20px;
 }
 
-.firstNavbar .userSection .userInfo {
+.firstNavbar  .userInfo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,13 +127,13 @@ footer .logoSection {
     gap: 10px;
 }
 
-.firstNavbar .userSection .userInfo i {
+.firstNavbar  .userInfo i {
     font-size: 17px;
     color: #176ab7;
 }
 
 
-.firstNavbar .userSection .userInfo .change-icon {
+.firstNavbar  .userInfo .change-icon {
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -141,11 +141,11 @@ footer .logoSection {
     -o-transform: rotate(180deg);
 }
 
-.firstNavbar .userSection a {
+.firstNavbar  a {
     position: relative;
 }
 
-.firstNavbar .userSection .userInfo i {
+.firstNavbar  .userInfo i {
     font-size: 20px;
     color: #176ab7;
     transition: opacity .15s ease-in-out !important;
@@ -156,13 +156,13 @@ footer .logoSection {
 
 }
 
-.firstNavbar .userSection a:hover .change {
+.firstNavbar  a:hover .change {
     opacity: 0;
 }
 
 
 
-.firstNavbar .userSection a:hover .hover-icon {
+.firstNavbar  a:hover .hover-icon {
     visibility: visible;
     opacity: 1;
 }
@@ -175,7 +175,7 @@ footer .logoSection {
     transition-delay: .1s;
 }
 
-.firstNavbar .userSection .userInfo p {
+.firstNavbar  .userInfo p {
     text-transform: capitalize;
     font-size: 17px;
     font-weight: 500;
@@ -1368,7 +1368,6 @@ footer .footer-copyright p {
     -moz-transition: var(--transition);
     -ms-transition: var(--transition);
     -o-transition: var(--transition);
-
 }
 
 .cart.opened {
