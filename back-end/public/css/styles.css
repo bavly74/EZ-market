@@ -119,7 +119,7 @@ footer .logoSection {
     gap: 20px;
 }
 
-.firstNavbar  .userInfo {
+.firstNavbar .userInfo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,13 +127,13 @@ footer .logoSection {
     gap: 10px;
 }
 
-.firstNavbar  .userInfo i {
+.firstNavbar .userInfo i {
     font-size: 17px;
     color: #176ab7;
 }
 
 
-.firstNavbar  .userInfo .change-icon {
+.firstNavbar .userInfo .change-icon {
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -141,11 +141,11 @@ footer .logoSection {
     -o-transform: rotate(180deg);
 }
 
-.firstNavbar  a {
+.firstNavbar a {
     position: relative;
 }
 
-.firstNavbar  .userInfo i {
+.firstNavbar .userInfo i {
     font-size: 20px;
     color: #176ab7;
     transition: opacity .15s ease-in-out !important;
@@ -156,13 +156,13 @@ footer .logoSection {
 
 }
 
-.firstNavbar  a:hover .change {
+.firstNavbar a:hover .change {
     opacity: 0;
 }
 
 
 
-.firstNavbar  a:hover .hover-icon {
+.firstNavbar a:hover .hover-icon {
     visibility: visible;
     opacity: 1;
 }
@@ -175,7 +175,7 @@ footer .logoSection {
     transition-delay: .1s;
 }
 
-.firstNavbar  .userInfo p {
+.firstNavbar .userInfo p {
     text-transform: capitalize;
     font-size: 17px;
     font-weight: 500;
@@ -758,6 +758,7 @@ footer .footer-row .footer-links ul a:hover::before {
     -ms-transition: var(--transition);
     -o-transition: var(--transition);
     padding: 15px;
+    position: relative;
 }
 
 .products-section .product:hover {
@@ -1372,6 +1373,7 @@ footer .footer-copyright p {
 
 .cart.opened {
     opacity: 1;
+
     visibility: visible;
     transform: translateX(0em);
     -webkit-transform: translateX(0em);
@@ -1437,8 +1439,18 @@ footer .footer-copyright p {
     height: 30%;
 }
 
+.cart .cartOpened .cartTotal .sub {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    align-items: center;
+    height: fit-content;
+}
+
 .cart .cartOpened .cartTotal p {
     font-weight: 700;
+    margin: 0;
 }
 
 .cart .cartOpened .cartTotal p:first-child {
@@ -1453,9 +1465,62 @@ footer .footer-copyright p {
     margin-top: 1rem;
 }
 
+.cart .cartItems .cartBtn {
+    box-shadow: 0 0 5px #0003;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.cart .cartItems .cartBtn:hover i {
+    color: #176ab7;
+}
+
+.cart .cartItems .cartBtn i {
+    font-size: 12px;
+
+}
+
+.cart .cartItems span {
+    font-weight: bold;
+}
+
+.cart .cartItems .cartBtn,
+.fa-trash {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart .cartItems .fa-trash:hover {
+    color: red;
+}
+
+.cart .cartItems p:nth-child(6) {
+    font-size: 22px;
+    font-weight: 700;
+
+}
+
+.cart .cartItems p {
+    margin: 0;
+    font-weight: 700;
+
+}
+
 .cart .cartItems img {
     width: 75px;
     height: 75px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .cart .cart-content {
@@ -1559,3 +1624,69 @@ footer .footer-copyright p {
         font-size: 35px;
     }
 }
+
+.alertD {
+    position: fixed !important;
+    left: 30px;
+    bottom: 30px;
+    font-weight: 600;
+}
+
+.alertD::before {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    content: "";
+    width: 2px;
+    height: 100%;
+    background: #06885a;
+}
+
+.alertD span {
+    margin-right: 15px;
+}
+
+.wishList {
+    position: absolute;
+    z-index: 10000000000;
+    color: #000000;
+    top: 30px;
+    right: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #176ab7;
+    background: transparent;
+    border: none;
+    outline: none;
+    opacity: 0;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+    -moz-transition: var(--transition);
+    -ms-transition: var(--transition);
+    -o-transition: var(--transition);
+}
+
+.product:hover .wishList {
+    opacity: 1;
+
+}
+
+.wishList>div {
+    position: relative;
+
+}
+
+.wishList i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1 !important;
+}
+
+.wishList i.second{
+    position: absolute;
+
+    z-index: -1 !important;
+
+}
+

@@ -7,6 +7,7 @@
         </p>
         <a href="#">
           Pick up a bargain <i class="fa-solid fa-arrow-right"></i>
+
         </a>
       </div>
       <div class="top-section-img">

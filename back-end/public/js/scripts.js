@@ -31,13 +31,17 @@ const knowinng = document.querySelector(".he");
 // console.log(knowinng.getBoundingClientRect().height);
 
 const cartButton = document.getElementById("cart");
+
 const cart = document.querySelector(".cart");
-const cartClose = document.querySelector(".close");
+
+const cartClose = document.querySelector(".closeCart");
+
 const addtocart = document.querySelectorAll(".addToCart");
 
 cartButton.addEventListener("click", () => {
     cart.classList.add("opened");
 });
+
 cartClose.addEventListener("click", () => {
     cart.classList.remove("opened");
 });
@@ -47,5 +51,22 @@ addtocart.forEach((e) => {
         cart.classList.add("opened");
     });
 });
+addtocart.forEach((e) => {
+    e.addEventListener("click", () => {
+        setTimeout(() => {
+            const box = document.getElementById("box");
 
-console.log(addtocart);
+            // 👇️ removes element from DOM
+            box.style.display = "none";
+
+            // 👇️ hides element (still takes up space on page)
+            // box.style.visibility = 'hidden';
+        }, 3000);
+    });
+});
+
+console.log(box);
+
+function myFunction(e) {
+    e.classList.toggle("fa-solid");
+  }
