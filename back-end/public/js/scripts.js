@@ -51,7 +51,22 @@ addtocart.forEach((e) => {
         cart.classList.add("opened");
     });
 });
+const addToWishList = document.querySelectorAll(".addToWishList");
+
 addtocart.forEach((e) => {
+    e.addEventListener("click", () => {
+        setTimeout(() => {
+            const box = document.getElementById("box");
+
+            // 👇️ removes element from DOM
+            box.style.display = "none";
+
+            // 👇️ hides element (still takes up space on page)
+            // box.style.visibility = 'hidden';
+        }, 3000);
+    });
+});
+addToWishList.forEach((e) => {
     e.addEventListener("click", () => {
         setTimeout(() => {
             const box = document.getElementById("box");
@@ -69,4 +84,4 @@ console.log(box);
 
 function myFunction(e) {
     e.classList.toggle("fa-solid");
-  }
+}

@@ -34,7 +34,7 @@
             </form>
             <form wire:submit.prevent=" addItemToWishlist({{$product->id}})">
                 @csrf
-                <button class="wishList">
+                <button class="wishList addToWishList" >
                 <div>
                 <i class="fa-regular fa-heart " onclick="myFunction(this)"></i>
                 </div>
