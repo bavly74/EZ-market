@@ -32,26 +32,32 @@ const knowinng = document.querySelector(".he");
 
 const cartButton = document.getElementById("cart");
 
+const wishListButton = document.getElementById("wish");
 const cart = document.querySelector(".cart");
+const wish = document.querySelector(".wish");
 
 const cartClose = document.querySelector(".closeCart");
+const wishClose = document.querySelector(".closeWish");
 
 const addtocart = document.querySelectorAll(".addToCart");
 
 cartButton.addEventListener("click", () => {
     cart.classList.add("opened");
 });
-
+wishListButton.addEventListener("click", () => {
+    wish.classList.add("opened");
+});
 cartClose.addEventListener("click", () => {
     cart.classList.remove("opened");
 });
-
+wishClose.addEventListener("click", () => {
+    wish.classList.remove("opened");
+});
 addtocart.forEach((e) => {
     e.addEventListener("click", () => {
         cart.classList.add("opened");
     });
 });
-const addToWishList = document.querySelectorAll(".addToWishList");
 
 addtocart.forEach((e) => {
     e.addEventListener("click", () => {
@@ -64,6 +70,12 @@ addtocart.forEach((e) => {
             // 👇️ hides element (still takes up space on page)
             // box.style.visibility = 'hidden';
         }, 3000);
+    });
+});
+const addToWishList = document.querySelectorAll(".addToWishList");
+addToWishList.forEach((e) => {
+    e.addEventListener("click", () => {
+        wish.classList.add("opened");
     });
 });
 addToWishList.forEach((e) => {

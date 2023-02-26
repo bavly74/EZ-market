@@ -163,5 +163,6 @@
     @include('home.shopWithUs')
     @include('home.mostPopularSection')
     @include('layouts.cart')
+    @include('layouts.wishlist')
 @endsection
 @livewireScripts

@@ -5,7 +5,7 @@
     <!-- scroll to top -->
 
     <!-- cart -->
-    <div class="cart">
+    <div class="cart ">
         <div class="cart-top">
             <h4 class="mt-2">Your Cart</h4>
 
