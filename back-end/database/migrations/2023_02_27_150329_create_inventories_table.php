@@ -15,15 +15,10 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_ID')->constrained('products');
-            $table->foreignId('supplier_ID')->constrained('suppliers');
-            $table->string('productName');
-            $table->string('productImage');
-            $table->string('productSize');
-            $table->string('productColor');
-            $table->float('productCost');
-            $table->integer('productQuantity');
-            $table->foreignId('category_ID')->constrained('categories');
+            $table->ForeignId('pro_id')->references('id')->on('products');
+            $table->string('pro_name');
+            $table->integer('quantity');
+            $table->float('product_cost');
             $table->timestamps();
         });
     }

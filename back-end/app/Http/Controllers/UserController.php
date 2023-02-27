@@ -13,7 +13,7 @@ class UserController extends Controller
     }
     public function logout()
     {
-        Session::flush();
+       // Session::flush();
 
         Auth::logout();
 

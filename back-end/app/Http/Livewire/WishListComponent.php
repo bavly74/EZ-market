@@ -13,4 +13,9 @@ class WishListComponent extends Component
         $wishlist=Cart::instance('wishlist')->content();
         return view('livewire.wish-list-component',compact('wishlist'));
     }
+    public function removeProduct($rowId){
+        Cart::instance('wishlist')->remove($rowId);
+        $this->emit('wishlist');
+        return view('livewire.cart-component');
+    }
 }

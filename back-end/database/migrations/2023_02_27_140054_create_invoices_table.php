@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_ID')->constrained('users');
-           $table->foreignId('product_ID')->constrained('products');
-            $table->float('productCost');
-            $table->integer('productQuantity');
-            $table->float('shippingFees');
-            $table->float('offer');
-            $table->float('totalCost');
             $table->timestamps();
+            $table->foreignId('order_id')->constrained('orders');
+            $table->string('item_name');
+            $table->integer('item_quantity');
+            $table->float('price');
+            $table->float('discount');
+            $table->float('tax');
+            $table->float('total_price');
+
         });
     }
 

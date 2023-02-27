@@ -15,9 +15,14 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('employeeName');
-            $table->foreignId('department_ID')->constrained('departments');
-            $table->boolean('isAdmin');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            // $table->foreignId('role_id')->references('id')->on('roles');
+            $table->integer('nat_id');
+            $table->string('image');
+            $table->string('address');
+            $table->integer('phone_num');
             $table->timestamps();
         });
     }
