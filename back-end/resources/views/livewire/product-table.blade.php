@@ -2,7 +2,7 @@
     <h2 class="products-section-before">OFFERS</h2>
     <div id="box">
         @if (session()->has('message'))
-        <div class="alert alert-success col-3 alertD ">
+        <div class="alert alert-success alertD ">
             <span>
                 <i class="fa-solid fa-circle-check"></i>
             </span>

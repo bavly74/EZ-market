@@ -41,38 +41,47 @@ const wishClose = document.querySelector(".closeWish");
 
 const addtocart = document.querySelectorAll(".addToCart");
 
+//open cart
 cartButton.addEventListener("click", () => {
     cart.classList.add("opened");
 });
+
+//open wishlist
 wishListButton.addEventListener("click", () => {
     wish.classList.add("opened");
 });
+
+//close cart
 cartClose.addEventListener("click", () => {
     cart.classList.remove("opened");
 });
+
+//close wishlist
 wishClose.addEventListener("click", () => {
     wish.classList.remove("opened");
 });
+
+//open cart and add item
 addtocart.forEach((e) => {
     e.addEventListener("click", () => {
         cart.classList.add("opened");
     });
 });
 
+const box = document.getElementById("box");
+
+//disappear the session
 addtocart.forEach((e) => {
     e.addEventListener("click", () => {
         setTimeout(() => {
-            const box = document.getElementById("box");
-
-            // 👇️ removes element from DOM
             box.style.display = "none";
-
-            // 👇️ hides element (still takes up space on page)
-            // box.style.visibility = 'hidden';
         }, 3000);
     });
 });
+
 const addToWishList = document.querySelectorAll(".addToWishList");
+
+//open wishlist and add item
 addToWishList.forEach((e) => {
     e.addEventListener("click", () => {
         wish.classList.add("opened");
@@ -81,13 +90,7 @@ addToWishList.forEach((e) => {
 addToWishList.forEach((e) => {
     e.addEventListener("click", () => {
         setTimeout(() => {
-            const box = document.getElementById("box");
-
-            // 👇️ removes element from DOM
             box.style.display = "none";
-
-            // 👇️ hides element (still takes up space on page)
-            // box.style.visibility = 'hidden';
         }, 3000);
     });
 });

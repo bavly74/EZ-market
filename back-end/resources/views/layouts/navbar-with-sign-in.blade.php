@@ -19,8 +19,8 @@
         </div> <!-- logo -->
         <section>
             <div class="content">
-                <h2>EZ market</h2>
-                <h2>EZ market</h2>
+                <h2>E<div class="bounce">Z</div> market</h2>
+                <h2>E<div class="bounce">Z</div> market</h2>
             </div>
         </section>
         <!-- logo -->
