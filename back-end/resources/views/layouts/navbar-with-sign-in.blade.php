@@ -32,7 +32,7 @@
     @auth
     <div class="userSection">
         <div class="dropdown">
-            <button class="btn dropdown-toggle empty" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn  dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <a href="#">
                     <div class="userInfo">
                         <i class="fa-solid fa-circle-user"></i>
@@ -49,7 +49,7 @@
                         @csrf
 
                         <x-jet-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                            <div class="userInfo">
+                            <div class="userInfo loged">
                                 <i class="fa-solid fa-right-to-bracket change-icon"></i>
                                 <p>{{ __('Log Out') }}</p>
                             </div>
@@ -58,8 +58,10 @@
                     </form>
                 </li>
                 <li>
+                    <div class="userInfo loged">
+                        <p>profile</p>
+                    </div>
 
-                    profile
                 </li>
             </ul>
         </div>

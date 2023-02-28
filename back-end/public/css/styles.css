@@ -1573,11 +1573,13 @@ footer .footer-copyright p {
     color: #fff;
     font-size: 50px;
 }
+
 .content h2>.bounce {
     animation: bounce ease-in-out infinite 2s;
     -webkit-animation: bounce ease-in-out infinite 2s;
     display: inline-block;
 }
+
 .content h2:nth-child(1) {
     color: #0d71d0;
     -webkit-text-stroke: 2px #000000;
@@ -1710,4 +1712,8 @@ footer .footer-copyright p {
 
     z-index: -1 !important;
 
+}
+
+.loged {
+    flex-direction: row !important;
 }
