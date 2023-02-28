@@ -15,14 +15,20 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('brand_id')->references('id')->on('brands');
+            $table->foreignId('cat_id')->references('id')->on('categories');
             $table->string('productName');
-            $table->foreignId('category_ID')->constrained('categories');
-            $table->string('productImage');
-            $table->string('productColor');
-            $table->float('productCost');
-            $table->float('productOffer');
-            $table->float('productActualCost');  //auto calcaulated ???
-            $table->string('productSize');
+            $table->string('pro_image1');
+            $table->string('pro_image2');
+            $table->integer('status');
+            $table->longtext('variations');
+            $table->string('description');
+            $table->boolean('most_recent');
+            $table->float('offer');
+            $table->float('price');
+            $table->float('avg_price');
+
+
             $table->timestamps();
         });
     }

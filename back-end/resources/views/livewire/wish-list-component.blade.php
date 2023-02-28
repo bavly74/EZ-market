@@ -31,7 +31,8 @@
             <form wire:submit.prevent="remove({{$wish->rowId}})">
                 @csrf
 
-                <span><i class="fa-solid fa-trash"></i></span>
+                <span wire:click="removeProduct('{{$wish->rowId }}')"><i class="fa-solid fa-trash"></i></span>
+
             </form>
                 <img src="imgs/jogging_top_01-300x300.webp" alt="">
                 <p> {{$wish->name}}</p>
@@ -39,7 +40,6 @@
                 <p style="color:green;">in Stock</p>
                 <span><i class="fa-solid fa-bag-shopping"></i></span>
             </div>
-
         </div>
         @endforeach
         @else

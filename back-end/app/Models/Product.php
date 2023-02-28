@@ -8,10 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    public function category(){
-        return $this->hasOne(Category::class);
+
+    public function cat()
+    {
+       return $this->belongsTo(Category::class);
     }
-    public function inventory(){
+    public function inventory()
+    {
         return $this->belongsTo(Inventory::class);
     }
+    public function brand()
+    {
+        return $this->belongsTo(brand::class);
+    }
+    public function orders()
+    {
+        return $this->belongsToMany(Product::class,'orders_products_pivot');
+    }
+protected $casts=[
+    'variations'=>'object'
+];
 }

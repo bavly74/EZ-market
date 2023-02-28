@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('categoryName');
+            $table->string('name');
+            $table->integer('status');
+            $table->ForeignId('Cat_parent')->constrained('categories')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('categoreys');
     }
 };

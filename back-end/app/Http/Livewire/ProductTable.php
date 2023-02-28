@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
+use mysql_xdevapi\Exception;
+use Throwable;
 
 class ProductTable extends Component
 {
@@ -25,7 +27,14 @@ class ProductTable extends Component
     }
     public function addItemToCart($product_ID){
         $product=Product::findOrFail($product_ID);
-        Cart::instance('shopping')->add($product->id, $product->productName, $this->quantity[$product_ID],$product->productCost);
+        try{
+            Cart::instance('shopping')->add($product->id, $product->productName, $this->quantity[$product_ID],$product->price);
+        }catch (Throwable $e) {
+            report($e);
+
+            return false;
+        }
+
         $this->emit('cart_updated');
         $this->emit('carts');
         session()->flash('message', 'item added successfully .');
@@ -33,7 +42,7 @@ class ProductTable extends Component
     }
     public function addItemToWishlist($product_ID){
         $product=Product::findOrFail($product_ID);
-        Cart::instance('wishlist')->add($product->id, $product->productName,$this->quantity[$product_ID],$product->productCost,$product->productCost);
+        Cart::instance('wishlist')->add($product->id, $product->productName,$this->quantity[$product_ID],$product->price);
         $this->emit('wishlist');
         $this->emit('wishlistContent');
         session()->flash('message', 'item added to wishlist successfully .');

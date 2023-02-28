@@ -61,6 +61,7 @@
 
                     profile
                 </li>
+            </ul>
         </div>
 
 
