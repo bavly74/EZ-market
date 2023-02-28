@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    .img {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+    .img img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation-name: fade;
+      animation-duration: 1.5s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+  </style>
+  <body>
+    <!-- <div class="cart">
+      
+        <div class="container">
+          <div class="grid_12">
+            <h1>Your Cart</h1>
+          </div>
+          <ul class="items">
+            <li class="grid_4 item">
+              <a href="#" class="btn-remove">
+                <i class="far fa-trash-alt"></i>
+              </a>
+              <div class="preview">
+                <img src="imgs/jogging_top_01-300x300.webp" />
+              </div>
+              <div class="details" >
+                <h3>
+                    SPORTSWEAR, T-SHIRTS
+                </h3>
+       
+      
+              </div>
+              <div class="inner_container">
+      
+                <div class="col_1of2 align-center picker">
+                  <p>
+                    <a href="#" class="btn-quantity plus">
+                      <i class="fas fa-plus"></i>
+                    </a>
+                  <div class="col_1of2 quantity-text">
+                    <p><span class="current_quantity">1</span> @ £15.50</p>
+                  </div>
+                  <a href="#" class="btn-quantity minus">
+                    <i class="fas fa-minus"></i>
+                  </a>
+                  </p>
+                  <input type="hidden" class="quantity_field" name="quantity" data-price="15.50" value="1" />
+                </div>
+              </div>
+      
+            </li>
+            <li class="grid_4 item">
+                <a href="#" class="btn-remove">
+                  <i class="far fa-trash-alt"></i>
+                </a>
+                <div class="preview">
+                  <img src="imgs/jogging_top_01-300x300.webp" />
+                </div>
+                <div class="details" >
+                  <h3>
+                      SPORTSWEAR, T-SHIRTS
+                  </h3>
+         
+        
+                </div>
+                <div class="inner_container">
+        
+                  <div class="col_1of2 align-center picker">
+                    <p>
+                      <a href="#" class="btn-quantity plus">
+                        <i class="fas fa-plus"></i>
+                      </a>
+                    <div class="col_1of2 quantity-text">
+                      <p><span class="current_quantity">1</span> @ £15.50</p>
+                    </div>
+                    <a href="#" class="btn-quantity minus">
+                      <i class="fas fa-minus"></i>
+                    </a>
+                    </p>
+                    <input type="hidden" class="quantity_field" name="quantity" data-price="15.50" value="1" />
+                  </div>
+                </div>
+        
+              </li>  <li class="grid_4 item">
+                <a href="#" class="btn-remove">
+                  <i class="far fa-trash-alt"></i>
+                </a>
+                <div class="preview">
+                  <img src="imgs/jogging_top_01-300x300.webp" />
+                </div>
+                <div class="details" >
+                  <h3>
+                      SPORTSWEAR, T-SHIRTS
+                  </h3>
+         
+        
+                </div>
+                <div class="inner_container">
+        
+                  <div class="col_1of2 align-center picker">
+                    <p>
+                      <a href="#" class="btn-quantity plus">
+                        <i class="fas fa-plus"></i>
+                      </a>
+                    <div class="col_1of2 quantity-text">
+                      <p><span class="current_quantity">1</span> @ £15.50</p>
+                    </div>
+                    <a href="#" class="btn-quantity minus">
+                      <i class="fas fa-minus"></i>
+                    </a>
+                    </p>
+                    <input type="hidden" class="quantity_field" name="quantity" data-price="15.50" value="1" />
+                  </div>
+                </div>
+        
+              </li>
+          </ul>
+         
+      
+          <div class="grid_12 summary">
+            <div class="inner_container">
+              <div class="summary-content">
+              <div class="col_1of2 meta-data">
+                <div class="sub-total">
+                  <em>Sub Total: </em><span class="amount"></span>
+                </div>
+                <div class="taxes">
+                  <em>Plus TAX: </em><span class="amount">@ 20%</span>
+                </div>
+      
+              </div>
+              <div class="col_1of2">
+                <div class="total">
+                  <span class="amount"></span>
+                </div>
+              </div>
+              </div>
+              <div class="btn-summary">
+      
+                <a href="#" class="btn-checkout btn-reverse">Continue Shopping</a>
+      
+                <a href="#" class="btn-checkout">Checkout</a>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+     </div> -->
+    <div class="img">
+      <img alt="" class="image" />
+    </div>
+    <script>
+      const image = document.querySelector(".image");
+      document.addEventListener("DOMContentLoaded", function () {
+        let images = ["imgs/Bugz_logo.png", "imgs/Bugz_logo_up.png"];
+        var i = 0;
+        window.setInterval(function () {
+          image.setAttribute("src", images[i]);
+          i = i == images.length - 1 ? 0 : i + 1;
+        }, 500);
+      });
+ 
+    </script>
+  </body>
+</html>
