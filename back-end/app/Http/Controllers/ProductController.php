@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function show(){
-        //$products=Product::all();
-        return view('welcome');
-    }
+//    public function show(){
+//
+//        return view('welcome');
+//    }
 }

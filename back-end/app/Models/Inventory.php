@@ -9,8 +9,8 @@ class Inventory extends Model
 {
     use HasFactory;
 
-    public function product()
+    public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class,'id');
     }
 }

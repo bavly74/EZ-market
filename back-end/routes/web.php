@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoutController;
 
@@ -51,9 +52,12 @@ Route::group(
 //    Route::get('/', function () {
 //        return view('welcome');
 //    });
-        Route::get('/',[\App\Http\Controllers\ProductController::class,'show'])->name('products.index');
-    Route::post('/',[\App\Http\Controllers\CartController::class,'store'])->name('cart.store');
-//    Route::get('/cart',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/', 'show')->name('home.index');
+        Route::get('/product', 'allProducts')->name('home.products');
+    });
+
 
     Route::get('/dashboard', function () {
         return 'hi';

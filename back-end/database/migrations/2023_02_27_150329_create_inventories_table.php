@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            $table->ForeignId('pro_id')->references('id')->on('products');
+            $table->ForeignId('product_id')->constrained('products');
             $table->string('pro_name');
             $table->integer('quantity');
             $table->float('product_cost');

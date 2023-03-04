@@ -15,7 +15,7 @@ class Product extends Model
     }
     public function inventory()
     {
-        return $this->belongsTo(Inventory::class);
+        return $this->hasOne(Inventory::class);
     }
     public function brand()
     {

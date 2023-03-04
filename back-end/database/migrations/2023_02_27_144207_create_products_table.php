@@ -28,6 +28,7 @@ return new class extends Migration
             $table->float('price');
             $table->float('avg_price');
 
+         //$table->foreignId('inventory_id')->constrained('inventories');
 
             $table->timestamps();
         });

@@ -24,13 +24,13 @@
         <div class="cartOpened">
             <!-- <p>img: {{$cart->img}}</p> -->
             <div class="cartItems">
-                <img src="imgs/jogging_top_01-300x300.webp" alt="">
+                <img src="imgs/{{$cart->image}}" alt="">
                 <p> {{$cart->name}}</p>
                 <span class="cartBtn" wire:click="decreaseQuantity('{{ $cart->rowId }}')"><i
                         class="fa-solid fa-minus"></i></span>
+                <p> <span>{{$cart->qty}}</span></p>
                 <span class="cartBtn" wire:click="increaseQuantity('{{ $cart->rowId }}')"> <i
                         class="fa-solid fa-plus"></i></span>
-                <p> <span>{{$cart->qty}}</span> * <span>{{$cart->price}}</span></p>
 
 
                 <p> ${{ $cart->price * $cart->qty }}</p>
