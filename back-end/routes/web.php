@@ -55,7 +55,6 @@ Route::group(
 
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'show')->name('home.index');
-        Route::get('/product', 'allProducts')->name('home.products');
     });
 
 

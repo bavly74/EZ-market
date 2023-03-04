@@ -13,7 +13,7 @@ class CartComponent extends Component
     {
         $carts=Cart::instance('shopping')->content();
 
-        return view('livewire.cart-component',compact('carts'));
+      return view('livewire.cart-component',compact('carts'));
     }
 
 public function removeProduct($rowId){

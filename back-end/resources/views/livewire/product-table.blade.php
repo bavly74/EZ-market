@@ -1,16 +1,17 @@
 <section class="products-section padding-section">
     <h2 class="products-section-before">OFFERS</h2>
-    <div id="box">
-        @if (session()->has('message'))
-        <div class="alert alert-success alertD ">
-            <span>
-                <i class="fa-solid fa-circle-check"></i>
-            </span>
-            {{ session('message') }}
+{{--    <div id="box">--}}
+{{--        @if (session()->has('message'))--}}
+{{--        <div class="alert alert-success alertD ">--}}
+{{--            <span>--}}
+{{--                <i class="fa-solid fa-circle-check"></i>--}}
+{{--            </span>--}}
+{{--            {{ session('message') }}--}}
 
-        </div>
-        @endif
-    </div>
+{{--        </div>--}}
+{{--        @endif--}}
+{{--    </div>--}}
+    @include('layouts.notification')
     <div class="products-section-row">
         @foreach($products as $product)
         <div class="product">
@@ -20,15 +21,12 @@
 
             </div>
 
-
             <div class="productInfo">
-                <p>SPORTSWEAR, T-SHIRTS</p>
+                <p>{{$product->brand->name}}</p>
                 <p><strong> {{$product->productName}} </strong></p>
                 <span class="price"> <del>{{$product->productCost}}$ </del> {{$product->price}}$</span>
 
                     <p style="color:black"><strong>in stock :{{$qty->inventory->quantity}} </strong></p>
-
-
 
             </div>
 

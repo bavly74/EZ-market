@@ -154,9 +154,9 @@
 
 @livewireStyles
 @extends('empty')
-@if(session('message'))
-    <div>{{session('message')}}</div>
-@endif
+{{--@if(session('message'))--}}
+{{--    <div>{{session('message')}}</div>--}}
+{{--@endif--}}
 @section('content')
     @include('home.topSection')
     @include('home.offersSection')
