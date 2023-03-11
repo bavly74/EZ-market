@@ -47,7 +47,7 @@
         
             <span class="price"> <del>{{$po->price}} </del> {{$po->offer}}</span>
           </div>
-          <a href="#" class="add-cart">Add to Cart</a>
+          <a href="#" class="add-cart">Add to Cart:----</a>
         </div>
         @endforeach
       </div>
