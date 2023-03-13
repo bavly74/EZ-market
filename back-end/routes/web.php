@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KidsCatController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoutController;
@@ -80,3 +81,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('kidsncat',[KidsCatController::class,'index']);
