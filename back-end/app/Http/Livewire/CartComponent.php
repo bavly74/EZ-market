@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
@@ -34,13 +35,26 @@ public function removeProduct($rowId){
 
 
 
+
     public function increaseQuantity($rowId)
     {
+
         $product = Cart::instance('shopping')->get($rowId);
+        $productqty=Product::find($product->id);
+        $productInventory= $productqty->inventory->quantity;
         $qty = $product->qty + 1;
-        Cart::instance('shopping')->update($rowId, $qty);
-        $this->emit('cart_updated');
+        if($productInventory >=$qty){
+            Cart::instance('shopping')->update($rowId, $qty);
+            $this->emit('cart_updated');
+
+        }else{
+            echo 'no';
+
+        }
+
+
     }
+
 
 
 }
