@@ -362,7 +362,7 @@ footer .footer-row .footer-links ul a:hover::before {
 
 
 .secNavbar .navlinks .navMenu .menu .drop {
-    height: 100vh;
+    /*height: 100vh;*/
     width: 100%;
     position: absolute;
     opacity: 0;
@@ -1671,7 +1671,7 @@ footer .footer-copyright p {
 }
 
 .wishList {
-    position: absolute;
+        /*position: absolute;*/
     z-index: 10000000000;
     color: #000000;
     top: 30px;

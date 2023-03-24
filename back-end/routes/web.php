@@ -67,6 +67,10 @@ Route::group(
         return 'hi';
     });
 
+    Route::get('kidscat',[KidsCatController::class,'index'])->name('kidscat');
+
+    Route::get('mencat',[MenCatController::class,'index'])->name('mencat');
+
 
 });
 
@@ -86,7 +90,3 @@ Route::middleware([
     })->name('dashboard');
 });
 
-
-Route::get('kidsncat',[KidsCatController::class,'index']);
-
-Route::get('mencat',[MenCatController::class,'index']);

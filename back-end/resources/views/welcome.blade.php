@@ -1,3 +1,23 @@
+@livewireStyles
+@extends('empty')
+{{--@if(session('message'))--}}
+{{--    <div>{{session('message')}}</div>--}}
+{{--@endif--}}
+@section('content')
+    @include('home.topSection')
+    @include('home.offersSection')
+    @include('home.shopWithUs')
+    @include('home.mostPopularSection')
+    @include('layouts.cart')
+    @include('layouts.wishlist')
+@endsection
+@livewireScripts
+
+
+
+
+
+
 {{--<!DOCTYPE html>--}}
 {{--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">--}}
 {{--    <head>--}}
@@ -152,17 +172,3 @@
 
 
 
-@livewireStyles
-@extends('empty')
-{{--@if(session('message'))--}}
-{{--    <div>{{session('message')}}</div>--}}
-{{--@endif--}}
-@section('content')
-    @include('home.topSection')
-    @include('home.offersSection')
-    @include('home.shopWithUs')
-    @include('home.mostPopularSection')
-    @include('layouts.cart')
-    @include('layouts.wishlist')
-@endsection
-@livewireScripts

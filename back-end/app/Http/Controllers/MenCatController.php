@@ -10,7 +10,8 @@ class MenCatController extends Controller
     //
     public function index()
     {
-        $pro=Product::where('cat_id','1')->get();
-        return view('mencat',compact('pro'));
+
+        return view('mencat');
+
     }
 }
