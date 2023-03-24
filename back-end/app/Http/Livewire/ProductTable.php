@@ -26,34 +26,33 @@ class ProductTable extends Component
 
     public function render()
     {
-
-        $qty=Product::find(1);
+       // $qty=Product::find($this->products->id);
         $cart=Cart::instance('shopping')->content();
         $products=Product::all();
-        return view('livewire.product-table',compact('cart','products','qty'));
+        return view('livewire.product-table',compact('cart','products'));
     }
 
 
 
-//    public function addItemToCart($product_ID)
-//    {
-//        $product = Product::findOrFail($product_ID);
-//
-//    try {
-//        Cart::instance('shopping')->add($product->id, $product->productName, $this->quantity[$product_ID], $product->price);
-//    } catch (Throwable $e) {
-//        report($e);
-//
-//        return false;
-//    }
-//
-//    $this->emit('cart_updated');
-//    $this->emit('carts');
-//    session()->flash('message', 'item added successfully .');
-//
-//
-//        return view('livewire.product-table', compact('product'));
-//    }
+    public function addItemToCart($product_ID)
+    {
+        $product = Product::findOrFail($product_ID);
+
+    try {
+        Cart::instance('shopping')->add($product->id, $product->productName, $this->quantity[$product_ID], $product->price);
+        $this->emit('cart_updated');
+        $this->emit('carts');
+        session()->flash('message', 'item added successfully .');
+    } catch (Throwable $e) {
+        report($e);
+
+        return false;
+    }
+
+
+
+        return view('livewire.product-table', compact('product'));
+    }
 //
 //
 //

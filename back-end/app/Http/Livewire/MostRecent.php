@@ -26,13 +26,10 @@ use ProductTrait;
     }
 
 
-
-
-
     public function render()
     {
-
-        $qty=Product::find(1);
+        $qty=Product::all();
+//        $qty=Product::find(1);
         $cart=Cart::instance('shopping')->content();
       // $recentProduct=Product::where('most_recent','1');
         return view('livewire.most-recent',compact('cart','qty'));
@@ -40,25 +37,26 @@ use ProductTrait;
 
 
 
-//    public function addItemToCart($product_ID)
-//    {
-//        $product = Product::findOrFail($product_ID);
-//
-//        try {
-//            Cart::instance('shopping')->add($product->id, $product->productName, $this->quantity[$product_ID], $product->price);
-//        } catch (Throwable $e) {
-//            report($e);
-//
-//            return false;
-//        }
-//
-//        $this->emit('cart_updated');
-//        $this->emit('carts');
-//        session()->flash('message', 'item added successfully .');
-//
-//
-//        return view('livewire.most-recent', compact('product'));
-//    }
+    public function addItemToCart($product_ID)
+    {
+        $product = Product::findOrFail($product_ID);
+
+        try {
+            Cart::instance('shopping')->add($product->id, $product->productName, $this->quantity[$product_ID], $product->price);
+            $this->emit('cart_updated');
+            $this->emit('carts');
+            session()->flash('message', 'item added successfully .');
+        } catch (Throwable $e) {
+            report($e);
+
+            return false;
+        }
+
+
+
+
+        return view('livewire.most-recent', compact('product'));
+    }
 //
 //
 //
