@@ -56,9 +56,10 @@
 {{--    <script src="./category.js"></script>--}}
 {{--  </body>--}}
 {{--</html>--}}
-
+@extends('empty')
+@section('content')
 @livewire('men-category')
-
+@endsection
 
 
 

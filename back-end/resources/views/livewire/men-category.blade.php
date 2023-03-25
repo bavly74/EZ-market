@@ -1,10 +1,9 @@
 @livewireStyles
     @extends('empty')
     @section('content')
-
+        @include('layouts.notification')
 
         <!-- <h1>all products</h1>-->
-
 
         <div class="path">
             <h2>Home/Men/</h2>
@@ -29,21 +28,6 @@
             <div class="products-section-row">
                 <!-- single product -->
                 @foreach($menProducts as $product)
-{{--                    <div class="product">--}}
-{{--                        <div class="productImg">--}}
-{{--                            <img src="imgs/{{$product->pro_image1}}" alt="" />--}}
-{{--                            <img src="imgs/{{$product->pro_image2}}" alt="" />--}}
-{{--                        </div>--}}
-{{--                        <div class="productInfo">--}}
-
-{{--                            <p><strong> {{$product->brand->name}}</strong></p>--}}
-{{--                            <p>{{$product->productName}}</p>--}}
-
-{{--                            <span class="price"> <del>{{$product->price}} </del> {{$product->offer}}</span>--}}
-{{--                        </div>--}}
-{{--                        <a href="#" class="add-cart">Add to Cart:----</a>--}}
-{{--                    </div>--}}
-
                     @if($product->inventory->quantity <1 || $product->status!=1)
                         <div class="product">
                             <div class="productImg">
@@ -115,16 +99,8 @@
 
                         </div>
                     @endif
-
-
                 @endforeach
-
-
             </div>
-
-        <script src="js/products.js"></script>
-        <script src="js/category.js"></script>
-
         </section>
     @endsection
 

@@ -8,8 +8,10 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 use mysql_xdevapi\Exception;
 use Throwable;
+
 class MenCategory extends Component
 {
+
     use ProductTrait;
     public $products;
     public $productsQty;
@@ -21,13 +23,16 @@ class MenCategory extends Component
             $this->quantity[$product->id]=1;
         }
     }
+
     public function render()
     {
         // $qty=Product::find($this->products->id);
         $cart=Cart::instance('shopping')->content();
         $menProducts=Product::all();
-        return view('livewire.men-category',compact('cart','menProducts'));
+        return view('livewire.product-table',compact('cart','menProducts'));
     }
+
+
 
     public function addItemToCart($product_ID)
     {
@@ -48,6 +53,17 @@ class MenCategory extends Component
 
         return view('livewire.men-category', compact('product'));
     }
-
+//
+//
+//
+//
+//    public function addItemToWishlist($product_ID){
+//        $product=Product::findOrFail($product_ID);
+//        Cart::instance('wishlist')->add($product->id, $product->productName,$this->quantity[$product_ID],$product->price,$product->quantity);
+//        $this->emit('wishlist');
+//        $this->emit('wishlistContent');
+//        session()->flash('message', 'item added to wishlist successfully .');
+//        return view('livewire.product-table',compact('product') );
+//    }
 
 }
