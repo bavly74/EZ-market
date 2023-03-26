@@ -6,11 +6,6 @@
 
 
 
-
-
-
-
-
 {{--    <!-- products -->--}}
 {{--    <div class="path">--}}
 {{--      <h2>Home/Men/</h2>--}}
@@ -56,10 +51,11 @@
 {{--    <script src="./category.js"></script>--}}
 {{--  </body>--}}
 {{--</html>--}}
-@extends('empty')
-@section('content')
+
+
 @livewire('men-category')
-@endsection
+
+
 
 
 

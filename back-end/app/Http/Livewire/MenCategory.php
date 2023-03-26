@@ -6,19 +6,32 @@ use App\Models\Inventory;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
+use Livewire\WithPagination;
 use mysql_xdevapi\Exception;
 use Throwable;
 
 class MenCategory extends Component
 {
+    use WithPagination;
 
     use ProductTrait;
     public $products;
     public $productsQty;
     public array $quantity=[];
+    public $search = '';
+    public $productName ;
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
+
+    public function resetInput()
+    {
+        $this->productName = '';
+    }
     public function mount(){
-        $this->products=Product::where('cat_id','2')->get();
+        $this->products=Product::where('cat_id',2)->get();
         foreach ($this->products as $product){
             $this->quantity[$product->id]=1;
         }
@@ -26,16 +39,18 @@ class MenCategory extends Component
 
     public function render()
     {
-        // $qty=Product::find($this->products->id);
+     $products=Product::all();
+        //$qty=Product::find(1);
         $cart=Cart::instance('shopping')->content();
-        $menProducts=Product::all();
-        return view('livewire.product-table',compact('cart','menProducts'));
+
+        return view('livewire.men-category',compact('cart','products'));
+
+
     }
 
-
-
-    public function addItemToCart($product_ID)
+    public function addCategoryToCart($product_ID)
     {
+        return $product_ID ;
         $product = Product::findOrFail($product_ID);
 
         try {
@@ -49,10 +64,10 @@ class MenCategory extends Component
             return false;
         }
 
-
-
         return view('livewire.men-category', compact('product'));
     }
+
+
 //
 //
 //

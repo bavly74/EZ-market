@@ -52,4 +52,7 @@
 {{--        </div>--}}
 {{--      </div>--}}
 {{--    </section>--}}
+<section class="products-section padding-section">
+    <h2 class="products-section-before-change">Our most recent products</h2>
 @livewire('most-recent')
+</section>

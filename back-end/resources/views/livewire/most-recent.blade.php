@@ -1,6 +1,6 @@
 
-<section class="products-section padding-section">
-      <h2 class="products-section-before-change">Our most recent products</h2>
+{{--<section class="products-section padding-section">--}}
+{{--      <h2 class="products-section-before-change">Our most recent products</h2>--}}
       <div class="products-section-row">
           @include('layouts.notification')
           <div class="products-section-row">
@@ -85,4 +85,4 @@
 
 
           </div>
-    </section>
+{{--    </section>--}}
