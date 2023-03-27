@@ -71,7 +71,6 @@ Route::group(
 
     Route::get('mencat',[MenCatController::class,'index'])->name('mencat');
 
-
 });
 
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
