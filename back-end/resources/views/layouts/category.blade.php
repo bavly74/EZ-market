@@ -142,7 +142,7 @@
                 <a href="#" class="navLink"> <span> contact </span> </a>
             </li>
         </ul>
-        <a href="#">
+        <a href="#!">
             <div class="floatCart">
                 <span>$total?</span>
 
