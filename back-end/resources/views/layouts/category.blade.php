@@ -7,10 +7,10 @@
         </div>
 
         <ul class="navMenu">
+
             <div class="logo-mark">
                 <a href="#"><img src="imgs/logo.jfif" alt="" /> </a>
             </div>
-
             <li class="navMenuLink">
                 <a href="/" class="navLink"><span>home</span> </a>
             </li>
