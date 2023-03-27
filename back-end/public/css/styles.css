@@ -238,6 +238,14 @@ footer .logoSection {
     position: sticky;
     z-index: 10;
     top: -1px;
+
+}
+
+.secNavbar .navlinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* flex: 2 1; */
 }
 
 .secNavbar .navlinks .navMenu {
@@ -247,6 +255,8 @@ footer .logoSection {
     list-style: none;
     flex-wrap: wrap;
     margin-bottom: 0;
+    width: fit-content;
+    padding: 0;
 }
 
 .logo-mark {
@@ -1671,7 +1681,7 @@ footer .footer-copyright p {
 }
 
 .wishList {
-        /*position: absolute;*/
+    position: absolute;
     z-index: 10000000000;
     color: #000000;
     top: 30px;
@@ -1717,6 +1727,7 @@ footer .footer-copyright p {
 .loged {
     flex-direction: row !important;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 :root {
@@ -1744,10 +1755,12 @@ a {
 body {
     font-family: var(--font-family);
 }
-.path{
+
+.path {
     margin: 4rem auto;
     max-width: 1124px;
 }
+
 .products {
     width: 90vw;
     display: grid;
@@ -1957,4 +1970,60 @@ body {
     .products {
         grid-template-columns: 200px 1fr;
     }
+}
+
+.floatCart {
+    /* flex: 1; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+    /* padding-right:50px ; */
+}
+
+
+
+.floatCart .bagCart {
+    /* display: inline-block; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: auto;
+    min-width: 28px;
+    height: 28px;
+    margin-left: 8px;
+    text-align: center;
+    padding: 3px;
+    border: 1px solid #0082ca;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: #0082ca;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: -.7px;
+    transition: all .2s;
+}
+
+.floatCart .bagCart::after {
+    position: absolute;
+    bottom: 94%;
+    left: 50%;
+    width: 10px;
+    height: 6px;
+    margin-bottom: 1px;
+    margin-left: -6px;
+    border: 1px solid #0082ca;
+    border-bottom: 0;
+    border-top-left-radius: 99px;
+    border-top-right-radius: 99px;
+    content: "";
+    transition: all .2s;
+    pointer-events: none;
+}
+
+.floatCart:hover .bagCart {
+    background: #0082ca;
+    color: #fff;
+
 }
