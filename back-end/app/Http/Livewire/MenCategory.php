@@ -39,35 +39,49 @@
 //
 //    }
 //
+//
 //    public function render()
 //    {
-//    $products=Product::all();
-////        //$qty=Product::find(1);
-//       $cart=Cart::instance('shopping')->content();
-////
+//        $cart = Cart::content();
 //
-//        return view('livewire.men-category',compact('cart','products'));
+//        return view('livewire.men-category',
+//            compact('cart'));
 //    }
 //
-//
-//    public function addCategoryToCart($product_ID)
+//    public function addToCart($product_id)
 //    {
-//      //  return $product_ID ;
-//        $product = Product::findOrFail($product_ID);
+//        $product = Product::findOrFail($product_id);
+//        Cart::add(
+//            $product->id,
+//            $product->productName,
+//            $this->quantity[$product_id],
+//            $product->price ,
+//        );
 //
-//        try {
-//            Cart::instance('shopping')->add($product->id, $product->productName, $this->quantity[$product_ID], $product->price);
-//            $this->emit('cart_updated');
-//            $this->emit('carts');
-//            session()->flash('message', 'item added successfully .');
-//        } catch (Throwable $e) {
-//            report($e);
-//
-//            return false;
-//        }
-//
-//        return view('livewire.men-category', compact('product'));
+//        $this->emit('cart_updated');
 //    }
+//
+//
+//
+//
+////    public function addCategoryToCart($product_ID)
+////    {
+////      //  return $product_ID ;
+////        $product = Product::findOrFail($product_ID);
+////
+////        try {
+////            Cart::instance('shopping')->add($product->id, $product->productName, $this->quantity[$product_ID], $product->price);
+////            $this->emit('cart_updated');
+////            $this->emit('carts');
+////            session()->flash('message', 'item added successfully .');
+////        } catch (Throwable $e) {
+////            report($e);
+////
+////            return false;
+////        }
+////
+////        return view('livewire.men-category', compact('product'));
+////    }
 //
 //
 ////

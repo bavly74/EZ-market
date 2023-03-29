@@ -1,11 +1,13 @@
 <?php
 
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\KidsCatController;
 
 use App\Http\Controllers\MenCatController;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoutController;
 
@@ -66,11 +68,17 @@ Route::group(
     Route::get('/dashboard', function () {
         return 'hi';
     });
+    Route::get('search',[SearchController::class,'index'])->name('search');
 
     Route::get('kidscat',[KidsCatController::class,'index'])->name('kidscat');
 
     Route::get('mencat',[MenCatController::class,'index'])->name('mencat');
 
+    Route::controller(MenCatController::class)->group(function () {
+        Route::get('mencat', 'index')->name('mencat');
+       Route::get('Mensearch', 'menSearch')->name('mencat.search');
+    });
+    Route::post('cart-store',[CartController::class,'store'])->name('cart.store');
 });
 
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
