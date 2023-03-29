@@ -34,10 +34,8 @@ class MenCatController extends Controller
 
 
 
-
-    function menSearch(Request $request)
+    function action(Request $request)
     {
-
         if($request->ajax())
         {
             $output = '';
@@ -59,21 +57,24 @@ class MenCatController extends Controller
                 foreach($data as $row)
                 {
                     $output .= '
-
-
-            <p>'.$row->brand->name.'</p>
-                          <p><strong> '.$row->productName.' </strong></p>
-                          <span class="price"> <del>'.$row->price.' </del> '.$row->price.'</span>
-
-                          <p style="color:black"><strong>in stock :'.$row->inventory->quantity.' </strong></p>
-
-
+                    <tr>
+                    <td>'.$row->productName.'</td>
+                     <td>'.$row->pro_image1.'</td>
+                      <td>'.$row->pro_image2.'</td>
+                       <td>'.$row->status.'</td>
+                        <td>'.$row->variations.'</td>
+                         <td>'.$row->description.'</td>
+                         <td>'.$row->most_recent.'</td>
+                        <td>'.$row->offer.'</td>
+                         <td>'.$row->price.'</td>
+                       <td>'.$row->avg_price.'</td>
+                    </tr>
                     ';
                 }
             } else {
                 $output = '
                 <tr>
-                    <td align="center" colspan="5">No Data Found</td>
+                    <td align="center" colspan="20">No Data Found</td>
                 </tr>
                 ';
             }
@@ -83,13 +84,6 @@ class MenCatController extends Controller
             );
             echo json_encode($data);
         }
-    }
-
-
-
-    public function menProductsAtNavbar(){
-        $products=Product::where('cat_id',2)->first(3)->get();
-        return view('layouts.category',compact('products'));
     }
 
 }
