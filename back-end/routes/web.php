@@ -83,3 +83,4 @@ Route::middleware([
 });
 
 Route::get('kidsncat',[KidsCatController::class,'index']);
+Route::get('/action', [KidsCatController::class, 'action'])->name('action');
