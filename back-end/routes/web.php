@@ -1,10 +1,17 @@
 <?php
 
+
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\KidsCatController;
+
+use App\Http\Controllers\MenCatController;
+
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoutController;
 
+use App\Http\Controllers\WomenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +69,31 @@ Route::group(
     Route::get('/dashboard', function () {
         return 'hi';
     });
+    Route::get('search',[SearchController::class,'index'])->name('search');
+
+    //Route::get('kidscat',[KidsCatController::class,'index'])->name('kidscat');
+
+   // Route::get('mencat',[MenCatController::class,'index'])->name('mencat');
+
+    Route::controller(MenCatController::class)->group(function () {
+        Route::get('mencat', 'index')->name('mencat');
+        Route::get('/action',  'action')->name('action');
+
+        //Route::get('Mensearch', 'menSearch')->name('mencat.search');
+    });
+
+
+    Route::controller(KidsCatController::class)->group(function () {
+        Route::get('/kidscat', 'index')->name('kids.index');
+        Route::get('/action',  'action')->name('action');
+    });
+
+    Route::controller(WomenController::class)->group(function () {
+        Route::get('/women-category', 'index')->name('women.index');
+        Route::get('/action',  'action')->name('action');
+    });
+
+    Route::post('cart-store',[CartController::class,'store'])->name('cart.store');
 
 
 });
@@ -82,5 +114,6 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('kidsncat',[KidsCatController::class,'index']);
-Route::get('/action', [KidsCatController::class, 'action'])->name('action');
+
+
+

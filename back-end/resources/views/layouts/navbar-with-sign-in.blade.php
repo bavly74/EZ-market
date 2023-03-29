@@ -26,8 +26,11 @@
         <!-- logo -->
     </div>
     <div class="searchSection">
-        <i class="fa-solid fa-magnifying-glass icon"></i>
-        <input type="text" placeholder="{{trans('nav_trans.Search products...')}}" />
+        <form action="{{route('search')}}" method="get">
+            <i class="fa-solid fa-magnifying-glass icon"></i>
+            <input type="text" name="search" value="{{Request::get('search')}}" placeholder="{{trans('nav_trans.Search products...')}}" />
+        </form>
+
     </div>
     @auth
     <div class="userSection">

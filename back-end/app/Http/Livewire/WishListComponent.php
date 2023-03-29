@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
@@ -18,4 +19,5 @@ class WishListComponent extends Component
         $this->emit('wishlist');
         return view('livewire.cart-component');
     }
+
 }

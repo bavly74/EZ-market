@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
 
-//   public function store(Request $r){
-////       $product=Product::findOrFail($r->input('product_ID'));
-////       Cart::add($product->id, $product->productName, $r->input('quantity'),$product->productCost);
-//       return redirect()->route('products.index')->with('message','item added');
-//
-//   }
+   public function store(Request $r){
+       $product=Product::findOrFail($r->input('product_ID'));
+       Cart::instance('shopping')->add($product->id, $product->productName, 1, $product->price);
+
+       return redirect()->back()->with('message','item added');
+   }
 }
