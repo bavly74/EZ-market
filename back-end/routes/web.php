@@ -11,6 +11,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoutController;
 
+use App\Http\Controllers\WomenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,15 +71,31 @@ Route::group(
     });
     Route::get('search',[SearchController::class,'index'])->name('search');
 
-    Route::get('kidscat',[KidsCatController::class,'index'])->name('kidscat');
+    //Route::get('kidscat',[KidsCatController::class,'index'])->name('kidscat');
 
-    Route::get('mencat',[MenCatController::class,'index'])->name('mencat');
+   // Route::get('mencat',[MenCatController::class,'index'])->name('mencat');
 
     Route::controller(MenCatController::class)->group(function () {
         Route::get('mencat', 'index')->name('mencat');
-       Route::get('Mensearch', 'menSearch')->name('mencat.search');
+        Route::get('/action',  'action')->name('action');
+
+        //Route::get('Mensearch', 'menSearch')->name('mencat.search');
     });
+
+
+    Route::controller(KidsCatController::class)->group(function () {
+        Route::get('/kidscat', 'index')->name('kids.index');
+        Route::get('/action',  'action')->name('action');
+    });
+
+    Route::controller(WomenController::class)->group(function () {
+        Route::get('/women-category', 'index')->name('women.index');
+        Route::get('/action',  'action')->name('action');
+    });
+
     Route::post('cart-store',[CartController::class,'store'])->name('cart.store');
+
+
 });
 
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
@@ -96,4 +113,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+
 

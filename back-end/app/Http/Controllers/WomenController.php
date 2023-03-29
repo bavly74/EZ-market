@@ -2,18 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 
-class KidsCatController extends Controller
+class WomenController extends Controller
 {
     //
     public function index()
     {
-        $pro=Product::where('cat_id','2')->get();
-        return view('kidscat',compact('pro'));
+        $products=Product::where('cat_id',2)->get();
+        $cart=Cart::content();
+        return view('women',compact('products','cart'));
+
     }
+
+
+//    public function menSearch(Request $r){
+//if($r->search){
+//$products=Product::where('productName','LIKE','%'.$r->search.'%')->where('cat_id',2)->latest()->paginate(15);
+//    return view('layouts.search',compact('products'));
+//
+//}else{
+//return redirect()->back()->with('message','empty');
+//}
+//    }
+
+
+
+
+
+
     function action(Request $request)
     {
         if($request->ajax())
@@ -65,4 +85,5 @@ class KidsCatController extends Controller
             echo json_encode($data);
         }
     }
+
 }

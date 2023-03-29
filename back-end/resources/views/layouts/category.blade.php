@@ -46,7 +46,7 @@
             </li>
 
             <li class="menu navMenuLink">
-                <a href="#" class="navLink">
+                <a href="{{route('women.index')}}" class="navLink">
                     <span> women </span>
                     <i class="fa-solid fa-angle-down"></i>
                 </a>
@@ -75,7 +75,7 @@
 
 
             <li class="menu navMenuLink">
-                <a href="#" class="navLink">
+                <a href="{{route('kids.index')}}" class="navLink">
                     <span> kids </span>
                     <i class="fa-solid fa-angle-down"></i>
                 </a>
