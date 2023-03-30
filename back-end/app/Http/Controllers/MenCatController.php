@@ -57,25 +57,29 @@ class MenCatController extends Controller
                 foreach($data as $row)
                 {
                     $output .= '
-                    <tr>
-                    <td>'.$row->productName.'</td>
-                     <td>'.$row->pro_image1.'</td>
-                      <td>'.$row->pro_image2.'</td>
-                       <td>'.$row->status.'</td>
-                        <td>'.$row->variations.'</td>
-                         <td>'.$row->description.'</td>
-                         <td>'.$row->most_recent.'</td>
-                        <td>'.$row->offer.'</td>
-                         <td>'.$row->price.'</td>
-                       <td>'.$row->avg_price.'</td>
-                    </tr>
+
+                    <div class="product">
+                             <div class="productImg">
+                               <img src="'.$row->pro_image1.'" alt="" />
+                               <img src="'.$row->pro_image2.'" alt="" />
+                             </div>
+                             <div class="productInfo">
+
+                               <p><strong>
+                               '.$row->productName.'</strong></p>
+                               <p>'.$row->productName.'</p>
+
+                               <span class="price"> <del>'.$row->offer.' </del> '.$row->price.'</span>
+                             </div>
+                             <a href="#" class="add-cart">Add to Cart:----</a>
+                           </div>
                     ';
                 }
             } else {
                 $output = '
-                <tr>
-                    <td align="center" colspan="20">No Data Found</td>
-                </tr>
+                <div>
+                    <p align="center" colspan="20">No Data Found</p>
+                </div>
                 ';
             }
             $data = array(
