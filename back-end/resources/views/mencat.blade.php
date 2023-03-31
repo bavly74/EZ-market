@@ -5,51 +5,42 @@
     <div class="path">
         <h2>Home/Kids/</h2>
     </div>
-    <section class="products">
+    <div class="form-group">
+        <input type="text" name="search" id="search" class="form-control" placeholder="Search product Data" />
+    </div>
+    <div class="products">
         <!-- filters -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group">
-                        <input type="text" name="search" id="search" class="form-control" placeholder="Search product Data" />
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th> productName  </th>
-                                <th>  pro_image1  </th>
-                                <th> pro_image2 </th>
-                                <th>  status  </th>
-                                <th> variations  </th>
-                                <th>  description  </th>
-                                <th> most_recent </th>
-                                <th>  offer  </th>
-                                <th> price  </th>
-                                <th>  avg_price  </th>
-                            </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="filters-container">
-            <!-- search -->
-            <form class="input-form">
-                <input type="text" class="search-input" placeholder="search..." />
-            </form>
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-12">--}}
 
-            <!-- categories -->
-            <h3>Kids</h3>
-            <div class="categories">
-                <button class="category-btn">all</button>
-                <!-- <button class="category-btn">
-                  Sweatshirts ShirtsSale Sportswear T-Shirts4
-                </button> -->
-            </div>
-        </div>
+{{--                    <div class="table-responsive">--}}
+{{--                        <table class="table table-striped table-bordered">--}}
+{{--                            <thead>--}}
+{{--                            <tr>--}}
+{{--                                <th> productName  </th>--}}
+{{--                                <th>  pro_image1  </th>--}}
+{{--                                <th> pro_image2 </th>--}}
+{{--                                <th>  status  </th>--}}
+{{--                                <th> variations  </th>--}}
+{{--                                <th>  description  </th>--}}
+{{--                                <th> most_recent </th>--}}
+{{--                                <th>  offer  </th>--}}
+{{--                                <th> price  </th>--}}
+{{--                                <th>  avg_price  </th>--}}
+{{--                            </tr>--}}
+{{--                            </thead>--}}
+{{--                            <tbody></tbody>--}}
+
+{{--                        </table>--}}
+
+{{--                    </div>--}}
+
+{{--                </div>--}}
+
+{{--            </div>--}}
+{{--        </div>--}}
+
         <!-- products -->
         {{--      <div class="products-section-row">--}}
         {{--        <!-- single product -->--}}
@@ -70,11 +61,10 @@
         {{--        </div>--}}
         {{--        @endforeach--}}
         {{--      </div>--}}
-    </section>
+    </div>
     <script src="./products.js"></script>
     <script src="./category.js"></script>
-    </body>
-    </html>
+
 @endsection
 
 
@@ -114,13 +104,13 @@
         function fetch_product_data(query = '')
         {
             $.ajax({
-                url:"{{ route('action') }}",
+                url:"{{ route('menaction') }}",
                 method:'GET',
                 data:{query:query},
                 dataType:'json',
                 success:function(data)
                 {
-                    $('tbody').html(data.table_data);
+                    $('div.products').html(data.table_data);
                     $('#total_records').text(data.total_data);
                 }
             })

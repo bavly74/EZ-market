@@ -14,7 +14,7 @@ class KidsCatController extends Controller
         $pro=Product::where('cat_id','2')->get();
         return view('kidscat',compact('pro'));
     }
-    function action(Request $request)
+    function kidsAction(Request $request)
     {
         if($request->ajax())
         {
@@ -27,7 +27,7 @@ class KidsCatController extends Controller
                     ->get();
 
             } else {
-                $data = DB::table('products')
+                $data = DB::table('products')->where('cat_id',3)
                     ->orderBy('id', 'desc')
                     ->get();
             }

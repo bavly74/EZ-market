@@ -12,9 +12,9 @@ class WomenController extends Controller
     //
     public function index()
     {
-        $products=Product::where('cat_id',2)->get();
-        $cart=Cart::content();
-        return view('women',compact('products','cart'));
+//        $products=Product::where('cat_id',2)->get();
+//        $cart=Cart::content();
+        return view('women');
 
     }
 
@@ -34,7 +34,7 @@ class WomenController extends Controller
 
 
 
-    function action(Request $request)
+    function womenAction(Request $request)
     {
         if($request->ajax())
         {
@@ -47,7 +47,7 @@ class WomenController extends Controller
                     ->get();
 
             } else {
-                $data = DB::table('products')
+                $data = DB::table('products')->where('cat_id',1)
                     ->orderBy('id', 'desc')
                     ->get();
             }

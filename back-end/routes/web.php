@@ -77,7 +77,7 @@ Route::group(
 
     Route::controller(MenCatController::class)->group(function () {
         Route::get('mencat', 'index')->name('mencat');
-        Route::get('/action',  'action')->name('action');
+        Route::get('/menaction',  'menAction')->name('menaction');
 
         //Route::get('Mensearch', 'menSearch')->name('mencat.search');
     });
@@ -85,12 +85,12 @@ Route::group(
 
     Route::controller(KidsCatController::class)->group(function () {
         Route::get('/kidscat', 'index')->name('kids.index');
-        Route::get('/action',  'action')->name('action');
+        Route::get('/kidsaction',  'kidsAction')->name('kidsaction');
     });
 
     Route::controller(WomenController::class)->group(function () {
         Route::get('/women-category', 'index')->name('women.index');
-        Route::get('/action',  'action')->name('action');
+        Route::get('/womenaction',  'womenAction')->name('womenaction');
     });
 
     Route::post('cart-store',[CartController::class,'store'])->name('cart.store');

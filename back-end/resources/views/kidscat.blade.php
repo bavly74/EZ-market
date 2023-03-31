@@ -5,36 +5,13 @@
     <div class="path">
       <h2>Home/Kids/</h2>
     </div>
-    <section class="products">
+<div class="form-group">
+    <input type="text" name="search" id="search" class="form-control" placeholder="Search product Data" />
+</div>
+    <div class="products">
       <!-- filters -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group">
-                        <input type="text" name="search" id="search" class="form-control" placeholder="Search product Data" />
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th> productName  </th>
-                                <th>  pro_image1  </th>
-                                <th> pro_image2 </th>
-                                <th>  status  </th>
-                                <th> variations  </th>
-                                <th>  description  </th>
-                                <th> most_recent </th>
-                                <th>  offer  </th>
-                                <th> price  </th>
-                                <th>  avg_price  </th>
-                            </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
       <div class="filters-container">
         <!-- search -->
           <form class="input-form">
@@ -70,7 +47,7 @@
 {{--        </div>--}}
 {{--        @endforeach--}}
 {{--      </div>--}}
-    </section>
+    </div>
     <script src="./products.js"></script>
     <script src="./category.js"></script>
   </body>
@@ -114,13 +91,13 @@
         function fetch_product_data(query = '')
         {
             $.ajax({
-                url:"{{ route('action') }}",
+                url:"{{ route('kidsaction') }}",
                 method:'GET',
                 data:{query:query},
                 dataType:'json',
                 success:function(data)
                 {
-                    $('tbody').html(data.table_data);
+                    $('div.products').html(data.table_data);
                     $('#total_records').text(data.total_data);
                 }
             })

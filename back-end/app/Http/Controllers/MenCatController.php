@@ -12,29 +12,14 @@ class MenCatController extends Controller
     //
     public function index()
     {
-        $products=Product::where('cat_id',2)->get();
-        $cart=Cart::content();
-        return view('mencat',compact('products','cart'));
+//        $products=Product::where('cat_id',2)->get();
+//        $cart=Cart::content();
+        return view('mencat');
 
     }
 
 
-//    public function menSearch(Request $r){
-//if($r->search){
-//$products=Product::where('productName','LIKE','%'.$r->search.'%')->where('cat_id',2)->latest()->paginate(15);
-//    return view('layouts.search',compact('products'));
-//
-//}else{
-//return redirect()->back()->with('message','empty');
-//}
-//    }
-
-
-
-
-
-
-    function action(Request $request)
+    function menAction(Request $request)
     {
         if($request->ajax())
         {
@@ -47,7 +32,7 @@ class MenCatController extends Controller
                     ->get();
 
             } else {
-                $data = DB::table('products')
+                $data = DB::table('products')->where('cat_id',2)
                     ->orderBy('id', 'desc')
                     ->get();
             }
@@ -57,18 +42,18 @@ class MenCatController extends Controller
                 foreach($data as $row)
                 {
                     $output .= '
-                    <tr>
-                    <td>'.$row->productName.'</td>
-                     <td>'.$row->pro_image1.'</td>
-                      <td>'.$row->pro_image2.'</td>
-                       <td>'.$row->status.'</td>
-                        <td>'.$row->variations.'</td>
-                         <td>'.$row->description.'</td>
-                         <td>'.$row->most_recent.'</td>
-                        <td>'.$row->offer.'</td>
-                         <td>'.$row->price.'</td>
-                       <td>'.$row->avg_price.'</td>
-                    </tr>
+
+                    <div>'.$row->productName.'</div>
+                     <div>'.$row->pro_image1.'</div>
+                      <div>'.$row->pro_image2.'</div>
+                       <div>'.$row->status.'</div>
+                        <div>'.$row->variations.'</div>
+                         <div>'.$row->description.'</div>
+                         <div>'.$row->most_recent.'</div>
+                        <div>'.$row->offer.'</div>
+                         <div>'.$row->price.'</div>
+                       <div>'.$row->avg_price.'</div>
+
                     ';
                 }
             } else {
