@@ -43,6 +43,7 @@ class MenCatController extends Controller
                 {
                     $output .= '
 
+
                     <div>'.$row->productName.'</div>
                      <div>'.$row->pro_image1.'</div>
                       <div>'.$row->pro_image2.'</div>
@@ -54,13 +55,16 @@ class MenCatController extends Controller
                          <div>'.$row->price.'</div>
                        <div>'.$row->avg_price.'</div>
 
+
+
+
                     ';
                 }
             } else {
                 $output = '
-                <tr>
-                    <td align="center" colspan="20">No Data Found</td>
-                </tr>
+                <div>
+                    <p align="center" colspan="20">No Data Found</p>
+                </div>
                 ';
             }
             $data = array(
