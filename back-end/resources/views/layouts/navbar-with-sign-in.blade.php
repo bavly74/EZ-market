@@ -62,8 +62,15 @@
                 </li>
                 <li>
                     <div class="userInfo loged">
-                        <p>profile</p>
+                        <a href="{{route('profile.show') }}">profile</a>
                     </div>
+
+
+{{--                    <x-jet-dropdown-link href="{{ route('profile.show') }}">--}}
+{{--                        {{ __('Profile') }}--}}
+{{--                    </x-jet-dropdown-link>--}}
+
+
 
                 </li>
             </ul>
