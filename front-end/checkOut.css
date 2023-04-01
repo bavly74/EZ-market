@@ -31,6 +31,7 @@ input[type=text]{
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    outline: none;
 }
 .icon-container{
     margin-bottom: 20px;

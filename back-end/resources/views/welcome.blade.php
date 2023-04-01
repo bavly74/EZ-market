@@ -10,6 +10,7 @@
     @include('home.mostPopularSection')
     @include('layouts.cart')
     @include('layouts.wishlist')
+    <!-- @include('layouts.details') -->
 @endsection
 @livewireScripts
 
