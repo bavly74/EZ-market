@@ -40,4 +40,4 @@ cartButton.addEventListener("click", () => {
 cartClose.addEventListener("click", () => {
   cart.classList.remove("opened");
 });
-console.log(cartClose);
+

@@ -1822,6 +1822,7 @@ body {
 }
 
 .products-section-row .product {
+    width: fit-content;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
