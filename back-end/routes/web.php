@@ -100,6 +100,7 @@ Route::group(
 
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
 
+Route::get('user/profile',[UserController::class,'showProfile'])->name('profile.show');
 
 
 

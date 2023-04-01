@@ -38,9 +38,9 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+//    protected $appends = [
+//        'profile_photo_url',
+//    ];
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
