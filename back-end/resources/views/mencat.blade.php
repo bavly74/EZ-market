@@ -1,12 +1,10 @@
 @extends('empty')
 @section('content')
-<!-- <h1>all products</h1>
-    <-- products -->
+
 <div class="path">
-    <h2>Home/Kids/</h2>
+    <h2>Home/Men/</h2>
 </div>
-<!-- <section class="products"> -->
-<!-- filters -->
+
 <div class="container">
     <div class="row">
         <div class="col-3">
@@ -15,91 +13,39 @@
             </div>
         </div>
         <div class="col-9">
-            <!-- <div class="table-responsive"> -->
-                <!-- <div class="table table-striped table-bordered"> -->
-                    <!-- <thead>
-                        <tr>
-                            <th> productName </th>
-                            <th> pro_image1 </th>
-                            <th> pro_image2 </th>
-                            <th> status </th>
-                            <th> variations </th>
-                            <th> description </th>
-                            <th> most_recent </th>
-                            <th> offer </th>
-                            <th> price </th>
-                            <th> avg_price </th>
-                        </tr>
-                    </thead> -->
-
-                <!-- </div> -->
-            <!-- </div> -->
+            <div class="products-section-row">
+                <div class="products"></div>
+            </div>
         </div>
     </div>
 
-    <div class="form-group">
-        <input type="text" name="search" id="search" class="form-control" placeholder="Search product Data" />
-    </div>
-    <div class="products">
-        <!-- filters -->
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-12">--}}
 
-{{--                    <div class="table-responsive">--}}
-{{--                        <table class="table table-striped table-bordered">--}}
-{{--                            <thead>--}}
-{{--                            <tr>--}}
-{{--                                <th> productName  </th>--}}
-{{--                                <th>  pro_image1  </th>--}}
-{{--                                <th> pro_image2 </th>--}}
-{{--                                <th>  status  </th>--}}
-{{--                                <th> variations  </th>--}}
-{{--                                <th>  description  </th>--}}
-{{--                                <th> most_recent </th>--}}
-{{--                                <th>  offer  </th>--}}
-{{--                                <th> price  </th>--}}
-{{--                                <th>  avg_price  </th>--}}
-{{--                            </tr>--}}
-{{--                            </thead>--}}
-{{--                            <tbody></tbody>--}}
 
-{{--                        </table>--}}
+    <!-- products -->
+    {{--      <div class="products-section-row">--}}
+    {{--        <!-- single product -->--}}
+    {{--        @foreach($pro as $po)--}}
+    {{--        <div class="product">--}}
+    {{--          <div class="productImg">--}}
+    {{--            <img src="{{$po->pro_image1}}" alt="" />--}}
+    {{--            <img src="{{$po->pro_image2}}" alt="" />--}}
+    {{--          </div>--}}
+    {{--          <div class="productInfo">--}}
 
-{{--                    </div>--}}
+    {{--            <p><strong> {{$po->brand->name}}</strong></p>--}}
+    {{--            <p>{{$po->productName}}</p>--}}
 
-{{--                </div>--}}
-
-{{--            </div>--}}
-{{--        </div>--}}
-
-        <!-- products -->
-        {{--      <div class="products-section-row">--}}
-        {{--        <!-- single product -->--}}
-        {{--        @foreach($pro as $po)--}}
-        {{--        <div class="product">--}}
-        {{--          <div class="productImg">--}}
-        {{--            <img src="{{$po->pro_image1}}" alt="" />--}}
-        {{--            <img src="{{$po->pro_image2}}" alt="" />--}}
-        {{--          </div>--}}
-        {{--          <div class="productInfo">--}}
-
+    {{--            <span class="price"> <del>{{$po->price}} </del> {{$po->offer}}</span>--}}
+    {{--          </div>--}}
+    {{--          <a href="#" class="add-cart">Add to Cart:----</a>--}}
+    {{--        </div>--}}
+    {{--        @endforeach--}}
+    {{--      </div>--}}
 </div>
 
-<!-- products -->
-{{--      <div class="products-section-row">--}}
-{{--        <!-- single product -->--}}
-{{--        @foreach($pro as $po)--}}
-{{--        <div class="product">--}}
-{{--          <div class="productImg">--}}
-{{--            <img src="{{$po->pro_image1}}" alt="" />--}}
-{{--            <img src="{{$po->pro_image2}}" alt="" />--}}
-{{--          </div>--}}
-{{--          <div class="productInfo">--}}
 
-{{--            <p><strong> {{$po->brand->name}}</strong></p>--}}
-{{--            <p>{{$po->productName}}</p>--}}
 
+<<<<<<< HEAD
         {{--            <span class="price"> <del>{{$po->price}} </del> {{$po->offer}}</span>--}}
         {{--          </div>--}}
         {{--          <a href="#" class="add-cart">Add to Cart:----</a>--}}
@@ -111,6 +57,8 @@
     <script src="./category.js"></script>
 
 
+=======
+>>>>>>> refs/remotes/origin/main
 {{--            <span class="price"> <del>{{$po->price}} </del> {{$po->offer}}</span>--}}
 {{--          </div>--}}
 {{--          <a href="#" class="add-cart">Add to Cart:----</a>--}}
@@ -160,6 +108,7 @@ $(document).ready(function() {
     fetch_product_data();
 
 
+<<<<<<< HEAD
         function fetch_product_data(query = '')
         {
             $.ajax({
@@ -174,6 +123,24 @@ $(document).ready(function() {
                 }
             })
         }
+
+
+=======
+    function fetch_product_data(query = '') {
+        $.ajax({
+            url: "{{ route('menaction') }}",
+            method: 'GET',
+            data: {
+                query: query
+            },
+            dataType: 'json',
+            success: function(data) {
+                $('div.products').html(data.table_data);
+                $('#total_records').text(data.total_data);
+            }
+        })
+    }
+>>>>>>> refs/remotes/origin/main
 
 
 

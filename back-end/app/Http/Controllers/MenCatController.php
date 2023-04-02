@@ -43,20 +43,20 @@ class MenCatController extends Controller
                 {
                     $output .= '
 
+                               <div class="product">
+                                 <div class="productImg">
+                                   <img src="'.$row->pro_image1.'" alt="" />
+                                   <img src="'.$row->pro_image2.'" alt="" />
+                                 </div>
+                                 <div class="productInfo">
 
-                    <div>'.$row->productName.'</div>
-                     <div>'.$row->pro_image1.'</div>
-                      <div>'.$row->pro_image2.'</div>
-                       <div>'.$row->status.'</div>
-                        <div>'.$row->variations.'</div>
-                         <div>'.$row->description.'</div>
-                         <div>'.$row->most_recent.'</div>
-                        <div>'.$row->offer.'</div>
-                         <div>'.$row->price.'</div>
-                       <div>'.$row->avg_price.'</div>
+                                   <p><strong> '.$row->productName.'</strong></p>
+                                   <p>'.$row->productName.'</p>
 
-
-
+                                   <span class="price"> <del> '.$row->price.' </del> '.$row->offer.'</span>
+                                 </div>
+                                 <a href="#" class="add-cart">Add to Cart</a>
+                               </div>
 
                     ';
                 }
