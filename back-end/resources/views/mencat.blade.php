@@ -110,7 +110,7 @@
     <script src="./products.js"></script>
     <script src="./category.js"></script>
 
-=======
+
 {{--            <span class="price"> <del>{{$po->price}} </del> {{$po->offer}}</span>--}}
 {{--          </div>--}}
 {{--          <a href="#" class="add-cart">Add to Cart:----</a>--}}
@@ -175,20 +175,7 @@ $(document).ready(function() {
             })
         }
 
-    function fetch_product_data(query = '') {
-        $.ajax({
-            url: "{{ route('action') }}",
-            method: 'GET',
-            data: {
-                query: query
-            },
-            dataType: 'json',
-            success: function(data) {
-                $('div.pp').html(data.table_data);
-                $('#total_records').text(data.total_data);
-            }
-        })
-    }
+
 
     $(document).on('keyup', '#search', function() {
         var query = $(this).val();
