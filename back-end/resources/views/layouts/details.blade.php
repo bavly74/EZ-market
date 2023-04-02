@@ -2,8 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="/css/productDetails.css" />
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet" />
@@ -13,7 +12,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
 <div class="pd-wrap">
+    @foreach($product as $data)
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -95,7 +96,7 @@
             <div class="col-md-6">
                 <div class="product-dtl">
                     <div class="product-info">
-                        <div class="product-name">Variable Product</div>
+                        <div class="product-name">{{$data->productName}}</div>
                         <div class="reviews-counter">
                             <div class="rate">
                                 <input type="radio" id="star5" name="rate" value="5" checked />
@@ -112,14 +113,11 @@
                             <span>3 Reviews</span>
                         </div>
                         <div class="product-price-discount">
-                            <span>$39.00</span><span class="line-through">$29.00</span>
+                            <span>$ {{$data->price}}</span><span class="line-through">$ {{$data->offer}}</span>
                         </div>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.
+                       {{$data->description}}
                     </p>
                     <div class="row">
                         <div class="col-md-6">
@@ -147,16 +145,26 @@
                             <input type="text" name="quantity" value="1" class="qty" />
                             <div class="qtyplus">+</div>
                         </form>
-                        <a href="#" class="round-black-btn">Add to Cart</a>
+{{--                        <a href="#" class="round-black-btn">Add to Cart</a>--}}
+                        <form action="{{route('cart.store')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="product_ID" value="{{$data->id}}">
+                            <button type ="submit"  style="background: gray"  class="round-black-btn  addToCart">Add
+                                to cart</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
+        @include('layouts.recentProducts')
 </div>
-@include('layouts.recentProducts')
+@endsection
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script
+<script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
       crossorigin="anonymous"
@@ -166,4 +174,4 @@
       integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-@endsection
+

@@ -16,7 +16,6 @@
             <div class="productImg">
                 <img src="imgs/{{$product->pro_image1}}" alt="" />
                 <img src="imgs/{{$product->pro_image2}}" alt="" />
-
             </div>
 
             <div class="productInfo">
@@ -49,11 +48,11 @@
         </div>
     @else
         <div class="product">
-            <div class="productImg">
+            <a href="{{url('details',$product->id)}}" class="productImg">
                 <img src="imgs/{{$product->pro_image1}}" alt="" />
                 <img src="imgs/{{$product->pro_image2}}" alt="" />
 
-            </div>
+            </a>
 
             <div class="productInfo">
                 <p>{{$product->brand->name}}</p>

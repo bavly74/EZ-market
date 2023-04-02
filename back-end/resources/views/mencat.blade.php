@@ -45,20 +45,19 @@
 
 
 
-<<<<<<< HEAD
+
         {{--            <span class="price"> <del>{{$po->price}} </del> {{$po->offer}}</span>--}}
         {{--          </div>--}}
         {{--          <a href="#" class="add-cart">Add to Cart:----</a>--}}
         {{--        </div>--}}
         {{--        @endforeach--}}
         {{--      </div>--}}
-    </div>
+
     <script src="./products.js"></script>
     <script src="./category.js"></script>
 
 
-=======
->>>>>>> refs/remotes/origin/main
+
 {{--            <span class="price"> <del>{{$po->price}} </del> {{$po->offer}}</span>--}}
 {{--          </div>--}}
 {{--          <a href="#" class="add-cart">Add to Cart:----</a>--}}
@@ -108,7 +107,7 @@ $(document).ready(function() {
     fetch_product_data();
 
 
-<<<<<<< HEAD
+
         function fetch_product_data(query = '')
         {
             $.ajax({
@@ -125,22 +124,9 @@ $(document).ready(function() {
         }
 
 
-=======
-    function fetch_product_data(query = '') {
-        $.ajax({
-            url: "{{ route('menaction') }}",
-            method: 'GET',
-            data: {
-                query: query
-            },
-            dataType: 'json',
-            success: function(data) {
-                $('div.products').html(data.table_data);
-                $('#total_records').text(data.total_data);
-            }
-        })
-    }
->>>>>>> refs/remotes/origin/main
+
+
+
 
 
 
