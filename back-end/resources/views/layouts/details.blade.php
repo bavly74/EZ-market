@@ -21,7 +21,7 @@
             <div id="slider" class="owl-carousel product-slider">
               <div class="item">
                 <img
-                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+                  src="imgs/{{$data->pro_image1}}"
                 />
               </div>
               <div class="item">

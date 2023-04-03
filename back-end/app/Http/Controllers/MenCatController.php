@@ -55,8 +55,10 @@ class MenCatController extends Controller
 
                                    <span class="price"> <del> '.$row->price.' </del> '.$row->offer.'</span>
                                  </div>
-                                 <a href="#" class="add-cart">Add to Cart</a>
+                                 <a href="#" class="add-cart">Add to Cart.</a>
                                </div>
+
+
 
                     ';
                 }
