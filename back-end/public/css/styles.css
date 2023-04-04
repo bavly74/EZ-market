@@ -1761,13 +1761,6 @@ body {
     max-width: 1124px;
 }
 
-.products {
-    width: 90vw;
-    display: grid;
-    grid-gap: 1rem;
-    margin: 4rem auto;
-    max-width: 1124px;
-}
 
 
 .search-input {
@@ -1783,9 +1776,10 @@ body {
     outline: none;
 }
 
-.products h3 {
-    margin: 1.5rem 0 0.5rem;
-
+.products-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .filters-container .categories {
@@ -1968,9 +1962,7 @@ body {
 
 
 @media screen and (min-width: 768px) {
-    .products {
-        grid-template-columns: 200px 1fr;
-    }
+
 }
 
 .floatCart {

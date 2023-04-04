@@ -5,7 +5,7 @@
     <h2>Home/Men/</h2>
 </div>
 
-<div class="container">
+<div class="container p-3">
     <div class="row">
         <div class="col-3">
             <div class="form-group">
@@ -14,7 +14,7 @@
         </div>
         <div class="col-9">
             <div class="products-section-row">
-                <div class="products"></div>
+                <div class="products-container"></div>
             </div>
         </div>
     </div>
@@ -117,7 +117,7 @@ $(document).ready(function() {
                 dataType:'json',
                 success:function(data)
                 {
-                    $('div.products').html(data.table_data);
+                    $('div.products-container').html(data.table_data);
                     $('#total_records').text(data.total_data);
                 }
             })
