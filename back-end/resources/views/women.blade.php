@@ -48,10 +48,8 @@
         {{--        @endforeach--}}
         {{--      </div>--}}
     </div>
-    <script src="./products.js"></script>
-    <script src="./category.js"></script>
-    </body>
-    </html>
+
+
 @endsection
 
 

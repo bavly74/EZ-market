@@ -1,18 +1,15 @@
 <?php
 
 
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\KidsCatController;
-
-use App\Http\Controllers\MenCatController;
-
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductDetailsController;
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\frontend\CartController;
+use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\KidsCatController;
+use App\Http\Controllers\frontend\MenCatController;
+use App\Http\Controllers\frontend\ProductDetailsController;
+use App\Http\Controllers\frontend\SearchController;
+use App\Http\Controllers\frontend\UserController;
+use App\Http\Controllers\frontend\WomenController;
 use App\Http\Controllers\LogoutController;
-
-use App\Http\Controllers\WomenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,11 +22,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('auth/facebook', 'App\Http\Controllers\SocialController@facebookRedirect');
-Route::get('auth/facebook/callback', 'App\Http\Controllers\SocialController@loginWithFacebook');
+Route::get('auth/facebook', 'App\Http\Controllers\frontend\SocialController@facebookRedirect');
+Route::get('auth/facebook/callback', 'App\Http\Controllers\frontend\SocialController@loginWithFacebook');
 
-Route::get('auth/google', 'App\Http\Controllers\SocialController@googleRedirect');
-Route::get('auth/google/callback', 'App\Http\Controllers\SocialController@loginWithGoogle');
+Route::get('auth/google', 'App\Http\Controllers\frontend\SocialController@googleRedirect');
+Route::get('auth/google/callback', 'App\Http\frontend\Controllers\SocialController@loginWithGoogle');
 
 
 

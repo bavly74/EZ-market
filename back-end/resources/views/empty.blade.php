@@ -20,7 +20,6 @@
 {{--@endif--}}
 
 @include('layouts.navbar-with-sign-in')
-
 @include('layouts.category')
 @include('layouts.cart')
 @include('layouts.wishlist')
