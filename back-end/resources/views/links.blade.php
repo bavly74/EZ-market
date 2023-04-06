@@ -6,9 +6,13 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
 />
+<<<<<<< HEAD
 <link rel="stylesheet" href="/css/productDetails.css" />
 <<<<<<< HEAD
 <script src="js/productDetails.js"></script>
 =======
+=======
+
+>>>>>>> df696ca7eac4672076f330bc9a1f33bf659bd660
 
 >>>>>>> refs/remotes/origin/main

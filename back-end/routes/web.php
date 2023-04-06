@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\KidsCatController;

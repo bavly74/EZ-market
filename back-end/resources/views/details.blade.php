@@ -174,5 +174,7 @@
 {{--      integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"--}}
 {{--      crossorigin="anonymous"--}}
 {{--    ></script>--}}
-@include('links')
-@include('layouts.navbar-with-sign-in')
+@extends('empty')
+@section('content')
+    hi
+@endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,9 +12,9 @@ class WomenController extends Controller
     //
     public function index()
     {
-//        $products=Product::where('cat_id',2)->get();
+        $products=Product::where('cat_id',1)->get();
 //        $cart=Cart::content();
-        return view('women');
+        return view('women',compact('products'));
 
     }
 
@@ -33,56 +34,73 @@ class WomenController extends Controller
 
 
 
-    function womenAction(Request $request)
+//    function womenAction(Request $request)
+//    {
+//        if($request->ajax())
+//        {
+//            $output = '';
+//            $query = $request->get('query');
+//            if($query != '') {
+//                $data = DB::table('products')
+//                    ->where('productName', 'like', '%'.$query.'%')
+//                    ->orderBy('id', 'desc')
+//                    ->get();
+//
+//            } else {
+//                $data = DB::table('products')->where('cat_id',1)
+//                    ->orderBy('id', 'desc')
+//                    ->get();
+//            }
+//
+//            $total_row = $data->count();
+//            if($total_row > 0){
+//                foreach($data as $row)
+//                {
+//                    $output .= '
+//                    <tr>
+//                    <td>'.$row->productName.'</td>
+//                     <td>'.$row->pro_image1.'</td>
+//                      <td>'.$row->pro_image2.'</td>
+//                       <td>'.$row->status.'</td>
+//                        <td>'.$row->variations.'</td>
+//                         <td>'.$row->description.'</td>
+//                         <td>'.$row->most_recent.'</td>
+//                        <td>'.$row->offer.'</td>
+//                         <td>'.$row->price.'</td>
+//                       <td>'.$row->avg_price.'</td>
+//                    </tr>
+//                    ';
+//                }
+//            } else {
+//                $output = '
+//                <tr>
+//                    <td align="center" colspan="20">No Data Found</td>
+//                </tr>
+//                ';
+//            }
+//            $data = array(
+//                'table_data'  => $output,
+//                'total_data'  => $total_row
+//            );
+//            echo json_encode($data);
+//        }
+//    }
+
+
+
+    public function womenAction(Request $request)
     {
-        if($request->ajax())
-        {
-            $output = '';
-            $query = $request->get('query');
-            if($query != '') {
-                $data = DB::table('products')
-                    ->where('productName', 'like', '%'.$query.'%')
-                    ->orderBy('id', 'desc')
-                    ->get();
+        $search = $request->input('search');
 
-            } else {
-                $data = DB::table('products')->where('cat_id',1)
-                    ->orderBy('id', 'desc')
-                    ->get();
-            }
+        $query = Product::query();
 
-            $total_row = $data->count();
-            if($total_row > 0){
-                foreach($data as $row)
-                {
-                    $output .= '
-                    <tr>
-                    <td>'.$row->productName.'</td>
-                     <td>'.$row->pro_image1.'</td>
-                      <td>'.$row->pro_image2.'</td>
-                       <td>'.$row->status.'</td>
-                        <td>'.$row->variations.'</td>
-                         <td>'.$row->description.'</td>
-                         <td>'.$row->most_recent.'</td>
-                        <td>'.$row->offer.'</td>
-                         <td>'.$row->price.'</td>
-                       <td>'.$row->avg_price.'</td>
-                    </tr>
-                    ';
-                }
-            } else {
-                $output = '
-                <tr>
-                    <td align="center" colspan="20">No Data Found</td>
-                </tr>
-                ';
-            }
-            $data = array(
-                'table_data'  => $output,
-                'total_data'  => $total_row
-            );
-            echo json_encode($data);
+        if($search) {
+            $query->where('productName', 'LIKE', '%'.$search.'%');
         }
+
+        $results = $query->get();
+
+        return response()->json($results);
     }
 
 }
