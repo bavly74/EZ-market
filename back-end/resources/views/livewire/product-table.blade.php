@@ -11,7 +11,7 @@
 {{--        </div>--}}
 {{--        @endif--}}
 {{--    </div>--}}
-<div class="products-section-row">
+<div class="products-section">
     @include('layouts.notification')
     <div class="products-section-row">
         @foreach($products as $product)
@@ -24,7 +24,6 @@
 
                     </div>
                 </a>
-
 
                 <div class="productInfo">
                     <p>{{$product->brand->name}}</p>

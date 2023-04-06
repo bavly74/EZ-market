@@ -76,7 +76,7 @@ footer .logoSection {
     font-weight: bold;
 }
 
-.firstNavbar .searchSection {
+.searchSection {
     position: relative;
     background: #f2f2f2;
     padding: 12px 19px;
@@ -89,7 +89,21 @@ footer .logoSection {
     -o-border-radius: 5px;
 }
 
-.firstNavbar .searchSection input {
+.searchSection:nth-child(1) {
+    width: 100%;
+    background: #ccc;
+    padding: 12px !important;
+}
+
+.searchSection:nth-child(1) form {
+    display: flex;
+}
+
+.searchSection:nth-child(1) input::placeholder {
+    color: gray;
+}
+
+.searchSection input {
     width: 100%;
     font-size: 16px;
     border: none;
@@ -99,7 +113,8 @@ footer .logoSection {
 }
 
 
-.firstNavbar .searchSection .icon {
+
+.searchSection .icon {
     color: gray;
     position: absolute;
     top: 50%;
@@ -109,6 +124,18 @@ footer .logoSection {
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
+}
+
+.searchSection:nth-child(1) button {
+    color: gray;
+    background: transparent;
+    border: none;
+
+}
+
+.searchSection:nth-child(1) button i {
+    filter: drop-shadow(3px 10px 2px rgb(0 0 0 / 0.4));
+    -webkit-filter: drop-shadow(3px 10px 2px rgb(0 0 0 / 0.4));
 }
 
 .firstNavbar .userSection {
@@ -776,7 +803,6 @@ footer .footer-row .footer-links ul a:hover::before {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    color: white;
     margin: 0 10px;
     transition: var(--transition);
     -webkit-transition: var(--transition);
@@ -875,7 +901,7 @@ footer .footer-row .footer-links ul a:hover::before {
     font-size: 14px;
 }
 
-.products-section .product form {
+.products-section .product form,.products-section-row .product form {
     width: 100%;
 }
 
@@ -1776,7 +1802,7 @@ body {
     outline: none;
 }
 
-.products-container{
+.products-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1822,7 +1848,6 @@ body {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    color: white;
     margin: 0 10px;
     transition: var(--transition);
     -webkit-transition: var(--transition);
@@ -1924,7 +1949,7 @@ body {
     align-items: center;
     text-align: center;
     background: green;
-    width: 100%;
+    width: 100% !important;
     height: 40px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -1944,6 +1969,8 @@ body {
     -moz-transform: translateY(-3em);
     -ms-transform: translateY(-3em);
     -o-transform: translateY(-3em);
+    color: white;
+    border: none;
 }
 
 .products-section-row .product .add-cart:hover {
@@ -1961,9 +1988,7 @@ body {
 
 
 
-@media screen and (min-width: 768px) {
-
-}
+@media screen and (min-width: 768px) {}
 
 .floatCart {
     /* flex: 1; */

@@ -10,8 +10,10 @@
 {{--                                </div>--}}
 {{--                                <a href="#" class="add-cart">Add to cart</a>--}}
 {{--</div>--}}
+     <div class="products-section-row">
+
 @foreach($products as $product)
-    @if($product->inventory->quantity <1 || $product->status!=1)
+@if($product->inventory->quantity <1 || $product->status!=1)
         <div class="product">
             <div class="productImg">
                 <img src="imgs/{{$product->pro_image1}}" alt="" />
@@ -47,6 +49,7 @@
             </form>
 
         </div>
+
     @else
         <div class="product">
             <a href="{{url('details',$product->id)}}" class="productImg">
@@ -82,7 +85,7 @@
             </form>
 
         </div>
+
     @endif
-
-
-@endforeach
+    @endforeach
+</div>

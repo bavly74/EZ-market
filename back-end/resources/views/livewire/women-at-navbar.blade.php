@@ -10,6 +10,7 @@
 {{--                                </div>--}}
 {{--                                <a href="#" class="add-cart">Add to cart</a>--}}
 {{--</div>--}}
+<div class="products-section-row">
 @foreach($products as $product)
     @if($product->inventory->quantity <1 || $product->status!=1)
         <div class="product">
@@ -83,6 +84,5 @@
 
         </div>
     @endif
-
-
 @endforeach
+</div>
