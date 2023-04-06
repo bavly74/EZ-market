@@ -6,5 +6,5 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
 />
-<link rel="stylesheet" href="/css/productDetails.css" />
+
 
