@@ -76,10 +76,10 @@ class KidsCatController extends Controller
         $query = Product::query();
 
         if($search) {
-            $query->where('productName', 'LIKE', '%'.$search.'%');
+            $query->where('productName', 'LIKE', '%'.$search.'%')->where('cat_id',3);
         }
 
-        $results = $query->get();
+        $results = $query->with('brand')->with('inventory')->get();
 
         return response()->json($results);
     }

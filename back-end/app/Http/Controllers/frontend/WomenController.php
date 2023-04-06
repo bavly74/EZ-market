@@ -12,7 +12,7 @@ class WomenController extends Controller
     //
     public function index()
     {
-        $products=Product::where('cat_id',1)->get();
+        $products=Product::where('cat_id',1)->get()->load('inventory');
 //        $cart=Cart::content();
         return view('women',compact('products'));
 
@@ -95,10 +95,10 @@ class WomenController extends Controller
         $query = Product::query();
 
         if($search) {
-            $query->where('productName', 'LIKE', '%'.$search.'%');
+            $query->where('productName', 'LIKE', '%'.$search.'%')->where('cat_id',1);
         }
 
-        $results = $query->get();
+        $results = $query->with('brand')->with('inventory')->get();
 
         return response()->json($results);
     }

@@ -24,27 +24,50 @@
 
             <div id="product-list" class="products-section-row">
                 @foreach($products as $product)
-                <div class="product">
+                    @if($product->inventory->quantity <1 || $product->status!=1)
+                        <div class="product">
 
-                    <div class="productImg">
-                        <img src="imgs/{{$product->pro_image1}}" alt="" />
-                        <img src="imgs/{{$product->pro_image2}}" alt="" />
-                    </div>
+                            <div class="productImg">
+                                <img src="imgs/{{$product->pro_image1}}" alt="" />
+                                <img src="imgs/{{$product->pro_image2}}" alt="" />
+                            </div>
 
-                    <div class="productInfo">
-                        <p>{{$product->brand->name}}</p>
-                        <p><strong> {{$product->productName}} </strong></p>
-                        <span class="price"> <del>{{$product->productCost}}$ </del> {{$product->price}}$</span>
-                        <p style="color:black"><strong>in stock :{{$product->inventory->quantity}} </strong></p>
-                    </div>
+                            <div class="productInfo">
+                                <p>{{$product->brand->name}}</p>
+                                <p><strong> {{$product->productName}} </strong></p>
+                                <span class="price"> <del>{{$product->productCost}}$ </del> {{$product->price}}$</span>
+                                <p style="color:black"><strong>unvailable </strong></p>
+                            </div>
 
-                    <form action="{{url('/cart-store')}}" method="post">
-                        @csrf
-                        <input type="hidden" name="product_ID" value="{{$product->id}}">
-                        <button type="submit" class="add-cart">add to cart</button>
-                    </form>
-                </div>
+                            <form action="{{url('/cart-store')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="product_ID" value="{{$product->id}}">
+                                <button type="submit" disabled style="background: gray" class="add-cart">add to cart</button>
+                            </form>
+                        </div>
+                    @else
 
+                        <div class="product">
+
+                            <div class="productImg">
+                                <img src="imgs/{{$product->pro_image1}}" alt="" />
+                                <img src="imgs/{{$product->pro_image2}}" alt="" />
+                            </div>
+
+                            <div class="productInfo">
+                                <p>{{$product->brand->name}}</p>
+                                <p><strong> {{$product->productName}} </strong></p>
+                                <span class="price"> <del>{{$product->productCost}}$ </del> {{$product->price}}$</span>
+                                <p style="color:black"><strong>in stock: {{$product->inventory->quantity}} </strong></p>
+                            </div>
+
+                            <form action="{{url('/cart-store')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="product_ID" value="{{$product->id}}">
+                                <button type="submit"   class="add-cart">add to cart</button>
+                            </form>
+                        </div>
+                    @endif
                 @endforeach
             </div>
 
@@ -77,10 +100,14 @@ $('#search-form').on('submit', function(e) {
                 item += '<img src="imgs/' + product.pro_image2 + '" alt="" />';
                 item += '</div>';
                 item += '<div class="productInfo">';
-                item += '<p>' + product.productName + '</p>';
-                item += '<p>' + product.productCost + '</p>';
-                item += '<p>' + product.price + '</p>';
 
+                item += '<p>' + product.brand.name + '</p>';
+
+                item += '<strong>' + product.productName + '</strong>';
+
+                item += '<p>'+'$' + product.price + '</p>';
+
+                item += '<strong>'+'in stock: ' + product.inventory.quantity + '</strong>';
 
                 item += '</div>';
 
