@@ -7,4 +7,8 @@
     referrerpolicy="no-referrer"
 />
 <link rel="stylesheet" href="/css/productDetails.css" />
+<<<<<<< HEAD
 <script src="js/productDetails.js"></script>
+=======
+
+>>>>>>> refs/remotes/origin/main

@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\frontend;
 
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 
 class MenCatController extends Controller
@@ -27,7 +26,7 @@ class MenCatController extends Controller
             $query = $request->get('query');
             if($query != '') {
                 $data = DB::table('products')
-                    ->where('productName', 'like', '%'.$query.'%')
+                    ->where('productName', 'like', '%'.$query.'%')->where('cat_id',2)
                     ->orderBy('id', 'desc')
                     ->get();
 
@@ -55,7 +54,7 @@ class MenCatController extends Controller
 
                                    <span class="price"> <del> '.$row->price.' </del> '.$row->offer.'</span>
                                  </div>
-                                 <a href="#" class="add-cart">Add to Cart.</a>
+                                 <a href="#" class="add-cart">Add to Cart</a>
                                </div>
 
 

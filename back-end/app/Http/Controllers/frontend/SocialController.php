@@ -1,12 +1,12 @@
 <?php
-namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\frontend;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Validator;
+
 //use Socialite;
-use Exception;
 
 class SocialController extends Controller
 {
