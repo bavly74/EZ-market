@@ -15,7 +15,7 @@
 <header class="firstNavbar padding-section">
     <div class="logoSection">
         <div class="logo">
-            <img src="imgs/logo.jfif" alt="logo" class="logoImg" />
+            <img src="/imgs/logo.jfif" alt="logo" class="logoImg" />
         </div> <!-- logo -->
         <section>
             <div class="content">

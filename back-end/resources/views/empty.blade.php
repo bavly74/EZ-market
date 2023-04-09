@@ -11,7 +11,7 @@
 @include('layouts.footer')
 
 
-<script src="js/scripts.js"></script>
-<script src="js/productDetails.js"></script>
+<script src="/js/scripts.js"></script>
+<script src="/js/productDetails.js"></script>
 
 @livewireScripts

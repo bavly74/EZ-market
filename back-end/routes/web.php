@@ -25,7 +25,7 @@ Route::get('auth/facebook', 'App\Http\Controllers\frontend\SocialController@face
 Route::get('auth/facebook/callback', 'App\Http\Controllers\frontend\SocialController@loginWithFacebook');
 
 Route::get('auth/google', 'App\Http\Controllers\frontend\SocialController@googleRedirect');
-Route::get('auth/google/callback', 'App\Http\frontend\Controllers\SocialController@loginWithGoogle');
+Route::get('auth/google/callback', 'App\Http\Controllers\frontend\SocialController@loginWithGoogle');
 
 
 
