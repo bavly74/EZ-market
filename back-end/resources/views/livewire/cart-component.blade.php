@@ -42,15 +42,19 @@
             </div>
 
             @endforeach
-            <div class="cartTotal">
-                <!-- <p>shipping Taxes{{ Cart::tax() }} </p>
-                <p>total{{ Cart::initial() }} </p> -->
-                <div class="sub">
-                    <p>subtotal: </p>
-                    <p>${{Cart::subtotal()}}</p>
-                </div>
-            </div>
 
+
+
+        </div>
+        <div class="cartTotal">
+            <!-- <p>shipping Taxes{{ Cart::tax() }} </p>
+                <p>total{{ Cart::initial() }} </p> -->
+            <div class="sub">
+                <p>subtotal: </p>
+                <p>${{Cart::subtotal()}}</p>
+            </div>
+            <a href="">View Cart</a>
+            <a href=""><i class="fa-solid fa-lock" style="color:white;"></i> Checkout</a>
         </div>
         @else
         <div class="cart-content">
