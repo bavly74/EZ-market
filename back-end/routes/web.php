@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\frontend\CartController;
+use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\KidsCatController;
 use App\Http\Controllers\frontend\MenCatController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\frontend\WomenController;
 use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,7 @@ Route::group(['middleware' => ['auth']], function() {
      */
     Route::get('/logout', [UserController::class,'logout'])->name('logout.logout');
 });
+Route::get('checkout', [CheckoutController::class,'index']);
 
 Route::group(
     [
