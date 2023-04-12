@@ -48,4 +48,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+    public function run()
+    {
+        User::factory()
+            ->count(5)
+            ->create();
+    }
 }

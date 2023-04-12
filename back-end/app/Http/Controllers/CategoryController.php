@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cats =Category::all();  
+        $cats =Category::all();
         return view('Categories.show',compact('cats'));
     }
 
@@ -26,7 +26,7 @@ class CategoryController extends Controller
     {
         $cats = Category::all();
         return view('Categories.create',compact('cats'));
-        
+
     }
 
     /**
@@ -38,8 +38,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-  
-       
+
+
         $cat=new Category();
         $cat->name = $request->name;
         $cat->status = $request->status;
@@ -64,12 +64,13 @@ class CategoryController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit($id)
     {
+        $allCat=Category::all();
         $cats=Category::findorfail($id);
-        return view('Categories.edit', compact('cats'));
+        return view('Categories.edit', compact('cats','allCat'));
     }
 
     /**
@@ -88,8 +89,8 @@ class CategoryController extends Controller
       $cats->status=$request->status;
         $cats->save();
     return redirect()->route('category.index');
-        
-      
+
+
     }
 
     /**

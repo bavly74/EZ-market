@@ -12,16 +12,16 @@
                 <a href="#"><img src="/imgs/logo.jfif" alt="" /> </a>
             </div>
             <li class="navMenuLink">
-                <a href="/" class="navLink"><span>home</span> </a>
+                <a href="/" class="navLink"><span>{{trans('category_trans.home')}}</span> </a>
             </li>
             <li class="navMenuLink">
                 <a href="#" class="navLink">
-                    <span> shop </span> <i class="fa-solid fa-angle-down"></i></a>
+                    <span> {{trans('category_trans.shop')}} </span> <i class="fa-solid fa-angle-down"></i></a>
             </li>
 
             <li class="menu navMenuLink">
                 <a href="{{route('mencat')}}" class="navLink">
-                    <span> men </span>
+                    <span> {{trans('category_trans.men')}} </span>
                     <i class="fa-solid fa-angle-down"></i>
                 </a>
 
@@ -47,7 +47,7 @@
 
             <li class="menu navMenuLink">
                 <a href="{{route('women.index')}}" class="navLink">
-                    <span> women </span>
+                    <span> {{trans('category_trans.women')}} </span>
                     <i class="fa-solid fa-angle-down"></i>
                 </a>
                 <div class="drop">
@@ -76,7 +76,7 @@
 
             <li class="menu navMenuLink">
                 <a href="{{route('kids.index')}}" class="navLink">
-                    <span> kids </span>
+                    <span> {{trans('category_trans.kids')}} </span>
                     <i class="fa-solid fa-angle-down"></i>
                 </a>
                 <div class="drop">

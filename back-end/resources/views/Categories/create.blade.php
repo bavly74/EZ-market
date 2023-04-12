@@ -1,6 +1,6 @@
 <form method='post' action="{{route('category.store')}}">
     @csrf
-   
+
     <input type='text' placeholder='enter category name' name='name'><br>
     <input type="checkbox" name="status" value="1">
     <label for="status1">avilable</label><br>
@@ -11,7 +11,7 @@
     @foreach( $cats as $cat)
     <option value="{{$cat->id}}" name="cat_parent">{{$cat->name}}</option>
     @endforeach
-   
+
   </select>
     <!-- <input type='number' placeholder='enter id of category parent' name='Cat_parent'><br> -->
 
