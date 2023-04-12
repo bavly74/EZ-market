@@ -12,4 +12,7 @@ class Category extends Model
     {
         return $this->hasMany(product::class);
     }
+
+    protected $fillable=['name','status','cat_parent'];
 }
+

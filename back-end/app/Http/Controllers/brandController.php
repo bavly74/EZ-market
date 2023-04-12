@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Inventory;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
-class InventoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +13,8 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        //
-       $inventory =  Inventory::all();
-       return view('Inventory.show', compact('inventory'));
-       
-
+        $brand =Brand::all();
+        return view('Brands.show', compact('brand'));
     }
 
     /**
@@ -27,10 +24,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
-        $inventory =  Inventory::all();
-        return view('Inventory.create', compact('inventory'));
-
+        return view('Brands.create');
     }
 
     /**
@@ -41,15 +35,15 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $inventory=new Inventory();
-        $inventory->product_id = $request->product_id;
-        $inventory->pro_name = $request->pro_name;
-        $inventory->quantity = $request->quantity;
-        $inventory->product_cost = $request->product_cost;
-        $inventory->save();
+      
+        Brand::create([
+            'name'=>$request->name,
+            'image'=>$request->image
 
-        return redirect()->route('inventory.index');
+        ]
+        );
+        return response('added successfully');
+        
     }
 
     /**
@@ -71,9 +65,8 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-        //
-        $inventory=Inventory::findorfail($id);
-        return view('inventory.edit', compact('inventory'));
+        $brand=Brand::where('id',$id)->first();
+        return view('Brands.edit', compact('brand'));
     }
 
     /**
@@ -85,14 +78,12 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $inventory=Inventory::findorfail($id);
-        $inventory->pro_name = $request->pro_name;
-        $inventory->quantity = $request->quantity;
-        $inventory->product_cost = $request->product_cost;
-        $inventory->save();
-        return redirect()->route('inventory.index'); 
-
+        $brand=Brand::findorfail($id);
+        $brand->update([
+            'name' => $brand->name,
+            'image' => $brand->image
+        ]); 
+        return redirect()->route('brand.index');
 
     }
 
@@ -104,9 +95,7 @@ class InventoryController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $inventory=Inventory::findorfail($id)->delete();
-        return redirect()->route('inventory.index'); 
-
+       Brand::findorfail($id)->delete();
+       return redirect()->route('brand.index');
     }
 }
