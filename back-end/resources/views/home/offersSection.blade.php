@@ -23,4 +23,7 @@
 {{--        @endforeach--}}
 {{--    </div>--}}
 {{--</section>--}}
+<section class="products-section padding-section">
+    <h2 class="products-section-before">OFFERS</h2>
 @livewire('product-table')
+</section>

@@ -15,7 +15,7 @@
 <header class="firstNavbar padding-section">
     <div class="logoSection">
         <div class="logo">
-            <img src="imgs/logo.jfif" alt="logo" class="logoImg" />
+            <img src="/imgs/logo.jfif" alt="logo" class="logoImg" />
         </div> <!-- logo -->
         <section>
             <div class="content">
@@ -26,8 +26,11 @@
         <!-- logo -->
     </div>
     <div class="searchSection">
-        <i class="fa-solid fa-magnifying-glass icon"></i>
-        <input type="text" placeholder="{{trans('nav_trans.Search products...')}}" />
+        <form action="{{route('search')}}" method="get">
+            <i class="fa-solid fa-magnifying-glass icon"></i>
+            <input type="text" name="search" value="{{Request::get('search')}}" placeholder="{{trans('nav_trans.Search products...')}}" />
+        </form>
+
     </div>
     @auth
     <div class="userSection">
@@ -59,8 +62,15 @@
                 </li>
                 <li>
                     <div class="userInfo loged">
-                        <p>profile</p>
+                        <a href="{{route('profile.show') }}">profile</a>
                     </div>
+
+
+{{--                    <x-jet-dropdown-link href="{{ route('profile.show') }}">--}}
+{{--                        {{ __('Profile') }}--}}
+{{--                    </x-jet-dropdown-link>--}}
+
+
 
                 </li>
             </ul>

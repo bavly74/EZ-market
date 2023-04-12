@@ -1,19 +1,24 @@
 <?php
 
-
-use App\Http\Controllers\KidsCatController;
-
-use App\Http\Controllers\MenCatController;
-
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\frontend\CartController;
+use App\Http\Controllers\frontend\CheckoutController;
+use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\KidsCatController;
+use App\Http\Controllers\frontend\MenCatController;
+use App\Http\Controllers\frontend\ProductDetailsController;
+use App\Http\Controllers\frontend\SearchController;
+use App\Http\Controllers\frontend\UserController;
+use App\Http\Controllers\frontend\WomenController;
 use App\Http\Controllers\LogoutController;
+
 use App\Http\Controllers\brandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
+
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +30,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('auth/facebook', 'App\Http\Controllers\SocialController@facebookRedirect');
-Route::get('auth/facebook/callback', 'App\Http\Controllers\SocialController@loginWithFacebook');
+Route::get('auth/facebook', 'App\Http\Controllers\frontend\SocialController@facebookRedirect');
+Route::get('auth/facebook/callback', 'App\Http\Controllers\frontend\SocialController@loginWithFacebook');
 
-Route::get('auth/google', 'App\Http\Controllers\SocialController@googleRedirect');
-Route::get('auth/google/callback', 'App\Http\Controllers\SocialController@loginWithGoogle');
+Route::get('auth/google', 'App\Http\Controllers\frontend\SocialController@googleRedirect');
+Route::get('auth/google/callback', 'App\Http\Controllers\frontend\SocialController@loginWithGoogle');
 
 
 
@@ -51,6 +56,7 @@ Route::group(['middleware' => ['auth']], function() {
      */
     Route::get('/logout', [UserController::class,'logout'])->name('logout.logout');
 });
+Route::get('checkout', [CheckoutController::class,'index']);
 
 Route::group(
     [
@@ -71,14 +77,12 @@ Route::group(
         return 'hi';
     });
 
-    Route::get('kidscat',[KidsCatController::class,'index'])->name('kidscat');
 
-    Route::get('mencat',[MenCatController::class,'index'])->name('mencat');
-
+    Route::get('search',[SearchController::class,'index'])->name('search');
 
 
 
-});
+
 
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
 
@@ -87,6 +91,36 @@ Route::resource('category',categoryController::class);
 Route::resource('employee',employeeController::class);
 Route::resource('product',ProductController::class);
 Route::resource('inventory',InventoryController::class);
+
+    Route::controller(MenCatController::class)->group(function () {
+        Route::get('mencat', 'index')->name('mencat');
+        Route::get('/menaction',  'menAction')->name('menaction');
+
+        //Route::get('Mensearch', 'menSearch')->name('mencat.search');
+    });
+
+
+    Route::controller(KidsCatController::class)->group(function () {
+        Route::get('/kidscat', 'index')->name('kids.index');
+        Route::get('/kidsaction',  'kidsAction')->name('kidsaction');
+    });
+
+    Route::controller(WomenController::class)->group(function () {
+        Route::get('/women-category', 'index')->name('women.index');
+        Route::get('/womenaction',  'womenAction')->name('womenaction');
+    });
+
+    Route::post('cart-store',[CartController::class,'store'])->name('cart.store');
+
+    Route::get('user/register',[UserController::class,'create'])->name('user.register');
+
+    Route::get('user/profile',[UserController::class,'showProfile'])->name('profile.show');
+
+    Route::get('details/{id}',[ProductDetailsController::class,'showDetails']);
+
+});
+
+
 
 
 

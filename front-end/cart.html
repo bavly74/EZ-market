@@ -14,24 +14,9 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <style>
-    .img {
-      position: relative;
-      width: 300px;
-      height: 300px;
-    }
-    .img img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      animation-name: fade;
-      animation-duration: 1.5s;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-    }
-  </style>
+  
   <body>
-    <!-- <div class="cart">
+    <div class="cart">
       
         <div class="container">
           <div class="grid_12">
@@ -167,21 +152,7 @@
             </div>
           </div>
         </div>
-     </div> -->
-    <div class="img">
-      <img alt="" class="image" />
-    </div>
-    <script>
-      const image = document.querySelector(".image");
-      document.addEventListener("DOMContentLoaded", function () {
-        let images = ["imgs/Bugz_logo.png", "imgs/Bugz_logo_up.png"];
-        var i = 0;
-        window.setInterval(function () {
-          image.setAttribute("src", images[i]);
-          i = i == images.length - 1 ? 0 : i + 1;
-        }, 500);
-      });
- 
-    </script>
+     </div>
+
   </body>
 </html>

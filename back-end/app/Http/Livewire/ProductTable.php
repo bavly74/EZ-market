@@ -26,9 +26,10 @@ class ProductTable extends Component
 
     public function render()
     {
-       // $qty=Product::find($this->products->id);
-        $cart=Cart::instance('shopping')->content();
         $products=Product::all();
+//        $qty=Product::find(1);
+        $cart=Cart::instance('shopping')->content();
+        // $recentProduct=Product::where('most_recent','1');
         return view('livewire.product-table',compact('cart','products'));
     }
 
@@ -48,8 +49,6 @@ class ProductTable extends Component
 
         return false;
     }
-
-
 
         return view('livewire.product-table', compact('product'));
     }

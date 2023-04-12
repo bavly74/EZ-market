@@ -1,5 +1,5 @@
-<section class="products-section padding-section">
-    <h2 class="products-section-before">OFFERS</h2>
+{{--<section class="products-section padding-section">--}}
+{{--    <h2 class="products-section-before">OFFERS</h2>--}}
 {{--    <div id="box">--}}
 {{--        @if (session()->has('message'))--}}
 {{--        <div class="alert alert-success alertD ">--}}
@@ -11,16 +11,19 @@
 {{--        </div>--}}
 {{--        @endif--}}
 {{--    </div>--}}
+<div class="products-section">
     @include('layouts.notification')
     <div class="products-section-row">
         @foreach($products as $product)
-            @if($product->inventory->quantity <1 || $product->status!=1)
+        @if($product->inventory->quantity <1 || $product->status!=1)
             <div class="product">
-                <div class="productImg">
-                    <img src="imgs/{{$product->pro_image1}}" alt="" />
-                    <img src="imgs/{{$product->pro_image2}}" alt="" />
+                <a href="#">
+                    <div class="productImg">
+                        <img src="imgs/{{$product->pro_image1}}" alt="" />
+                        <img src="imgs/{{$product->pro_image2}}" alt="" />
 
-                </div>
+                    </div>
+                </a>
 
                 <div class="productInfo">
                     <p>{{$product->brand->name}}</p>
@@ -31,15 +34,16 @@
 
                 </div>
 
-                <form  wire:submit.prevent="addItemToCart({{$product->id}})">
+                <form wire:submit.prevent="addItemToCart({{$product->id}})">
                     @csrf
 
-                    <button type="button" disabled style="background: gray"  type="submit" class="add-cart addToCart" >Add to cart</button>
+                    <button type="button" disabled style="background: gray" type="submit" class="add-cart addToCart">Add
+                        to cart</button>
                 </form>
 
-                <form wire:submit.prevent=" addItemToWishlist({{$product->id}})">
+                <form wire:submit.prevent="addItemToWishlist({{$product->id}})">
                     @csrf
-                    <button class="wishList addToWishList" >
+                    <button class="wishList addToWishList">
                         <div>
                             <i class="fa-regular fa-heart " onclick="myFunction(this)"></i>
                         </div>
@@ -68,13 +72,13 @@
 
                 <form wire:submit.prevent="addItemToCart({{$product->id}})">
                     @csrf
-{{--                    <input wire:model="quantity.{{$product->id}}" type="number">--}}
-                    <button type="submit" class="add-cart addToCart" >Add to cart</button>
+                    {{--                    <input wire:model="quantity.{{$product->id}}" type="number">--}}
+                    <button type="submit" class="add-cart addToCart">Add to cart</button>
                 </form>
 
                 <form wire:submit.prevent=" addItemToWishlist({{$product->id}})">
                     @csrf
-                    <button class="wishList addToWishList" >
+                    <button class="wishList addToWishList">
                         <div>
                             <i class="fa-regular fa-heart " onclick="myFunction(this)"></i>
                         </div>
@@ -87,9 +91,9 @@
             @endif
 
 
-        @endforeach
+            @endforeach
+
 
 
     </div>
-</section>
-
+    {{--</section>--}}
