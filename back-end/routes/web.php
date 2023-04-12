@@ -16,6 +16,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\DeliveryManController;
 
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -91,6 +92,7 @@ Route::resource('category',categoryController::class);
 Route::resource('employee',employeeController::class);
 Route::resource('product',ProductController::class);
 Route::resource('inventory',InventoryController::class);
+Route::resource('delivery',DeliveryManController::class);
 
     Route::controller(MenCatController::class)->group(function () {
         Route::get('mencat', 'index')->name('mencat');

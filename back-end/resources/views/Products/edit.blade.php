@@ -5,10 +5,25 @@
     @method('Put')
    
     <input type='text'  value="{{$product->productName}}" name='productName'><br><br>
+    <h3>choose brand name</h3>
+    <select name="brand_id" >
+    @foreach( $allProduct as $pro)
+    <option value="{{$pro->id}}" name="cat_parent">{{$pro->brand->name}}</option>
+    @endforeach
+   
+   
+  </select><br><br>
     <label>product  first image</label><br>
     <input type='text' value="{{$product->pro_image1}}" name='pro_image1'><br><br>
     <label>product  second image</label><br>
     <input type='text' value="{{$product->pro_image2}}" name='pro_image2'><br><br>
+    <h3>choose category name</h3>
+    <select name="cat_id" >
+  @foreach( $allProduct as $pro)
+    <option value="{{$pro->cat_id}}" name="category">{{$pro->cat->name}}</option>
+    @endforeach
+   
+  </select><br><br>
     <label>product discription</label><br>
     <input type='text' value="{{$product->description}}" name='description'><br><br>
     <label>product price</label><br>
@@ -27,6 +42,8 @@
     <label for="status1">new</label><br>
     <input type="checkbox"  name="most_recent" value="0">
     <label for="status2"> old</label><br><br>
+ 
+ 
 
 
 

@@ -75,8 +75,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $allProduct=Product::all();
         $product=Product::findorfail($id);
-        return view('Products.edit', compact('product'));
+        return view('Products.edit', compact('product','allProduct'));
 
     }
 
