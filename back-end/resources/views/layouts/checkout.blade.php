@@ -5,7 +5,7 @@ checkout
 @section('content')
 <div class="row  padding-section">
       <div class="col-75">
-        <div class="container">
+        <div class="container container-checkout">
           <form action="/action_page.php">
             <div class="row">
               <div class="col-50">
@@ -158,7 +158,7 @@ checkout
       </div>
 
       <div class="col-25">
-        <div class="container">
+        <div class="container container-checkout">
           <h4>
             Cart
             <span class="price" style="color: black">

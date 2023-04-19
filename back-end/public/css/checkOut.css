@@ -1,35 +1,40 @@
-body{
+body {
     font-family: arial;
     font-size: 17px;
 }
-*{
+
+* {
     box-sizing: border-box;
 }
-.row{
+
+.row {
     display: flex !important;
     flex-wrap: wrap !important;
     margin: 0 -16px !important;
 }
-.col-75{
+
+.col-75 {
     flex: 75% !important;
     padding: 0 16px !important;
 }
-.container{
-    background-color: #f2f2f2 !important;
-    padding: 5px 20px 15px 20px !important;
-    border: 1px solid lightgray !important;
-    border-radius: 3px !important;
-    -webkit-border-radius: 3px !important;
-    -moz-border-radius: 3px !important;
-    -ms-border-radius: 3px !important;
-    -o-border-radius: 3px !important;
+
+.container-checkout {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
 }
-.col-50{
+
+.col-50 {
     flex: 50% !important;
     padding: 0 16px !important;
 }
 
-.inputText{
+.inputText {
     width: 100% !important;
     margin-bottom: 20px !important;
     padding: 12px !important;
@@ -41,19 +46,23 @@ body{
     -ms-border-radius: 3px !important;
     -o-border-radius: 3px !important;
 }
-.icon-container{
+
+.icon-container {
     margin-bottom: 20px !important;
     padding: 7px 0 !important;
     font-size: 24px !important;
 }
-label{
+
+label {
     margin-bottom: 10px !important;
     display: block !important;
 }
-i{
-    margin-right: 5px ;
+
+i {
+    margin-right: 5px;
 }
-.bttn{
+
+.bttn {
     background-color: #04AA6D !important;
     color: white !important;
     margin: 10px 0 !important;
@@ -68,18 +77,21 @@ i{
     -ms-border-radius: 3px !important;
     -o-border-radius: 3px !important;
 }
-.bttn:hover{
+
+.bttn:hover {
     background-color: #45a049 !important;
 }
-.col-25{
+
+.col-25 {
     flex: 25% !important;
     padding: 0 16px !important;
 }
-span.price{
+
+span.price {
     float: right !important;
     color: grey !important;
 }
 
-hr{
+hr {
     border: 1px solid lightgrey !important;
 }
