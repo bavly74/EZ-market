@@ -1,9 +1,13 @@
-<h1>create new brand</h1>
-<form action="{{route('brand.store')}}" method='post'>
-    @csrf
-    <input type='text' placeholder='enter brand name' name='name'><br><br>
-    <input type='text' placeholder='enter brand image' name='image'><br><br>
-    <button type='submit' >store</button>
-   
+<link rel="stylesheet" href="/css/adminCss.css" />
 
-</form>
+
+<div class="center">
+    <h1 class="adminHeader">create new brand</h1>
+    <form action="{{route('brand.store')}}" method='post'>
+        @csrf
+        <input type='text' placeholder='enter brand name' name='name' class="adminInput"><br><br>
+        <input type='text' placeholder='enter brand image' name='image' class="adminInput"><br><br>
+        <button type='submit'>store</button>
+    </form>
+
+</div>
