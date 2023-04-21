@@ -2,7 +2,7 @@
 
 <form action="{{route('category.update',$cats->id)}}" method="post">
     @csrf
-    @method('PUT');
+    @method('PUT')
 
     <input type='text'  name='name' value='{{$cats->name}}'><br><br>
 
