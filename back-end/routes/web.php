@@ -18,6 +18,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\DeliveryManController;
 
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -57,7 +58,6 @@ Route::group(['middleware' => ['auth']], function() {
      */
     Route::get('/logout', [UserController::class,'logout'])->name('logout.logout');
 });
-Route::get('checkout', [CheckoutController::class,'index']);
 
 Route::group(
     [
@@ -68,6 +68,7 @@ Route::group(
 //    Route::get('/', function () {
 //        return view('welcome');
 //    });
+    Route::get('checkout', [CheckoutController::class,'index']);
 
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'show')->name('home.index');
@@ -119,6 +120,14 @@ Route::resource('delivery',DeliveryManController::class);
     Route::get('user/profile',[UserController::class,'showProfile'])->name('profile.show');
 
     Route::get('details/{id}',[ProductDetailsController::class,'showDetails']);
+
+
+
+    Route::group(['middleware' => ['auth']], function() {
+        Route::resource('roles', RoleController::class);
+        Route::resource('users', EmployeeController::class);
+        //Route::resource('products', ProductController::class);
+    });
 
 });
 

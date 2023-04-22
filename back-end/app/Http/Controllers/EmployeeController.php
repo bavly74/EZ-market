@@ -1,21 +1,140 @@
 <?php
+//
+//namespace App\Http\Controllers;
+//
+//use App\Models\Employee;
+//use Illuminate\Http\Request;
+//
+//class employeeController extends Controller
+//{
+//    /**
+//     * Display a listing of the resource.
+//     *
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function index()
+//    {
+//        $employee =  Employee::all();
+//       return view('Employee.show',compact('employee'));
+//    }
+//
+//    /**
+//     * Show the form for creating a new resource.
+//     *
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function create()
+//    {
+//        //
+//        $employee=Employee::all();
+//        return view('Employee.create',compact('employee'));
+//
+//    }
+//
+//    /**
+//     * Store a newly created resource in storage.
+//     *
+//     * @param  \Illuminate\Http\Request  $request
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function store(Request $request)
+//    {
+//        $employee=new Employee();
+//        $employee->name=$request->name;
+//        $employee->email=$request->email;
+//        $employee->password=$request->password;
+//        $employee->nat_id=$request->nat_id;
+//        $employee->image=$request->image;
+//        $employee->address=$request->address;
+//        $employee->phone_num=$request->phone_num;
+//        $employee->save();
+//         return redirect()->route('employee.index');
+//    }
+//
+//    /**
+//     * Display the specified resource.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function show($id)
+//    {
+//        //
+//    }
+//
+//    /**
+//     * Show the form for editing the specified resource.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function edit($id)
+//    {
+//        //
+//        $employee=Employee::findorfail($id);
+//        return view('employee.edit', compact('employee'));
+//    }
+//
+//    /**
+//     * Update the specified resource in storage.
+//     *
+//     * @param  \Illuminate\Http\Request  $request
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function update(Request $request, $id)
+//    {
+//        //
+//        $employee=Employee::findorfail($id);
+//        $employee->name=$request->name;
+//        $employee->email=$request->email;
+//        $employee->password=$request->password;
+//        $employee->nat_id=$request->nat_id;
+//        $employee->image=$request->image;
+//        $employee->address=$request->address;
+//        $employee->phone_num=$request->phone_num;
+//        $employee->save();
+//        return redirect()->route('employee.index');
+//
+//    }
+//
+//    /**
+//     * Remove the specified resource from storage.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function destroy($id)
+//    {
+//        //
+//        $employee=Employee::findorfail($id)->delete();
+//        return redirect()->route('employee.index');
+//    }
+//}
+
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+use DB;
+use Hash;
+use Illuminate\Support\Arr;
 
-class employeeController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $employee =  Employee::all();
-       return view('Employee.show',compact('employee'));
+        $data = User::orderBy('id', 'DESC')->paginate(5);
+        return view('users.index', compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -25,89 +144,105 @@ class employeeController extends Controller
      */
     public function create()
     {
-        //
-        $employee=Employee::all();
-        return view('Employee.create',compact('employee'));
-       
+        $roles = Role::pluck('name', 'name')->all();
+        return view('users.create', compact('roles'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $employee=new Employee();
-        $employee->name=$request->name;
-        $employee->email=$request->email;
-        $employee->password=$request->password;
-        $employee->nat_id=$request->nat_id;
-        $employee->image=$request->image;
-        $employee->address=$request->address;
-        $employee->phone_num=$request->phone_num;
-        $employee->save();
-         return redirect()->route('employee.index');
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|same:confirm-password',
+            'roles' => 'required'
+        ]);
+
+        $input = $request->all();
+        $input['password'] = Hash::make($input['password']);
+
+        $user = User::create($input);
+        $user->assignRole($request->input('roles'));
+
+        return redirect()->route('users.index')
+            ->with('success', 'User created successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
-        $employee=Employee::findorfail($id);
-        return view('employee.edit', compact('employee'));
+        $user = User::find($id);
+        $roles = Role::pluck('name', 'name')->all();
+        $userRole = $user->roles->pluck('name', 'name')->all();
+
+        return view('users.edit', compact('user', 'roles', 'userRole'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
-        $employee=Employee::findorfail($id);
-        $employee->name=$request->name;
-        $employee->email=$request->email;
-        $employee->password=$request->password;
-        $employee->nat_id=$request->nat_id;
-        $employee->image=$request->image;
-        $employee->address=$request->address;
-        $employee->phone_num=$request->phone_num;
-        $employee->save();
-        return redirect()->route('employee.index'); 
-        
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'same:confirm-password',
+            'roles' => 'required'
+        ]);
+
+        $input = $request->all();
+        if (!empty($input['password'])) {
+            $input['password'] = Hash::make($input['password']);
+        } else {
+            $input = Arr::except($input, array('password'));
+        }
+
+        $user = User::find($id);
+        $user->update($input);
+        DB::table('model_has_roles')->where('model_id', $id)->delete();
+
+        $user->assignRole($request->input('roles'));
+
+        return redirect()->route('users.index')
+            ->with('success', 'User updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
-        $employee=Employee::findorfail($id)->delete();
-        return redirect()->route('employee.index');
+        User::find($id)->delete();
+        return redirect()->route('users.index')
+            ->with('success', 'User deleted successfully');
     }
 }
