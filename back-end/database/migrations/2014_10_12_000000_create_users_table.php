@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('google_id')->nullable();
             $table->string('address')->nullable();
             $table->bigInteger('phone_num')->nullable();
+//            $table->text('role')->default('User');
             $table->timestamps();
         });
     }

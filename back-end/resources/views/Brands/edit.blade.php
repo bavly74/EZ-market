@@ -7,7 +7,6 @@
         @method('PUT')
 
         <input type='text' name='name' value='{{$brand->name}}' class="adminInput"><br><br>
-        <input type='text' name='image' value='{{$brand->image}}' class="adminInput"><br><br>
         <button type='submit'>update</button>
     </form>
 

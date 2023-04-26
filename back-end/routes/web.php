@@ -75,22 +75,16 @@ Route::group(
     });
 
 
-    Route::get('/dashboard', function () {
-        return 'hi';
-    });
 
 
     Route::get('search',[SearchController::class,'index'])->name('search');
 
 
 
-
-
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
 
-Route::resource('brand',brandController::class);
+//Route::resource('brand',brandController::class);
 Route::resource('category',categoryController::class);
-Route::resource('employee',employeeController::class);
 Route::resource('product',ProductController::class);
 Route::resource('inventory',InventoryController::class);
 Route::resource('delivery',DeliveryManController::class);
@@ -124,9 +118,14 @@ Route::resource('delivery',DeliveryManController::class);
 
 
     Route::group(['middleware' => ['auth']], function() {
+        Route::get('/dashboard', function () {
+            return 'hi';
+        });
         Route::resource('roles', RoleController::class);
         Route::resource('users', EmployeeController::class);
-        //Route::resource('products', ProductController::class);
+        Route::resource('products', ProductController::class);
+        Route::resource('brand',brandController::class);
+
     });
 
 });
@@ -140,10 +139,11 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+]);
+//    ->group(function () {
+////    Route::get('/dashboard', function () {
+////        return view('dashboard');
+////    })->name('dashboard');
+//});
 
 

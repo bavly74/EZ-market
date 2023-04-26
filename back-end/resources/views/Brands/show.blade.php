@@ -17,8 +17,7 @@
                             <tr>
                                 <th>ID NO</th>
                                 <th>Brand Name</th>
-                                <th>Brand image</th>
-                                <th>Operations</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -26,15 +25,7 @@
                             <tr>
                                 <th scope="row">{{$B->id}}</th>
                                 <td>{{$B->name}}</td>
-                                <td><a href="#" class="btn ">{{$B->image}}</a></td>
-                                <td class="operations">
-                                    <a href="{{route('brand.edit',$B->id)}}" class="delete edit">edit</a>
-                                    <form method="post" action="{{route('brand.destroy',$B->id)}}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type='submit' class="delete">delete</button>
-                                    </form>
-                                </td>
+
                             </tr>
                             @endforeach
 

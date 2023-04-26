@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 use App\Models\Brand;
+use App\Models\Product;
 use Illuminate\Http\Request;
-
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use DB;
 class BrandController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:brand-list', ['only' => ['index']]);
+        $this->middleware('permission:brand-create', ['only' => ['create','store']]);
+        $this->middleware('permission:brand-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:brand-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +23,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brand =Brand::all();
-        return view('Brands.show', compact('brand'));
+        $brands =Brand::all();
+        return view('Brands.index', compact('brands'));
     }
 
     /**
@@ -35,15 +45,15 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-      
-        Brand::create([
-            'name'=>$request->name,
-            'image'=>$request->image
+        request()->validate([
+            'name' => 'required',
 
-        ]
-        );
-        return response('added successfully');
-        
+        ]);
+
+        Brand::create($request->all());
+
+        return redirect()->route('brand.index')
+            ->with('success', 'brand created successfully.');
     }
 
     /**
@@ -54,7 +64,8 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        //
+        $brand=Brand::where('id',$id)->first()->get();
+        return view('Brands.show', compact('brand'));
     }
 
     /**
@@ -76,15 +87,17 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Brand $brand)
     {
-        $brand=Brand::findorfail($id);
-        $brand->update([
-            'name' => $brand->name,
-            'image' => $brand->image
-        ]); 
-        return redirect()->route('brand.index');
+        request()->validate([
+            'name' => 'required',
 
+        ]);
+
+        $brand->update($request->all());
+
+        return redirect()->route('brand.index')
+            ->with('success', 'Product updated successfully');
     }
 
     /**

@@ -130,6 +130,30 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+        $this->middleware('permission:user-list', ['only' => ['index']]);
+        $this->middleware('permission:user-create', ['only' => ['create','store']]);
+        $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+    }
+
+
+//    function __construct()
+//    {
+//        //  $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
+//        //  $this->middleware('permission:role-create', ['only' => ['create','store']]);
+//        //  $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
+//        //  $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+//
+//        //$this->middleware('permission:users-list', ['only' => ['index']]);
+//
+//
+//        $this->middleware('permission:product-delete', ['only' => ['index']]); // product-delete
+//        $this->middleware('permission:role-delete', ['only' => ['create','store']]);
+//
+//    }
     public function index(Request $request)
     {
         $data = User::orderBy('id', 'DESC')->paginate(5);
@@ -140,7 +164,7 @@ class EmployeeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
