@@ -1,0 +1,97 @@
+body {
+    font-family: arial;
+    font-size: 17px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin: 0 -16px !important;
+}
+
+.col-75 {
+    flex: 75% !important;
+    padding: 0 16px !important;
+}
+
+.container-checkout {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.col-50 {
+    flex: 50% !important;
+    padding: 0 16px !important;
+}
+
+.inputText {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+    padding: 12px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 3px !important;
+    outline: none !important;
+    -webkit-border-radius: 3px !important;
+    -moz-border-radius: 3px !important;
+    -ms-border-radius: 3px !important;
+    -o-border-radius: 3px !important;
+}
+
+.icon-container {
+    margin-bottom: 20px !important;
+    padding: 7px 0 !important;
+    font-size: 24px !important;
+}
+
+label {
+    margin-bottom: 10px !important;
+    display: block !important;
+}
+
+i {
+    margin-right: 5px;
+}
+
+.bttn {
+    background-color: #04AA6D !important;
+    color: white !important;
+    margin: 10px 0 !important;
+    padding: 12px !important;
+    border: none !important;
+    width: 100% !important;
+    border-radius: 3px !important;
+    cursor: pointer !important;
+    font-size: 17px !important;
+    -webkit-border-radius: 3px !important;
+    -moz-border-radius: 3px !important;
+    -ms-border-radius: 3px !important;
+    -o-border-radius: 3px !important;
+}
+
+.bttn:hover {
+    background-color: #45a049 !important;
+}
+
+.col-25 {
+    flex: 25% !important;
+    padding: 0 16px !important;
+}
+
+span.price {
+    float: right !important;
+    color: grey !important;
+}
+
+hr {
+    border: 1px solid lightgrey !important;
+}

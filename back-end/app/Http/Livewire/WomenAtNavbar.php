@@ -18,7 +18,7 @@ class WomenAtNavbar extends Component
     public array $quantity=[];
 
     public function mount(){
-        $this->products=Product::where('cat_id',1)->take(3)->get();
+        $this->products=Product::where('category_id',1)->take(3)->get();
         foreach ($this->products as $product){
             $this->quantity[$product->id]=1;
         }

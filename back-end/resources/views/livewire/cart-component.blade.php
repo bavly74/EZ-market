@@ -21,12 +21,12 @@
 
         @if(\Gloudemans\Shoppingcart\Facades\Cart::instance('shopping')->count()>0)
         @foreach($carts as $cart)
+
         <div class="cartOpened">
 
             <!-- <p>img: {{$cart->img}}</p> -->
             <div class="cartItems">
-                <img src="imgs/{{$cart->image}}" alt="" />
-
+              
                 <p> {{$cart->name}}</p>
                 <span class="cartBtn" wire:click="decreaseQuantity('{{ $cart->rowId }}')"><i
                         class="fa-solid fa-minus"></i></span>
@@ -42,15 +42,19 @@
             </div>
 
             @endforeach
-            <div class="cartTotal">
-                <!-- <p>shipping Taxes{{ Cart::tax() }} </p>
-                <p>total{{ Cart::initial() }} </p> -->
-                <div class="sub">
-                    <p>subtotal: </p>
-                    <p>${{Cart::subtotal()}}</p>
-                </div>
-            </div>
 
+
+
+        </div>
+        <div class="cartTotal">
+            <!-- <p>shipping Taxes{{ Cart::tax() }} </p>
+                <p>total{{ Cart::initial() }} </p> -->
+            <div class="sub">
+                <p>subtotal: </p>
+                <p>${{Cart::subtotal()}}</p>
+            </div>
+            <a href="">View Cart</a>
+            <a href=""><i class="fa-solid fa-lock" style="color:white;"></i> Checkout</a>
         </div>
         @else
         <div class="cart-content">

@@ -901,7 +901,8 @@ footer .footer-row .footer-links ul a:hover::before {
     font-size: 14px;
 }
 
-.products-section .product form,.products-section-row .product form {
+.products-section .product form,
+.products-section-row .product form {
     width: 100%;
 }
 
@@ -1476,22 +1477,43 @@ footer .footer-copyright p {
 .cart .cartOpened {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
     justify-content: space-between;
-
 }
 
-.cart .cartOpened .cartTotal {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    width: 100%;
+.cart .cartTotal {
+    position: fixed;
+    bottom: 0;
+    right: 0;
     box-shadow: rgb(0 0 0 / 74%) 0px -6px 8px;
-    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-.cart .cartOpened .cartTotal .sub {
+.cart .cartTotal a{
+    text-align: center;
+    width: 80%;
+    margin: 10px 0;
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    font-size: 17px;
+    font-weight: 600;
+    color: white !important;
+    display: block;
+}
+.cart .cartTotal a:nth-child(2){
+    background-color: #04AA6D ;
+}.cart .cartTotal a:nth-child(3){
+    background-color: #04AA6D ;
+}
+.cart .cartTotal .sub {
     display: flex;
     justify-content: space-between;
     padding: 1rem 1.5rem;
@@ -1500,12 +1522,12 @@ footer .footer-copyright p {
     height: fit-content;
 }
 
-.cart .cartOpened .cartTotal p {
+.cart .cartTotal p {
     font-weight: 700;
     margin: 0;
 }
 
-.cart .cartOpened .cartTotal p:first-child {
+.cart .cartTotal p:first-child {
     font-size: 20px;
 }
 
@@ -1754,18 +1776,6 @@ footer .footer-copyright p {
     flex-direction: row !important;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
-
-:root {
-    --font-family: 'Manrope', sans-serif;
-    --color-bg: #040C18;
-    --color-footer: #031B34;
-    --color-blog: #042c54;
-    --color-text: #81AFDD;
-    --color-subtext: #FF8A71;
-    --transition: all .3s ease-in-out;
-    --transition-animation: transform 1s ease;
-}
 
 * {
     margin: 0;

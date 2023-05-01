@@ -12,4 +12,24 @@ class Category extends Model
     {
         return $this->hasMany(product::class);
     }
+    protected $guarded = [];
+
+//    public function subcategory(){
+//
+//        return $this->hasMany(Category::class, 'parent_id');
+//
+//    }
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+
+
+    protected $fillable=['name','status','cat_parent'];
 }
+

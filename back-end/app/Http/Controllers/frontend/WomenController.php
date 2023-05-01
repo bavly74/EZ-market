@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,9 +14,18 @@ class WomenController extends Controller
     //
     public function index()
     {
-        $products=Product::where('cat_id',1)->get()->load('inventory');
-//        $cart=Cart::content();
-        return view('women',compact('products'));
+        $parentCategories = Category::where('parent_id',null)->get();
+
+        $category = Category::where('name', 'Women')->firstOrFail();
+
+        $products = Product::where('category_id', $category->id)
+            ->orWhereHas('category', function($query) use ($category) {
+                $query->where('parent_id', $category->id);
+            })
+            ->get();
+        $cart=Cart::content();
+
+        return view('women',compact('products','parentCategories'));
 
     }
 
@@ -95,7 +106,12 @@ class WomenController extends Controller
         $query = Product::query();
 
         if($search) {
-            $query->where('productName', 'LIKE', '%'.$search.'%')->where('cat_id',1);
+            $category = Category::where('name', 'Women')->firstOrFail();
+
+            $query->where('productName', 'LIKE', '%'.$search.'%')->where('category_id', $category->id)
+                ->orWhereHas('category', function($query) use ($category) {
+                    $query->where('parent_id', $category->id);
+                });
         }
 
         $results = $query->with('brand')->with('inventory')->get();

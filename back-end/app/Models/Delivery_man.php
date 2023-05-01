@@ -12,4 +12,5 @@ class Delivery_man extends Model
     {
         return $this->hasMany(Order::class);
     }
+    protected $fillable=['name','image','salary_type','Nat_id'];
 }

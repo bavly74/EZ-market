@@ -10,6 +10,15 @@ use App\Http\Controllers\frontend\SearchController;
 use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\frontend\WomenController;
 use App\Http\Controllers\LogoutController;
+
+use App\Http\Controllers\brandController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\employeeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\DeliveryManController;
+
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -65,6 +74,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('my_orders',[UserController::class,'index']);
     Route::get('view-order',[UserController::class,'view']);
 });
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
@@ -74,23 +84,31 @@ Route::group(
 //    Route::get('/', function () {
 //        return view('welcome');
 //    });
+    Route::get('checkout', [CheckoutController::class,'index']);
 
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'show')->name('home.index');
     });
 
 
-    Route::get('/dashboard', function () {
-        return 'hi';
-    });
 
 
     Route::get('search',[SearchController::class,'index'])->name('search');
 
 
+
+Route::get('user/register',[UserController::class,'create'])->name('user.register');
+
+//Route::resource('brand',brandController::class);
+Route::resource('category',categoryController::class);
+Route::resource('product',ProductController::class);
+Route::resource('inventory',InventoryController::class);
+Route::resource('delivery',DeliveryManController::class);
+
     Route::controller(MenCatController::class)->group(function () {
         Route::get('mencat', 'index')->name('mencat');
         Route::get('/menaction',  'menAction')->name('menaction');
+        Route::get('/mencat/{subcategory}', 'filterBySubcategory');
 
         //Route::get('Mensearch', 'menSearch')->name('mencat.search');
     });
@@ -99,6 +117,7 @@ Route::group(
     Route::controller(KidsCatController::class)->group(function () {
         Route::get('/kidscat', 'index')->name('kids.index');
         Route::get('/kidsaction',  'kidsAction')->name('kidsaction');
+
     });
 
     Route::controller(WomenController::class)->group(function () {
@@ -114,7 +133,21 @@ Route::group(
 
     Route::get('details/{id}',[ProductDetailsController::class,'showDetails']);
 
+
+
+    Route::group(['middleware' => ['auth']], function() {
+        Route::get('/dashboard', function () {
+            return 'hi';
+        });
+        Route::resource('roles', RoleController::class);
+        Route::resource('users', EmployeeController::class);
+        Route::resource('products', ProductController::class);
+        Route::resource('brand',brandController::class);
+
+    });
+
 });
+
 
 
 
@@ -124,12 +157,11 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
-
+]);
+//    ->group(function () {
+////    Route::get('/dashboard', function () {
+////        return view('dashboard');
+////    })->name('dashboard');
+//});
 
 

@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('status');
-            $table->ForeignId('Cat_parent')->constrained('categories')->nullable();
+
+            $table->unsignedInteger('parent_id')->nullable();
+
+            //$table->ForeignId('Cat_parent')->constrained('categories')->nullable();
             $table->timestamps();
         });
     }

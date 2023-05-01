@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use App\Models\Inventory;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -18,7 +19,16 @@ class KidsAtNavbar extends Component
     public array $quantity=[];
 
     public function mount(){
-        $this->products=Product::where('cat_id',3)->take(3)->get();
+        //$parentCategories = Category::where('parent_id',null)->get();
+
+        $category = Category::where('name', 'kids')->firstOrFail();
+
+        $this->products = Product::where('category_id', $category->id)
+            ->orWhereHas('category', function($query) use ($category) {
+                $query->where('parent_id', $category->id);
+            })
+            ->get();
+        //$this->products=Product::where('category_id',3)->take(3)->get();
         foreach ($this->products as $product){
             $this->quantity[$product->id]=1;
         }

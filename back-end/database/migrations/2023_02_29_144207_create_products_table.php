@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brand_id')->references('id')->on('brands');
-            $table->foreignId('cat_id')->references('id')->on('categories');
+            $table->foreignId('category_id')->references('id')->on('categories');
+          //  $table->foreignId('subCat_id')->references('id')->on('sub_categories');
+
             $table->string('productName');
             $table->string('pro_image1');
             $table->string('pro_image2');
