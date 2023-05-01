@@ -64,7 +64,7 @@
             <div class="col-md-6">
                 <div class="product-dtl">
                     <div class="product-info">
-                        <div class="product-name">Variable Product</div>
+                        <div class="product-name">{{$product->productName }}</div>
                         <div class="reviews-counter">
                             <div class="rate">
                                 <input type="radio" id="star5" name="rate" value="5" checked />
@@ -81,14 +81,11 @@
                             <span>3 Reviews</span>
                         </div>
                         <div class="product-price-discount">
-                            <span>$39.00</span><span class="line-through">$29.00</span>
+                            <span > {{$product->offer/100 * $product->price}}</span> <span class="line-through" >  {{$product->price }}</span>
                         </div>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.
+                        {{$product->description}}
                     </p>
                     <div class="row">
                         <div class="col-md-6">
@@ -116,7 +113,7 @@
                             <input type="text" name="quantity" value="1" class="qty" />
                             <div class="qtyplus">+</div>
                         </form>
-                        <a href="#" class="round-black-btn">Add to Cart</a>
+                        <a href="{{url('#')}}" class="round-black-btn">Add to Cart</a>
                     </div>
                 </div>
             </div>
