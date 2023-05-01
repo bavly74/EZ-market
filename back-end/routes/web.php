@@ -43,14 +43,28 @@ Route::get('auth/google/callback', 'App\Http\Controllers\frontend\SocialControll
 //
 //});
 
+
+Route::get('pay','App\Http\Controllers\FootorahController@payOrder');
+Route::get('callback',function () {
+    return 'success';
+});
+Route::get('error',function (){
+    return 'payment failed';
+});
+
+
+Route::get('/product/{slug}',\App\Http\Livewire\DetailsComponent::class)->name('product.details');
+
 Route::group(['middleware' => ['auth']], function() {
     /**
      * Logout Route
      */
     Route::get('/logout', [UserController::class,'logout'])->name('logout.logout');
+    Route::get('checkout', [CheckoutController::class,'index']);
+    Route::post('place-order', [CheckoutController::class,'placeorder']);
+    Route::get('my_orders',[UserController::class,'index']);
+    Route::get('view-order',[UserController::class,'view']);
 });
-Route::get('checkout', [CheckoutController::class,'index']);
-
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),

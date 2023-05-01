@@ -38,7 +38,6 @@
                                 <span class="price"> <del>{{$product->productCost}}$ </del> {{$product->price}}$</span>
                                 <p style="color:black"><strong>unvailable </strong></p>
                             </div>
-
                             <form action="{{url('/cart-store')}}" method="post">
                                 @csrf
                                 <input type="hidden" name="product_ID" value="{{$product->id}}">
