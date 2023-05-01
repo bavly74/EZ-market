@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,8 +14,18 @@ class KidsCatController extends Controller
     //
     public function index()
     {
-        $products=Product::where('cat_id','3')->get();
-        return view('kidscat',compact('products'));
+        $parentCategories = Category::where('parent_id',null)->get();
+
+        $category = Category::where('name', 'kids')->firstOrFail();
+
+        $products = Product::where('category_id', $category->id)
+            ->orWhereHas('category', function($query) use ($category) {
+                $query->where('parent_id', $category->id);
+            })
+            ->get();
+        $cart=Cart::content();
+
+        return view('kidscat',compact('products','parentCategories'));
     }
 //    function kidsAction(Request $request)
 //    {

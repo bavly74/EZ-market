@@ -21,12 +21,12 @@
 
         @if(\Gloudemans\Shoppingcart\Facades\Cart::instance('shopping')->count()>0)
         @foreach($carts as $cart)
+
         <div class="cartOpened">
 
             <!-- <p>img: {{$cart->img}}</p> -->
             <div class="cartItems">
-                <img src="imgs/{{$cart->image}}" alt="" />
-
+              
                 <p> {{$cart->name}}</p>
                 <span class="cartBtn" wire:click="decreaseQuantity('{{ $cart->rowId }}')"><i
                         class="fa-solid fa-minus"></i></span>

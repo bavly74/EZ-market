@@ -8,18 +8,38 @@
 </head>
 <div class="container padding-section">
     <h2>Home/Men/</h2>
+    <div class="col-3">
+        <div class="searchSection">
+            <form id="search-form">
+                <input type="text" name="search" placeholder="Search products...">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass "></i></button>
+            </form>
+        </div>
+
+    </div>
+    @foreach($parentCategories as $category)
+
+     <h3>{{$category->name}}</h3>
+
+{{--        @if(count($category->subcategory))--}}
+{{--            @include('subCategoryList',['subcategories' => $category->subcategory])--}}
+{{--        @endif--}}
+
+
+
+        @foreach ($category->children as $subcategory)
+            <!-- Subcategory -->
+            <a href="{{ url('/products/' . $category->name . '/' . $subcategory->name) }}">
+                {{ $subcategory->name }}
+            </a>
+            <br>
+        @endforeach
+    @endforeach
+
 </div>
 <div class="container padding-section">
     <div class="row">
-        <div class="col-3">
-            <div class="searchSection">
-                <form id="search-form">
-                    <input type="text" name="search" placeholder="Search products...">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass "></i></button>
-                </form>
-            </div>
 
-        </div>
         <div class="col-9 ">
 
             <div id="product-list" class="products-section-row">

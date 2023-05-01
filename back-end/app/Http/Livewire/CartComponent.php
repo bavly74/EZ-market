@@ -14,7 +14,6 @@ class CartComponent extends Component
     public function render()
     {
         $carts=Cart::instance('shopping')->content();
-
       return view('livewire.cart-component',compact('carts'));
     }
 

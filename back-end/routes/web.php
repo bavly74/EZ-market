@@ -92,6 +92,7 @@ Route::resource('delivery',DeliveryManController::class);
     Route::controller(MenCatController::class)->group(function () {
         Route::get('mencat', 'index')->name('mencat');
         Route::get('/menaction',  'menAction')->name('menaction');
+        Route::get('/mencat/{subcategory}', 'filterBySubcategory');
 
         //Route::get('Mensearch', 'menSearch')->name('mencat.search');
     });
@@ -100,6 +101,7 @@ Route::resource('delivery',DeliveryManController::class);
     Route::controller(KidsCatController::class)->group(function () {
         Route::get('/kidscat', 'index')->name('kids.index');
         Route::get('/kidsaction',  'kidsAction')->name('kidsaction');
+
     });
 
     Route::controller(WomenController::class)->group(function () {
