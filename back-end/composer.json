@@ -16,11 +16,10 @@
         "laravelcollective/html": "^6.4",
         "livewire/livewire": "^2.12",
         "mcamara/laravel-localization": "^1.7",
-
         "yoeunes/toastr": "^2.3",
-      "ext-http": "*"
+      "ext-http": "*",
 
-        "spatie/laravel-permission": "^5.10",
+        "spatie/laravel-permission": "^5.10"
 
 
     },

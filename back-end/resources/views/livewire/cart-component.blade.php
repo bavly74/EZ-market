@@ -26,7 +26,7 @@
 
             <!-- <p>img: {{$cart->img}}</p> -->
             <div class="cartItems">
-              
+
                 <p> {{$cart->name}}</p>
                 <span class="cartBtn" wire:click="decreaseQuantity('{{ $cart->rowId }}')"><i
                         class="fa-solid fa-minus"></i></span>
@@ -54,7 +54,7 @@
                 <p>${{Cart::subtotal()}}</p>
             </div>
             <a href="">View Cart</a>
-            <a href=""><i class="fa-solid fa-lock" style="color:white;"></i> Checkout</a>
+            <a href="{{route('checkout.index')}}"><i class="fa-solid fa-lock" style="color:white;"></i> Checkout</a>
         </div>
         @else
         <div class="cart-content">
@@ -98,8 +98,8 @@
             <h6 class="mt-4">
                 Your cart is currently empty. Let us help you find the perfect item!
             </h6>
-            <a href="#" class="mt-5">Shop Men</a>
-            <a href="#">Shop Women</a>
+            <a href="{{route('mencat')}}" class="mt-5">Shop Men</a>
+            <a href="{{route('women.index')}}">Shop Women</a>
             <a href="#">Shop All</a>
             @endif
         </div>

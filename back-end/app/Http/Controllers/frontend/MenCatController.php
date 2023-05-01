@@ -26,6 +26,7 @@ class MenCatController extends Controller
                 $query->where('parent_id', $category->id);
             })
             ->get();
+
         $cart=Cart::content();
 
         return view('mencat',compact('products','parentCategories'));

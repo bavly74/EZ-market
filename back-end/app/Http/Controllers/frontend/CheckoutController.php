@@ -7,7 +7,6 @@ use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CartCounter;
 use App\Models\Order;
 use App\Models\orderitem;
-use App\Models\order;
 use App\Models\Product;
 use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -27,6 +26,7 @@ class CheckoutController extends Controller
 //                $removeitem->delete();
 //            }
 //        }
+
         return view('layouts.checkout',compact('cartitems'));
     }
 

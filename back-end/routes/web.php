@@ -69,7 +69,7 @@ Route::group(['middleware' => ['auth']], function() {
      * Logout Route
      */
     Route::get('/logout', [UserController::class,'logout'])->name('logout.logout');
-    Route::get('checkout', [CheckoutController::class,'index']);
+    Route::get('checkout', [CheckoutController::class,'index'])->name('checkout.index');
     Route::post('place-order', [CheckoutController::class,'placeorder']);
     Route::get('my_orders',[UserController::class,'index']);
     Route::get('view-order',[UserController::class,'view']);
@@ -84,7 +84,7 @@ Route::group(
 //    Route::get('/', function () {
 //        return view('welcome');
 //    });
-    Route::get('checkout', [CheckoutController::class,'index']);
+    //Route::get('checkout', [CheckoutController::class,'index']);
 
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'show')->name('home.index');
