@@ -19,34 +19,11 @@
                 <input type="text" name="search" value="" class="search-input" placeholder="search..." />
             </form>
             <!-- categories -->
-            <h3>Men</h3>
-            <div class="categories">
-                <button class="category-btn">all</button>
-                <!-- <button class="category-btn">
-                  Sweatshirts ShirtsSale Sportswear T-Shirts4
-                </button> -->
-            </div>
+
+
         </div>
         <!-- products -->
         <div class="products-section-row">
-            <!-- single product -->
-            {{--        @foreach($products as $product)--}}
-            {{--        <div class="product">--}}
-            {{--          <div class="productImg">--}}
-            {{--            <img src="{{$product->pro_image1}}" alt="" />--}}
-            {{--            <img src="{{$product->pro_image2}}" alt="" />--}}
-            {{--          </div>--}}
-            {{--          <div class="productInfo">--}}
-
-            {{--            <p><strong> {{$product->brand->name}}</strong></p>--}}
-            {{--            <p>{{$product->productName}}</p>--}}
-
-            {{--            <span class="price"> <del>{{$product->price}} </del> {{$product->offer}}</span>--}}
-            {{--          </div>--}}
-            {{--          <a href="#" class="add-cart">Add to Cart:----</a>--}}
-            {{--        </div>--}}
-            {{--        @endforeach--}}
-
 
 
             @foreach($products as $product)
@@ -66,11 +43,11 @@
                             <p style="color:black"><strong>unvailable </strong></p>
 
                         </div>
-
-                        <form  wire:submit.prevent="addItemToCart({{$product->id}})">
+                        <form action="{{url('/cart-store')}}" method="post">
                             @csrf
-
-                            <button type="button" disabled style="background: gray"  type="submit" class="add-cart addToCart" >Add to cart</button>
+                            <input type="hidden" name="product_ID" value="{{$product->id}}">
+                            <button type="submit" disabled style="background: gray" class="add-cart">add to
+                                cart</button>
                         </form>
 
                         <form wire:submit.prevent=" addItemToWishlist({{$product->id}})">
@@ -102,10 +79,10 @@
 
                         </div>
 
-                        <form wire:submit.prevent="addItemToCart({{$product->id}})">
+                        <form action="{{url('/cart-store')}}" method="post">
                             @csrf
-                            {{--                    <input wire:model="quantity.{{$product->id}}" type="number">--}}
-                            <button type="submit" class="add-cart addToCart" >Add to cart</button>
+                            <input type="hidden" name="product_ID" value="{{$product->id}}">
+                            <button type="submit" class="add-cart">add to cart</button>
                         </form>
 
                         <form wire:submit.prevent=" addItemToWishlist({{$product->id}})">

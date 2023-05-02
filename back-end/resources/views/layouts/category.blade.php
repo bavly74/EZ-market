@@ -105,7 +105,7 @@
                 <a href="#" class="navLink"> <span> about </span> </a>
             </li>
             <li class="navMenuLink">
-                <a href="#" class="navLink"> <span> contact </span> </a>
+                <a href="{{url('contact-us')}}" class="navLink"> <span> contact </span> </a>
             </li>
         </ul>
         <a href="#!">

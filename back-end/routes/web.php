@@ -7,6 +7,8 @@ use App\Http\Controllers\frontend\KidsCatController;
 use App\Http\Controllers\frontend\MenCatController;
 use App\Http\Controllers\frontend\ProductDetailsController;
 use App\Http\Controllers\frontend\SearchController;
+use App\Http\Controllers\frontend\ContactController;
+
 use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\frontend\WomenController;
 use App\Http\Controllers\LogoutController;
@@ -142,6 +144,7 @@ Route::resource('delivery',DeliveryManController::class);
 
     Route::get('details/{id}',[ProductDetailsController::class,'showDetails']);
 
+    Route::get('contact-us',[ContactController::class,'index']);
 
 
     Route::group(['middleware' => ['auth']], function() {
