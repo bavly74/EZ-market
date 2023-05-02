@@ -16,7 +16,7 @@
             </li>
             <li class="navMenuLink">
                 <a href="{{route('allProducts')}}" class="navLink">
-                    <span> {{trans('category_trans.shop')}} </span> <i class="fa-solid fa-angle-down"></i></a>
+                    <span> {{trans('category_trans.shop')}} </span> </a>
             </li>
 
             <li class="menu navMenuLink">
@@ -39,7 +39,7 @@
                             <li><a href="#">On sale</a></li>
                         </ul>
                         <div class="pics">
-                 {{-- @livewire('men-at-navbar') --}}
+                            {{-- @livewire('men-at-navbar') --}}
                         </div>
                     </div>
                 </div>
@@ -65,11 +65,11 @@
                         </ul>
                         <div class="pics">
 
-                                @livewire('women-at-navbar')
+                            @livewire('women-at-navbar')
 
 
+                        </div>
                     </div>
-                </div>
             </li>
 
 

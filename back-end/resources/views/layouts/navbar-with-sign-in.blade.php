@@ -62,7 +62,8 @@
                 </li>
                 <li>
                     <div class="userInfo loged">
-                        <a href="{{route('profile.show') }}">profile</a>
+                    <i class="fa-solid fa-user"></i>
+                        <a href="{{route('profile.show') }}"><p>PROFILE</p></a>
                     </div>
 
 

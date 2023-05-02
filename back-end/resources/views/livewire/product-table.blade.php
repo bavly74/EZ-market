@@ -1,16 +1,4 @@
-{{--<section class="products-section padding-section">--}}
-{{--    <h2 class="products-section-before">OFFERS</h2>--}}
-{{--    <div id="box">--}}
-{{--        @if (session()->has('message'))--}}
-{{--        <div class="alert alert-success alertD ">--}}
-{{--            <span>--}}
-{{--                <i class="fa-solid fa-circle-check"></i>--}}
-{{--            </span>--}}
-{{--            {{ session('message') }}--}}
 
-{{--        </div>--}}
-{{--        @endif--}}
-{{--    </div>--}}
 <div class="products-section">
     @include('layouts.notification')
     <div class="products-section-row">
@@ -96,4 +84,3 @@
 
 
     </div>
-    {{--</section>--}}

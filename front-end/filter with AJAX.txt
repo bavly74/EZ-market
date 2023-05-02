@@ -1,0 +1,97 @@
+///blade //
+<form id="filter-form">
+    <label for="category-filter">Category:</label>
+    <select name="category" id="category-filter">
+        <option value="">All</option>
+        <option value="1">Category 1</option>
+        <option value="2">Category 2</option>
+        <option value="3">Category 3</option>
+    </select>
+
+    <label for="price-filter">Price:</label>
+    <select name="price" id="price-filter">
+        <option value="">All</option>
+        <option value="0-100">0-100</option>
+        <option value="100-500">100-500</option>
+        <option value="500-1000">500-1000</option>
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
+
+<ul id="product-list">
+    @foreach($products as $product)
+        <li>{{ $product->title }}</li>
+    @endforeach
+</ul>
+
+<script>
+    $('#filter-form').on('submit', function(e) {
+        e.preventDefault();
+        var form = $(this);
+        $.ajax({
+            type: "POST",
+            url: "{{ route('filter') }}",
+            data: form.serialize(),
+            success: function(response) {
+                var products = $('#product-list');
+                products.empty();
+                $.each(response, function(index, product) {
+                    products.append('<li>' + product.title + '</li>');
+                });
+            },
+            error: function(xhr) {
+                alert('Error filtering products');
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+/////route
+Route::post('/filter', 'ProductController@filter')->name('filter');
+
+
+
+////controller////
+
+public function filter(Request $request)
+{
+    $category = $request->input('category');
+    $price = $request->input('price');
+
+    $query = Product::query();
+
+    if($category) {
+        $query->where('category_id', $category);
+    }
+
+    if($price) {
+        $range = explode('-', $price);
+        $query->whereBetween('price', [$range[0], $range[1]]);
+    }
+
+    $results = $query->get();
+
+    return response()->json($results);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,11 @@
+<link rel="stylesheet" href="/css/catCss.css" />
+<div class="container my-5">
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Products</h2>
         </div>
-        <div class="pull-right">
+        <div class="pull-right my-3">
             @can('product-create')
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
             @endcan
@@ -43,4 +45,6 @@
         </tr>
     @endforeach
 </table>
+</div>
+
 {!! $products->links() !!}
