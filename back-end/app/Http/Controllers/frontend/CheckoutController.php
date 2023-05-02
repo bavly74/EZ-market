@@ -35,6 +35,7 @@ class CheckoutController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function placeorder(Request $request){
+        $cartitems=Cart::instance('shopping')->content();
         $ordfer=new Order();
         $ordfer->user_id=Auth::id();
         $ordfer->fname=request()->input('fname');
@@ -50,9 +51,11 @@ class CheckoutController extends Controller
         $ordfer->status=request()->input('status');
         $ordfer->message=request()->input('message');
         $ordfer->tracking_no= 'bebo'.rand(1111,9999);
+        $ordfer->total_price=0;
+
         $ordfer->save();
 
-        $cartitems=Cart::instance('shopping')->content();
+
         foreach ($cartitems as $item){
             orderitem::create([
                 'order_id'=>$ordfer->id,

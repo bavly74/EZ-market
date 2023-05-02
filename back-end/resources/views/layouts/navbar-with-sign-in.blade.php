@@ -67,12 +67,12 @@
                         <a href="{{route('profile.show') }}"><p>PROFILE</p></a>
                     </div>
 
-
-{{--                    <x-jet-dropdown-link href="{{ route('profile.show') }}">--}}
-{{--                        {{ __('Profile') }}--}}
-{{--                    </x-jet-dropdown-link>--}}
-
-
+                </li>
+                <li>
+                    <div class="userInfo loged">
+                    <i class="fa-solid fa-user"></i>
+                        <a href="{{url('my_orders') }}"><p>My orders</p></a>
+                    </div>
 
                 </li>
             </ul>
