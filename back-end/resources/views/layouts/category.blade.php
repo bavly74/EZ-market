@@ -39,7 +39,7 @@
                             <li><a href="#">On sale</a></li>
                         </ul>
                         <div class="pics">
-                 @livewire('men-at-navbar')
+                 {{-- @livewire('men-at-navbar') --}}
                         </div>
                     </div>
                 </div>

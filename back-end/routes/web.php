@@ -86,12 +86,12 @@ Route::group(
 //    });
     //Route::get('checkout', [CheckoutController::class,'index']);
 
+
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'show')->name('home.index');
     });
 
-
-
+ 
 
     Route::get('search',[SearchController::class,'index'])->name('search');
 
@@ -136,6 +136,7 @@ Route::resource('delivery',DeliveryManController::class);
 
 
     Route::group(['middleware' => ['auth']], function() {
+
         Route::get('/dashboard', function () {
             return 'hi';
         });

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CartCounter;
 use App\Models\Order;
-use App\Models\orderitem;
+use App\Models\Orderitem;
 use App\Models\Product;
 use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;

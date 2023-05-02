@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
+use App\Models\Category;
 
 use App\Models\Inventory;
 use App\Models\Product;
@@ -18,7 +19,15 @@ class WomenAtNavbar extends Component
     public array $quantity=[];
 
     public function mount(){
-        $this->products=Product::where('category_id',1)->take(3)->get();
+         $categoryName = 'Women';
+        // dd(Category::where('name', 'women')->toSql());
+         $category = Category::where('name', 'Women')->get();
+
+        $this->products = Product::join('categories', 'categories.id', '=', 'products.category_id')
+            ->where('categories.name', $categoryName)
+            ->get();
+       // $this->products=Product::where('category_id',3)->take(3)->get();
+
         foreach ($this->products as $product){
             $this->quantity[$product->id]=1;
         }

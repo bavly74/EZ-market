@@ -19,13 +19,17 @@ class MenAtNavbar extends Component
     public array $quantity=[];
 
     public function mount(){
-        $category = Category::where('name', 'kids')->firstOrFail();
+       // dd(Category::where('name', 'Men')->toSql());
+        $category = Category::where('name', 'kids')->get();
 
-        $this->products = Product::where('category_id', $category->id)
-            ->orWhereHas('category', function($query) use ($category) {
-                $query->where('parent_id', $category->id);
-            })
+        $categoryName = 'Men';
+
+        $this->products = Product::join('categories', 'categories.id', '=', 'products.category_id')
+            ->where('categories.name', $categoryName)
             ->get();
+            
+       // $this->products=Product::where('category_id',3)->take(3)->get();
+
 //        $this->products=Product::where('category_id',2)->take(3)->get();
         foreach ($this->products as $product){
             $this->quantity[$product->id]=1;
