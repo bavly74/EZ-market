@@ -98,14 +98,16 @@ Route::group(
 
     Route::get('all-products',[AllProductController::class,'index'])->name('allProducts');
 
-
 Route::get('user/register',[UserController::class,'create'])->name('user.register');
+
+
 
 //Route::resource('brand',brandController::class);
 Route::resource('category',categoryController::class);
-Route::resource('product',ProductController::class);
+//Route::resource('product',ProductController::class);
 Route::resource('inventory',InventoryController::class);
 Route::resource('delivery',DeliveryManController::class);
+
 
     Route::controller(MenCatController::class)->group(function () {
         Route::get('mencat', 'index')->name('mencat');
@@ -122,10 +124,15 @@ Route::resource('delivery',DeliveryManController::class);
 
     });
 
+
+
     Route::controller(WomenController::class)->group(function () {
-        Route::get('/women-category', 'index')->name('women.index');
+        Route::get('/women', 'index')->name('women.index');
+
         Route::get('/womenaction',  'womenAction')->name('womenaction');
     });
+
+
 
     Route::post('cart-store',[CartController::class,'store'])->name('cart.store');
 
@@ -148,6 +155,7 @@ Route::resource('delivery',DeliveryManController::class);
         Route::resource('brand',brandController::class);
 
     });
+
 
 });
 

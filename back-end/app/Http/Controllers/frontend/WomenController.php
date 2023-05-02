@@ -11,22 +11,29 @@ use Illuminate\Support\Facades\DB;
 
 class WomenController extends Controller
 {
-    //
     public function index()
     {
-        $parentCategories = Category::where('parent_id',null)->get();
+        $parentCategories = Category::where('parent_id', null)->get();
 
-        $category = Category::where('name', 'Women')->firstOrFail();
+        try {
+            $category = Category::where('name', 'Women')->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return view('category-not-found')->with('message', 'The "Women" category was not found.');
+        }
 
         $products = Product::where('category_id', $category->id)
             ->orWhereHas('category', function($query) use ($category) {
                 $query->where('parent_id', $category->id);
             })
             ->get();
-        $cart=Cart::content();
 
-        return view('women',compact('products','parentCategories'));
+        if ($products->isEmpty()) {
+            return view('no-products');
+        }
 
+        $cart = Cart::content();
+
+        return view('women', compact('products', 'parentCategories'));
     }
 
 

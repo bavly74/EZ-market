@@ -16,13 +16,21 @@ class KidsCatController extends Controller
     {
         $parentCategories = Category::where('parent_id',null)->get();
 
-        $category = Category::where('name', 'kids')->firstOrFail();
+        try {
+            $category = Category::where('name', 'kids')->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return view('category-not-found')->with('message', 'The "kids" category was not found.');
+        }
 
         $products = Product::where('category_id', $category->id)
             ->orWhereHas('category', function($query) use ($category) {
                 $query->where('parent_id', $category->id);
             })
             ->get();
+
+        if ($products->isEmpty()) {
+            return view('no-products');
+        }
         $cart=Cart::content();
 
         return view('kidscat',compact('products','parentCategories'));
