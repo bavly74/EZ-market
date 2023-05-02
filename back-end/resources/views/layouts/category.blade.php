@@ -15,7 +15,7 @@
                 <a href="/" class="navLink"><span>{{trans('category_trans.home')}}</span> </a>
             </li>
             <li class="navMenuLink">
-                <a href="#" class="navLink">
+                <a href="{{route('allProducts')}}" class="navLink">
                     <span> {{trans('category_trans.shop')}} </span> <i class="fa-solid fa-angle-down"></i></a>
             </li>
 

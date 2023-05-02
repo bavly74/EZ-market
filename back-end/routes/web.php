@@ -10,6 +10,7 @@ use App\Http\Controllers\frontend\SearchController;
 use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\frontend\WomenController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\AllProductController;
 
 use App\Http\Controllers\brandController;
 use App\Http\Controllers\CategoryController;
@@ -91,10 +92,11 @@ Route::group(
         Route::get('/', 'show')->name('home.index');
     });
 
- 
+
 
     Route::get('search',[SearchController::class,'index'])->name('search');
 
+    Route::get('all-products',[AllProductController::class,'index'])->name('allProducts');
 
 
 Route::get('user/register',[UserController::class,'create'])->name('user.register');

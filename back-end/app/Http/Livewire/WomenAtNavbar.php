@@ -19,10 +19,10 @@ class WomenAtNavbar extends Component
     public array $quantity=[];
 
     public function mount(){
-         $categoryName = 'Women';
-        // dd(Category::where('name', 'women')->toSql());
-         $category = Category::where('name', 'Women')->get();
 
+        // dd(Category::where('name', 'women')->toSql());
+        $categoryName = 'Women';
+         $category = Category::where('name', 'Women')->get();
         $this->products = Product::join('categories', 'categories.id', '=', 'products.category_id')
             ->where('categories.name', $categoryName)
             ->get();

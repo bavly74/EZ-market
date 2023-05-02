@@ -21,17 +21,19 @@ class KidsAtNavbar extends Component
     public function mount(){
         //$parentCategories = Category::where('parent_id',null)->get();
 
-        //     dd(Category::where('name', 'kids')->toSql());
         $category = Category::where('name', 'kids')->get();
 
-        $categoryName = 'Kids';
+        // $this->products = Product::where('category_id', $category->id)
+        //     ->orWhereHas('category', function($query) use ($category) {
+        //         $query->where('parent_id', $category->id);
+        //     })
+        //     ->get();
+        $categoryName = 'kids';
+        $category = Category::where('name', 'kids')->get();
 
-        $this->products = Product::join('categories', 'categories.id', '=', 'products.category_id')
-            ->where('categories.name', $categoryName)
-            ->get();
-        //$this->products=Product::where('category_id',3)->take(3)->get();
-
-                   //$this->products=Product::where('category_id',3)->take(3)->get();
+       $this->products = Product::join('categories', 'categories.id', '=', 'products.category_id')
+           ->where('categories.name', $categoryName)
+           ->get();
         foreach ($this->products as $product){
             $this->quantity[$product->id]=1;
         }
