@@ -29,7 +29,7 @@
         <form action="{{route('search')}}" method="get">
             <i class="fa-solid fa-magnifying-glass icon"></i>
             <input type="text" name="search" value="{{Request::get('search')}}" placeholder="{{trans('nav_trans.Search products...')}}" />
-            <button  type="submit">submit</button>
+            <button  type="submit" >Search</button>
         </form>
 
     </div>

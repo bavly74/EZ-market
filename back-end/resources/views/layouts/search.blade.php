@@ -1,32 +1,24 @@
-
 @extends('empty')
 @section('content')
 
 
-    <!-- <h1>all products</h1>
-
-
-
-    products -->
-    <div class="path">
-        <h2>Search Results</h2>
-    </div>
-    <section class="products">
-        <!-- filters -->
-        <div class="filters-container">
-            <!-- search -->
-            <form class="input-form" action="{{url('search')}}" method="get">
-                <input type="text" name="search" value="" class="search-input" placeholder="search..." />
-            </form>
-            <!-- categories -->
-
-
+<div class="container padding-section">
+    <h2>Searching results</h2>
+</div>
+<div class="container padding-section">
+    <div class="row">
+        <div class="col-3">
+            <div class="searchSection">
+                <form action="{{url('search')}}" method="get">
+                    <input type="text" name="search" value="" placeholder="search..." />
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass dance"></i></button>
+                </form>
+            </div>
         </div>
-        <!-- products -->
-        <div class="products-section-row">
 
-
-            @foreach($products as $product)
+        <div class="col-9 ">
+            <div class="products-section-row">
+                @foreach($products as $product)
                 @if($product->inventory->quantity <1 || $product->status!=1)
                     <div class="product">
                         <div class="productImg">
@@ -52,7 +44,7 @@
 
                         <form wire:submit.prevent=" addItemToWishlist({{$product->id}})">
                             @csrf
-                            <button class="wishList addToWishList" >
+                            <button class="wishList addToWishList">
                                 <div>
                                     <i class="fa-regular fa-heart " onclick="myFunction(this)"></i>
                                 </div>
@@ -62,7 +54,7 @@
                         </form>
 
                     </div>
-                @else
+                    @else
                     <div class="product">
                         <div class="productImg">
                             <img src="imgs/{{$product->pro_image1}}" alt="" />
@@ -87,7 +79,7 @@
 
                         <form wire:submit.prevent=" addItemToWishlist({{$product->id}})">
                             @csrf
-                            <button class="wishList addToWishList" >
+                            <button class="wishList addToWishList">
                                 <div>
                                     <i class="fa-regular fa-heart " onclick="myFunction(this)"></i>
                                 </div>
@@ -97,20 +89,17 @@
                         </form>
 
                     </div>
-                @endif
+                    @endif
 
 
-            @endforeach
+                    @endforeach
+            </div>
+
         </div>
-    </section>
-    <script src="./products.js"></script>
-    <script src="./category.js"></script>
-    </body>
-    </html>
-
+    </div>
+</div>
 
 
 
 
 @endsection
-
