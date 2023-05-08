@@ -1,3 +1,7 @@
+
+@extends('backend.layouts.master')
+@section('content')
+
 <link rel="stylesheet" href="/css/adminCss.css" />
 <div class="center">
     <h1 class="adminHeader">create new category</h1>
@@ -24,3 +28,4 @@
         <button type='submit'>store</button>
     </form>
 </div>
+@endsection

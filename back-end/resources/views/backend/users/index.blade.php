@@ -1,5 +1,11 @@
+
+
+@extends('backend.layouts.master')
+@section('content')
+
+
 <link rel="stylesheet" href="/css/catCss.css" />
-<div class="container my-5">
+<div class="container my-5 pl-5">
 <div class="row ">
     <div class="col-lg-12 ">
         <div class="pull-left">
@@ -55,5 +61,5 @@
 </table>
 
 </div>
-
+@endsection
 

@@ -1,3 +1,7 @@
+@extends('backend.layouts.master')
+@section('content')
+
+
 <link rel="stylesheet" href="/css/adminCss.css" />
 <div class="center">
 
@@ -30,3 +34,4 @@
 
     </form>
 </div>
+@endsection
