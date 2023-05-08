@@ -28,8 +28,9 @@
     <div class="searchSection">
         <form action="{{route('search')}}" method="get">
             <i class="fa-solid fa-magnifying-glass icon"></i>
-            <input type="text" name="search" value="{{Request::get('search')}}" placeholder="{{trans('nav_trans.Search products...')}}" />
-            <button  type="submit" >Search</button>
+            <input type="text" name="search" value="{{Request::get('search')}}"
+                placeholder="{{trans('nav_trans.Search products...')}}" />
+            <button type="submit">Search</button>
         </form>
 
     </div>
@@ -47,33 +48,36 @@
             </button>
             <ul class="dropdown-menu">
 
-                <li>
+                <li class="colory">
 
                     <form method="get" action="{{ route('logout') }}" x-data>
                         @csrf
 
-                        <x-jet-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                        <a href="{{ route('logout') }}" @click.prevent="$root.submit();"
+                            style="padding: 17px;display: block;">
                             <div class="userInfo loged">
                                 <i class="fa-solid fa-right-to-bracket change-icon"></i>
                                 <p>{{ __('Log Out') }}</p>
                             </div>
                             {{--                {{ __('Log Out') }}--}}
-                        </x-jet-dropdown-link>
+                        </a>
                     </form>
                 </li>
-                <li>
-                    <div class="userInfo loged">
-                    <i class="fa-solid fa-user"></i>
-                        <a href="{{route('profile.show') }}"><p>PROFILE</p></a>
-                    </div>
-
+                <li class="colory">
+                    <a href="{{route('profile.show') }}" style="padding: 17px;display: block;">
+                        <div class="userInfo loged">
+                            <i class="fa-solid fa-user"></i>
+                            <p>PROFILE</p>
+                        </div>
+                    </a>
                 </li>
-                <li>
-                    <div class="userInfo loged">
-                    <i class="fa-solid fa-user"></i>
-                        <a href="{{url('my_orders') }}"><p>My orders</p></a>
-                    </div>
-
+                <li class="colory">
+                    <a href="{{url('my_orders') }}" style="padding: 17px;display: block;">
+                        <div class="userInfo loged">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                            <p>My orders</p>
+                        </div>
+                    </a>
                 </li>
         @if(auth()->user()->roles()->count() > 0){
                      <li>

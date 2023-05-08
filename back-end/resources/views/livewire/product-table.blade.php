@@ -1,4 +1,3 @@
-
 <div class="products-section">
     @include('layouts.notification')
     <div class="products-section-row">
@@ -55,9 +54,9 @@
                 <div class="productInfo">
                     <p>{{$product->brand->name}}</p>
                     <p><strong> {{$product->productName}} </strong></p>
-                    <span class="price"> <del>{{$product->productCost}}$ </del> {{$product->price}}$</span>
+                    <p class="price"> <del>{{$product->productCost}}$ </del> {{$product->price}}$</p>
 
-                    <p style="color:black"><strong>in stock :{{$product->inventory->quantity}} </strong></p>
+                    <p style="color:black; font-weight:bold"><strong>in stock : </strong>{{$product->inventory->quantity}}</p>
 
                 </div>
 

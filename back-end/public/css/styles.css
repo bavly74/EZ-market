@@ -112,11 +112,11 @@ footer .logoSection {
     border-bottom-right-radius: 5px;
     font-weight: bold;
     font-size: 16;
-    transition:var(--transition);
-    -webkit-transition:var(--transition);
-    -moz-transition:var(--transition);
-    -ms-transition:var(--transition);
-    -o-transition:var(--transition);
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+    -moz-transition: var(--transition);
+    -ms-transition: var(--transition);
+    -o-transition: var(--transition);
 }
 
 
@@ -200,17 +200,22 @@ footer .logoSection {
 
 .firstNavbar .userInfo {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
+
 }
 
 .firstNavbar .userInfo i {
     font-size: 17px;
     color: #176ab7;
+
+
 }
 
+.firstNavbar  .colory:hover {
+    background-color: #ccc;
+}
 
 .firstNavbar .userInfo .change-icon {
     transform: rotate(180deg);
