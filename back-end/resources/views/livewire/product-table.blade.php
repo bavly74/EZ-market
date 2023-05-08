@@ -5,7 +5,7 @@
         @foreach($products as $product)
         @if($product->inventory->quantity <1 || $product->status!=1)
             <div class="product">
-                <a href="#">
+                <a href="{{ route('product.detail', $product->id) }}">
                     <div class="productImg">
                         <img src="imgs/{{$product->pro_image1}}" alt="" />
                         <img src="imgs/{{$product->pro_image2}}" alt="" />
@@ -42,12 +42,15 @@
 
             </div>
             @else
-            <div class="product">
+            <div class="product">    
+                        <a href="{{ route('product.detail', $product->id) }}">
+
                 <div class="productImg">
                     <img src="imgs/{{$product->pro_image1}}" alt="" />
                     <img src="imgs/{{$product->pro_image2}}" alt="" />
 
                 </div>
+                </a>
 
                 <div class="productInfo">
                     <p>{{$product->brand->name}}</p>

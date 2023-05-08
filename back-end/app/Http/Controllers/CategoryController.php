@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function index()
     {
         $cats =Category::all();
-        return view('Categories.show',compact('cats'));
+        return view('backend.Categories.show',compact('cats'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
     public function create()
     {
         $cats = Category::all();
-        return view('Categories.create',compact('cats'));
+        return view('backend.Categories.create',compact('cats'));
 
     }
 
@@ -70,7 +70,7 @@ class CategoryController extends Controller
     {
         $allCat=Category::all();
         $cats=Category::findorfail($id);
-        return view('Categories.edit', compact('cats','allCat'));
+        return view('backend.Categories.edit', compact('cats','allCat'));
     }
 
     /**

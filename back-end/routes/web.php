@@ -35,6 +35,33 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
+
+
+// Route::middleware('admin.check')->group(function(){
+//     Route::prefix('admin')->middleware(['auth'])->group(function () {
+//         Route::get('logout',function(){
+//             auth()->logout();
+//         });
+//         Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
+//         Route::get('admin/logout',[\App\Http\Controllers\Admin\LoginController::class,'logout'])->name('admin.logout');
+    
+
+//     });
+//     });
+
+Route::middleware('admin.check')->group(function(){
+    require __DIR__.'/admin.php';
+});
+
+
+
+
+
+
 Route::get('auth/facebook', 'App\Http\Controllers\frontend\SocialController@facebookRedirect');
 Route::get('auth/facebook/callback', 'App\Http\Controllers\frontend\SocialController@loginWithFacebook');
 
@@ -104,11 +131,7 @@ Route::get('user/register',[UserController::class,'create'])->name('user.registe
 
 
 
-//Route::resource('brand',brandController::class);
-Route::resource('category',categoryController::class);
-//Route::resource('product',ProductController::class);
-Route::resource('inventory',InventoryController::class);
-Route::resource('delivery',DeliveryManController::class);
+
 
 
     Route::controller(MenCatController::class)->group(function () {
@@ -142,22 +165,19 @@ Route::resource('delivery',DeliveryManController::class);
 
     Route::get('user/profile',[UserController::class,'showProfile'])->name('profile.show');
 
-    Route::get('details/{id}',[ProductDetailsController::class,'showDetails']);
 
+
+
+    // details section front
+
+    // Route::get('details/{id}',[ProductDetailsController::class,'showDetails']);
+    Route::get('details/{id}/',[ProductDetailsController::class,'productDetail'])->name('product.detail');
+
+// end details section 
     Route::get('contact-us',[ContactController::class,'index']);
 
 
-    Route::group(['middleware' => ['auth']], function() {
-
-        Route::get('/dashboard', function () {
-            return 'hi';
-        });
-        Route::resource('roles', RoleController::class);
-        Route::resource('users', EmployeeController::class);
-        Route::resource('products', ProductController::class);
-        Route::resource('brand',brandController::class);
-
-    });
+  
 
 
 });

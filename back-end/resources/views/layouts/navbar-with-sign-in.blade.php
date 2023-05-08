@@ -75,6 +75,15 @@
                     </div>
 
                 </li>
+        @if(auth()->user()->roles()->count() > 0){
+                     <li>
+                    <div class="userInfo loged">
+                    <i class="fa-solid fa-user"></i>
+                        <a href="{{url('admin') }}"><p>Dashboard</p></a>
+                    </div>
+
+                </li>
+                @endif
             </ul>
         </div>
 

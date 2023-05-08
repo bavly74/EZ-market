@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +22,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(PermissionTableSeeder::class);
-
+        // $user = User::create([
+        //     'name' => 'Adminstrator',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => bcrypt('123456')
+        // ]);
+        // $user->assignRole('المدير العام');
+        // $user->assignRole([1]);
         $this->call(CreateAdminUserSeeder::class);
     }
 }
