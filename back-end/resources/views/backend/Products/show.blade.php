@@ -19,13 +19,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group" style="margin:10px 0;">
                 <strong style="margin-right:10px;">Name:</strong>
-                {{ $product->name }}
+                {{ $product->productName }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group" style="margin:10px 0;">
                 <strong style="margin-right:10px;">Details:</strong>
-                {{ $product->detail }}
+                {{ $product->category->name }}
             </div>
         </div>
     </div>

@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'productName',
+        'description',
+        'brand_id',
+        'category_id',
+        'pro_image1',
+        'pro_image2',
+        'status',
+        'most_recent',
+        'offer',
+        'price'
+    ];
 
     public function category()
     {
@@ -24,6 +36,10 @@ class Product extends Model
     public function orders()
     {
         return $this->belongsToMany(Product::class,'orders_products_pivot');
+    }
+    public function attribute()
+    {
+        return $this->hasMany(ProductAttribute::class);
     }
 protected $casts=[
     'variations'=>'object'

@@ -21,14 +21,16 @@
     <tr>
         <th>No</th>
         <th>Name</th>
-        <th>Details</th>
+        <th>Brand</th>
+        <th>category</th>
         <th width="280px">Action</th>
     </tr>
     @foreach ($products as $product)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->detail }}</td>
+            <td>{{ $product->productName }}</td>
+            <td>{{ $product->category->name}}</td>
+            <td>{{ $product->brand->name}}</td>
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>

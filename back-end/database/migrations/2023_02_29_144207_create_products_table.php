@@ -17,13 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('brand_id')->references('id')->on('brands');
             $table->foreignId('category_id')->references('id')->on('categories');
-          //  $table->foreignId('subCat_id')->references('id')->on('sub_categories');
-
             $table->string('productName');
             $table->string('pro_image1');
             $table->string('pro_image2');
             $table->integer('status');
-            $table->longtext('variations');
             $table->string('description');
             $table->boolean('most_recent');
             $table->float('offer');

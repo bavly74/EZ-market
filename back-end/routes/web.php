@@ -48,7 +48,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 //         });
 //         Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
 //         Route::get('admin/logout',[\App\Http\Controllers\Admin\LoginController::class,'logout'])->name('admin.logout');
-    
+
 
 //     });
 //     });
@@ -137,7 +137,7 @@ Route::get('user/register',[UserController::class,'create'])->name('user.registe
     Route::controller(MenCatController::class)->group(function () {
         Route::get('mencat', 'index')->name('mencat');
         Route::get('/menaction',  'menAction')->name('menaction');
-        Route::get('/mencat/{subcategory}', 'filterBySubcategory');
+        Route::get('/mencat/filter', 'filter')->name('filter');
 
         //Route::get('Mensearch', 'menSearch')->name('mencat.search');
     });
@@ -173,11 +173,11 @@ Route::get('user/register',[UserController::class,'create'])->name('user.registe
     // Route::get('details/{id}',[ProductDetailsController::class,'showDetails']);
     Route::get('details/{id}/',[ProductDetailsController::class,'productDetail'])->name('product.detail');
 
-// end details section 
+// end details section
     Route::get('contact-us',[ContactController::class,'index']);
 
 
-  
+
 
 
 });

@@ -5,7 +5,7 @@
                 </div>
 
                 <div class="navbar-brand">
-                    <a href="index.html"><img src="../assets/images/logo.svg" alt="Lucid Logo"
+                    <a href="index.html"><img src="../assets/images/logo.svg" alt="EZ market Logo"
                             class="img-responsive logo"></a>
                 </div>
 

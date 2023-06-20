@@ -43,15 +43,53 @@ class MenCatController extends Controller
 
     public function menAction(Request $request)
     {
+try{
         $search = $request->input('search');
 
         $query = Product::query();
-
+        $category = Category::where('name', 'Men')->first();
         if($search) {
-            $query->where('productName', 'LIKE', '%'.$search.'%')->where('category_id',2);
+            $query->where(function ($q) use ($search, $category) {
+                $q->where('productName', 'LIKE', '%'.$search.'%')
+                  ->where('category_id',$category->id);
+                $q->orWhereHas('category', function($q) use ($category) {
+                    $q->where('parent_id',$category->id);
+                });
+            });
         }
 
         $results = $query->with('brand')->with('inventory')->get();
+        dd($results); // Debugging output
+
+        return response()->json($results);
+
+    } catch(\Exception $e){
+
+        Log::error($e->getMessage());
+        // return an error response
+        return response()->json(['error' => 'An error occurred.'], 500);
+    }
+    }
+
+
+
+
+
+
+
+    public function filter(Request $request)
+    {
+        $price = $request->input('price');
+
+        $query = Product::query();
+
+
+        if($price) {
+            $range = explode('-', $price);
+            $query->whereBetween('price', [$range[0], $range[1]]);
+        }
+
+        $results = $query->get();
 
         return response()->json($results);
     }
@@ -59,21 +97,6 @@ class MenCatController extends Controller
 
 
 
-
-
-
-
-    public function filterBySubcategory($categoryName, $subcategoryName)
-    {
-        $category = Category::where('name', $categoryName)->with('children')->firstOrFail();
-        $subcategory = $category->children()->where('name', $subcategoryName)->firstOrFail();
-
-        $products = Product::where('category_id', $subcategory->id)->get();
-
-        return view('mencat', [
-            'products' => $products,
-        ]);
-    }
 
 
 

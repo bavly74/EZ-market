@@ -43,7 +43,7 @@ class CategoryController extends Controller
         $cat=new Category();
         $cat->name = $request->name;
         $cat->status = $request->status;
-        $cat->Cat_parent = $request->cat_parent;
+        $cat->parent_id = $request->cat_parent;
         $cat->save();
 
        return response('added successfully');

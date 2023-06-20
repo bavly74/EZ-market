@@ -31,9 +31,7 @@
                             Managment</span> </a>
                     <ul>
 
-                        {{-- <li><a href="#">All Banners</a></li> --}}
-                        {{-- <li><a href="#">Add Banner</a></li> --}}
-
+                       
                         <li><a href="{{ route('category.index') }}">All category</a></li>
                         <li><a href="{{ route('category.create') }}">Add category</a></li>
                     </ul>
@@ -41,7 +39,7 @@
 
 
 
-              
+
 
 
                 <li><a href="javascript:void(0);" class="has-arrow"><i class="fa fa-image"></i><span>banner
@@ -60,8 +58,11 @@
                             Managment</span> </a>
                     <ul>
 
-                        {{-- <li><a href="{{ route('product.index') }}">All product</a></li> --}}
-                        {{-- <li><a href="{{ route('product.create') }}">Add product</a></li> --}}
+                        <ul>
+
+                            <li><a href="{{ route('products.index') }}">All products</a></li>
+                            <li><a href="{{ route('category.create') }}">Add category</a></li>
+                        </ul>
                     </ul>
                 </li>
 

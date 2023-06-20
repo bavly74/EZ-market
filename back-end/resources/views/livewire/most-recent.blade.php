@@ -4,7 +4,7 @@
     @include('layouts.notification')
     <div class="products-section-row">
         @foreach ($recentProduct as $product)
-            @if ($product->inventory->quantity < 1 || $product->status != 1)
+            @if ($product->inventory->quantity < 1 || $product->status != 1 || !$product->inventory->quantity)
                 <div class="product"> <a href="{{ route('product.detail', $product->id) }}">
 
                         <div class="productImg">

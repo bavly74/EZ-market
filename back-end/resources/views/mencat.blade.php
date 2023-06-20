@@ -2,6 +2,9 @@
 @section('content')
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -18,6 +21,19 @@
                     <button type="submit"><i class="fa-solid fa-magnifying-glass "></i></button>
                 </form>
             </div>
+            <form id="filter-form" method="post"action="{{ route('filter') }}>
+               @csrf
+
+                <label for="price-filter">Price:</label>
+                <select name="price" id="price-filter">
+                    <option value="">All</option>
+                    <option value="0-100">0-100</option>
+                    <option value="100-500">100-500</option>
+                    <option value="500-1000">500-1000</option>
+                </select>
+
+                <button type="submit">Filter</button>
+            </form>
             @foreach($parentCategories as $category)
             <h3>{{$category->name}}</h3>
             @foreach ($category->children as $subcategory)
@@ -161,10 +177,35 @@ $('#search-form').on('submit', function(e) {
 </script>
 
 
+<script>
+    $('#filter-form').on('submit', function(e) {
+        e.preventDefault();
+        var form = $(this);
+        $.ajax({
+            type: "POST",
+            url: "{{ route('filter') }}",
+            data: form.serialize(),
+            success: function(response) {
+                var products = $('#product-list');
+                products.empty();
+                $.each(response, function(index, product) {
+                    products.append('<li>' + product.productName + '</li>');
+                });
+            },
+            error: function(xhr) {
+                alert('Error filtering products');
+            }
+        });
+    });
+</script>
+
 <script src="path/to/other/library.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 var $j = jQuery.noConflict();
 // Use $j instead of $ for jQuery code
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="path/to/other/library.js"></script>
+
 @endsection

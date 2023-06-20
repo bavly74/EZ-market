@@ -49,21 +49,6 @@
             <ul class="dropdown-menu">
 
                 <li class="colory">
-
-                    <form method="get" action="{{ route('logout') }}" x-data>
-                        @csrf
-
-                        <a href="{{ route('logout') }}" @click.prevent="$root.submit();"
-                            style="padding: 17px;display: block;">
-                            <div class="userInfo loged">
-                                <i class="fa-solid fa-right-to-bracket change-icon"></i>
-                                <p>{{ __('Log Out') }}</p>
-                            </div>
-                            {{--                {{ __('Log Out') }}--}}
-                        </a>
-                    </form>
-                </li>
-                <li class="colory">
                     <a href="{{route('profile.show') }}" style="padding: 17px;display: block;">
                         <div class="userInfo loged">
                             <i class="fa-solid fa-user"></i>
@@ -79,15 +64,32 @@
                         </div>
                     </a>
                 </li>
-        @if(auth()->user()->roles()->count() > 0){
-                     <li>
+        @if(auth()->user()->roles()->count() > 0)
+                     <li class="colory">
+                        <a href="{{url('admin') }}"style="padding: 17px;display: block;">
                     <div class="userInfo loged">
                     <i class="fa-solid fa-user"></i>
-                        <a href="{{url('admin') }}"><p>Dashboard</p></a>
+                    <p>Dashboard</p>
                     </div>
-
+                </a>
                 </li>
                 @endif
+
+                <li class="colory">
+
+                    <form method="get" action="{{ route('logout') }}" x-data>
+                        @csrf
+
+                        <a href="{{ route('logout') }}" @click.prevent="$root.submit();"
+                            style="padding: 17px;display: block;">
+                            <div class="userInfo loged">
+                                <i class="fa-solid fa-right-to-bracket change-icon" style="color: red"></i>
+                                <p>{{ __('Log Out') }}</p>
+                            </div>
+                            {{--                {{ __('Log Out') }}--}}
+                        </a>
+                    </form>
+                </li>
             </ul>
         </div>
 

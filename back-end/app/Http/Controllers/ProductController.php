@@ -125,6 +125,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Inventory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -150,7 +153,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::latest()->paginate(5);
-        return view('products.index', compact('products'))
+        return view('backend.products.index', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -161,7 +164,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $brands=Brand::all();
+        $categories=Category::all();
+        return view('backend.products.create',compact('brands','categories'));
     }
 
     /**
@@ -172,12 +177,41 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
+        // request()->validate([
+        //     'name' => 'required',
+        //     'image1' => 'required',
+        //     'image2' => 'required',
+        //     'status' => 'required',
+        //     'description' => 'required',
+        //     'most_recent' => 'required',
+        //     'offer' => 'required',
+        //     'category' => 'required',
+        //     'brand' => 'required',
 
-        Product::create($request->all());
+        // ]);
+
+        // Product::create($request->all());
+        $product=new Product();
+        $stock=new Inventory();
+        $product->productName=$request->name;
+        $product->brand_id=$request->brand;
+        // dd($product->brand_id);
+        $product->category_id=$request->category;
+        $product->pro_image1=$request->image1;
+        $product->pro_image2=$request->image2;
+        $product->status=$request->status;
+        $product->most_recent=$request->most_recent;
+        $product->description=$request->description;
+        $product->price=$request->price;
+        $product->offer=$request->offer;
+        $product->avg_price=$product->price/2;
+
+        $stock->product_id= $request->id;
+        $stock->pro_Name=$request->name;
+        $stock->quantity=$request->quantity;
+        $stock->product_cost=$request->cost;
+        $product->save();
+        $stock->save();
 
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
@@ -191,7 +225,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('products.show', compact('product'));
+        return view('backend.products.show', compact('product'));
     }
 
     /**
@@ -202,7 +236,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product'));
+        return view('backend.products.edit', compact('product'));
     }
 
     /**

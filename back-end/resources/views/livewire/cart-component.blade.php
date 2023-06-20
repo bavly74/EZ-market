@@ -24,7 +24,7 @@
 
         <div class="cartOpened">
 
-            <!-- <p>img: {{$cart->img}}</p> -->
+            {{-- <img src="{{asset($cart->img)}}">img:</img> --}}
             <div class="cartItems">
 
                 <p> {{$cart->name}}</p>
